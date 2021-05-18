@@ -1,0 +1,14 @@
+{
+  "name": "@akkadu/rsi-api-interpretation-manager",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@akkadu/rsi-api-base": "0.0.5"
+  }
+}

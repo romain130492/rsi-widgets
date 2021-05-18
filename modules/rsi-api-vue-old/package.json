@@ -1,0 +1,39 @@
+{
+  "name": "@akkadu/rsi-api-vue",
+  "version": "0.0.1",
+  "description": "Akkadu RSI Api widget for Vue.Js",
+  "main": "dist/rsi-api-vue.ssr.js",
+  "module": "dist/rsi-api-vue.esm.js",
+  "unpkg": "dist/rsi-api-vue.min.js",
+  "style": "dist/rsi-api-vue.css",
+  "private":false,
+  "files": [
+    "dist/*",
+    "src/**/*.vue"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf dist/",
+    "build": "NODE_ENV=production rollup --c rollup.config.js",
+    "lint": "eslint 'src/**/*.{js,vue}'"
+  },
+  "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue": "^2.6.11",
+    "rollup": "^2.6.1",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-css-only": "^2.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-vue": "^5.1.6"
+  },
+  "dependencies": {
+    "@akkadu/rsi-api-interpretation-player": "0.0.2"
+  }
+}
