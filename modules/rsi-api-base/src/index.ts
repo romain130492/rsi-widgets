@@ -4,6 +4,7 @@ export default class Base {
   emitter: any;
 
   constructor() {
+    console.log('BASE???',this);
     this.emitter = new EventEmitter();
   }
 
@@ -15,5 +16,11 @@ export default class Base {
       throw Error('base akkadu-rsi: roomname is undefined.');
     }
     return 'test gateway';
+  }
+  testBase(){
+    console.log('testbase');
+  }
+  on(event:any,fn:any) {
+    this.emitter.on(event,fn)
   }
 }

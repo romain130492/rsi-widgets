@@ -13,6 +13,6 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    <rsi-api-vue-sample />
+    <rsi-api-interpreter-player apiKey="api_key_test" />
   </div>
 </template>

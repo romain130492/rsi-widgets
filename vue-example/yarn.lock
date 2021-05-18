@@ -2,25 +2,6 @@
 # yarn lockfile v1
 
 
-"@akkadu/rsi-api-base@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@akkadu/rsi-api-base/-/rsi-api-base-0.0.5.tgz#24eb333c031cbad8cddd2c0227ad29e7ed646ce9"
-  integrity sha512-Sr4qF3vtfQSaHeHScu4I5u//hMMRzSLDp88y+AatPmbooyTfJnTIHYKWrm8ddae8PEkZu75WRj+XTRXmBqNTMQ==
-
-"@akkadu/rsi-api-interpretation-player@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@akkadu/rsi-api-interpretation-player/-/rsi-api-interpretation-player-0.0.2.tgz#eb2d70804e5132ae77a88f72afb34ed763841a4c"
-  integrity sha512-UpwdSBZUGQzHk1Tp0cOXwXfIE0hAKf+e0BKKwBkRXQOXeQYprFA+Fgv86DrWH/UmY+lU1xvl6nrUewwrOFNtxg==
-  dependencies:
-    "@akkadu/rsi-api-base" "0.0.5"
-
-"@akkadu/rsi-api-vue@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@akkadu/rsi-api-vue/-/rsi-api-vue-1.0.1.tgz#1b89cae3dabf2f3c8c926dbd5e95ebb597bda110"
-  integrity sha512-bYm9sPMsCvxZDQnxBf5eS+L0PnZB9glFi+ij023ZcIQjemzCtef8Yt5/lRloO9KKIrXM0mZ0QFHxKD3cB3M05Q==
-  dependencies:
-    "@akkadu/rsi-api-interpretation-player" "0.0.2"
-
 "@babel/code-frame@^7.0.0":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.13.tgz#dcfc826beef65e75c50e21d3837d7d95798dd658"
