@@ -1,12 +1,12 @@
 <template>
   <div id="akkadu-interpretation-player">
-
+    interpretation player
+    {{apiKey}}
   </div>
 </template>
 
 <script>
-/* eslint-disable */
-/* import { InterpretationPlayer } from '@akkadu/rsi-api-interpretation-player' */
+ import InterpretationPlayer  from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player' 
   export default {
     props: {
       apiKey: {
@@ -24,11 +24,10 @@
         if(!roomname){
           throw Error('interpretation-player: roomname is not defined')
         }
-        if(!apiKey){
+        if(!this.apiKey){
           throw Error('interpretation-player: apiKey is not defined')
         }
         //const stream = new InterpretationPlayer({apiKey});
-        
       },
       getRoomname(){
         return 'test'

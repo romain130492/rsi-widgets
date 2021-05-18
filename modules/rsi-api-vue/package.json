@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-api-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/rsi-api-vue.ssr.js",
   "browser": "dist/rsi-api-vue.esm.js",

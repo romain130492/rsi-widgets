@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">    
-    Interpretation Player Page: 
+    Interpretation Manager Page: 
     <RsiApiInterpreterPlayer apiKey="api_key_test"/>
   </div>
 </template>

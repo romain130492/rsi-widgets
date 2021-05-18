@@ -1,17 +1,24 @@
 <template>
   <div id="app">
+    <div class="container app-content">
     <img alt="Vue logo" src="./assets/logo.png">
-
+    <br>
+    <br>
+    <a href="/interpretation-player"> Interpretation Player Page </a>
+    <br>
+    <a href="/interpretation-manager"> Interpretation Manager Page </a>
+      <router-view></router-view>
+    </div>
   </div>
+
 </template>
 
 <script>
-import InterpretationPlayer from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-akkadu-widget/public/components/interpretation-player.vue'
-
 export default {
-  name: 'App',
-  components: {
-    InterpretationPlayer
+  name: 'app',
+  data () {
+    return {
+    }
   }
 }
 </script>
