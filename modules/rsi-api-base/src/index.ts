@@ -4,7 +4,6 @@ export default class Base {
   emitter: any;
 
   constructor() {
-    console.log('BASE???',this);
     this.emitter = new EventEmitter();
   }
 

@@ -1,0 +1,49 @@
+<!-- <div id="interpreter-player-widget">
+  <select name="select">
+    <option value="" selected disabled hidden> Select an Option </option>
+    <option value="1">Option 1</option>
+    <option value="3">Option 2</option>
+    <option value="4">Option 3</option>
+  </select>
+</div>
+</div>
+
+<style>
+  #interpreter-player-widget{
+    background:gray;
+  }
+</style>
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Selecfft Element Demo</title>
+    <link href="css/selectbox.css" rel="stylesheet">
+</head>
+<body>
+    <form>
+        <select id="interpretation-player-languages">
+        </select>
+    </form>
+    <script>
+     const languages = ['english', 'spanish']
+     const languagesOptions = document.createDocumentFragment();
+      for(let i=0; i < languages.length; i++){
+        let newOption = document.createElement('option');
+        newOption.id = 'option-language-'+i;
+        newOption.className = 'option-language';
+        newOption.value= i;
+        newOption.innerHTML= languages[i];
+        languagesOptions.appendChild(newOption);
+      }
+       document.getElementById('interpretation-player-languages').appendChild(languagesOptions);
+    </script>
+    <style>
+      #interpretation-player-languages {
+        text-transform: capitalize;
+      }
+    </style>
+</body>
+</html>

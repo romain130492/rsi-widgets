@@ -1,7 +1,5 @@
 <template>
   <div id="akkadu-interpretation-player">
-    interpretation player,,,
-    {{apiKey}}
   </div>
 </template>
 
@@ -45,6 +43,9 @@
       initListeners(){
         this.stream.on('interpretation-player:on-ready', ({ isReady }) => {
           console.info('interpretation-player:on-ready', isReady);
+        })
+          this.stream.on('interpretation-player:on-language-selected', ({ languageSelected }) => {
+          console.info('interpretation-player:on-language-selected', languageSelected);
         })
       }
     },
