@@ -12,6 +12,11 @@
         type:String,
         default: null,
       },
+      positionMenu: {
+        required: false,
+        type:String,
+        default: 'bottom',
+      },
     },
     data() {
       return {
@@ -32,7 +37,7 @@
           throw Error('interpretation-player: apiKey is not defined')
         }
         const InterpretationPlayer = (await import('/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player
-        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player',}
+        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu}
         this.stream = new InterpretationPlayer(config);
         this.initListeners()
         this.stream.init()

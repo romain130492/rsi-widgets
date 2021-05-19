@@ -13,6 +13,11 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    <rsi-api-interpreter-player apiKey="api_key_test" />
+    <rsi-api-interpreter-player apiKey="api_key_test" positionMenu="bottom" />
   </div>
 </template>
+
+
+<style scoped>
+.test{margin-top:100px;}
+</style>
