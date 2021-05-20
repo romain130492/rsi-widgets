@@ -1,19 +1,37 @@
 <template>
   <div class="wrapper">    
-    Interpretation Player Page: 
-    <RsiApiInterpreterPlayer apiKey="api_key_test"/>
+   <h2> Interpretation Player Page: </h2> 
+   <p> Widget: </p>
+    <RsiApiInterpretationPlayer
+      apiKey="api_key_test" 
+      positionMenu="bottom" 
+      v-on:onLanguageSelected="handleOnLanguageSelected"
+      v-on:onReady="handleOnReady"
+      v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated" 
+     />
   </div>
 </template>
 
 <script>
-/* import { RsiApiInterpreterPlayer } from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-vue' */
- import { RsiApiInterpreterPlayer } from '@akkadu/rsi-api-vue' 
+ import { RsiApiInterpretationPlayer } from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-vue' 
+/*  import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-vue'  */
 
 export default {
-  name: 'App',
+  name: 'InterpretationPlayerDemo',
   components: {
-    RsiApiInterpreterPlayer 
-  }
+    RsiApiInterpretationPlayer
+  },
+  methods: {
+    handleOnLanguageSelected(e){
+      console.info('handleLanguageSelected event:',e);
+    },
+    handleOnReady(e){
+      console.info('handleOnReady event:',e);
+    },
+    handleOnConnectionStatusUpdated(e){
+      console.log('handleOnConnectionStatusUpdated event:',e);
+    }
+  },
 }
 </script>
 

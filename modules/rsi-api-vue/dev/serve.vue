@@ -1,21 +1,33 @@
 <script>
 import Vue from 'vue';
-// Uncomment import and local "components" registration if library is not registered globally.
-// import { RsiApiVueSample } from '@/entry.esm';
 
 export default Vue.extend({
   name: 'ServeDev',
-  // components: {
-  //  RsiApiVueSample,
-  // }
+  methods: {
+    handleOnLanguageSelected(e){
+      console.info('handleLanguageSelected event:',e);
+    },
+    handleOnReady(e){
+      console.info('handleOnReady event:',e);
+    },
+    handleOnConnectionStatusUpdated(e){
+      console.log('handleOnConnectionStatusUpdated event:',e);
+    }
+  },
 });
 </script>
 
 <template>
   <div id="app">
-    <rsi-api-interpreter-player apiKey="api_key_test" positionMenu="bottom" />
+    <rsi-api-interpreter-player 
+      apiKey="api_key_test" 
+      positionMenu="bottom" 
+      v-on:onLanguageSelected="handleOnLanguageSelected"
+      v-on:onReady="handleOnReady"
+      v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated" />
   </div>
 </template>
+
 
 
 <style scoped>

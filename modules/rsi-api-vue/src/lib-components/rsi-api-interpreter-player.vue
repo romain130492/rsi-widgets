@@ -4,7 +4,7 @@
 </template>
 
 <script>
-/*  import InterpretationPlayer  from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player'  */
+import InterpretationPlayer from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player'
   export default {
     props: {
       apiKey: {
@@ -36,7 +36,8 @@
         if(!this.apiKey){
           throw Error('interpretation-player: apiKey is not defined')
         }
-        const InterpretationPlayer = (await import('/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player
+        /*  const InterpretationPlayer = (await import('@/rsi-api-widget/modules/rsi-api-interpretation-player')).default */
+        //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player  //to update to @akkadu/rsi-api-interpretation-player
         const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu}
         this.stream = new InterpretationPlayer(config);
         this.initListeners()
@@ -45,21 +46,26 @@
       getRoomname(){
         return 'test'
       },
+      /**
+       * @description Additionnal information about theses events in : /interpretation-player/events.html
+       */
       initListeners(){
         this.stream.on('interpretation-player:on-ready', ({ isReady }) => {
           console.info('interpretation-player:on-ready', isReady);
+          this.$emit("onReady", { isReady });
         })
-          this.stream.on('interpretation-player:on-language-selected', ({ languageSelected }) => {
+        this.stream.on('interpretation-player:on-language-selected', ({ languageSelected }) => {
           console.info('interpretation-player:on-language-selected', languageSelected);
+          this.$emit("onLanguageSelected", { languageSelected });
+        })
+        this.stream.on('interpretation-player:on-connection-status-updated', ({ connection }) => {
+          console.info('interpretation-player:on-connection-status-updated', connection);
+          this.$emit("onConnectionStatusUpdated", { connection });
         })
       }
     },
     
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
 
 

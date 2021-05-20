@@ -12,16 +12,16 @@ npm install @akkadu/rsi
 
 ```vue
 <template>
-  <IntepretationManager api-key="RSI_API_KEY" />
+  <RsiApiIntepretationManager apiKey="RSI_API_KEY" />
 </template>
 
 <script>
 
-import { InterpretationManager } from '@akkadu/rsi.vue'
+import { RsiApiInterpretationManager } from '@akkadu/rsi-api-vue'
 
 export default {
   components:{
-    InterpretationManager
+    RsiApiInterpretationManager
   }
 }
 </script>
@@ -31,19 +31,38 @@ export default {
 
 ```vue
 <template>
-  <TranslationWidget api-key="RSI_API_KEY" @changeLanguage="handleSelectedLanguage" >
+  <RsiApiInterpretationPlayer
+    apiKey="api_key_XXXX" 
+    positionMenu="bottom" 
+    v-on:onLanguageSelected="handleOnLanguageSelected"
+    v-on:onReady="handleOnReady"
+    v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated"  >
 </template>
 
 <script lang="js">
 
-import { TranslationWidget } from '@akkadu/rsi.vue'
+import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-vue'
 
 export default {
   components:{
-    TranslationWidget
+    RsiApiInterpretationPlayer
+  },
+  methods: {
+  handleOnLanguageSelected(e){
+    console.info('handleLanguageSelected event:',e);
+  },
+  handleOnReady(e){
+    console.info('handleOnReady event:',e);
+  },
+  handleOnConnectionStatusUpdated(e){
+    console.log('handleOnConnectionStatusUpdated event:',e);
   }
+},
 }
 </script>
 ```
+
+* You can also use our `vue-example` respository [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/vue-example).
+  * In this package you will find the implementation of the `interpretation manager` and `interpretation player`. 
 
 

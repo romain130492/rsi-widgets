@@ -12,11 +12,11 @@ npm install @akkadu/rsi
 
 ```jsx
 import React from 'react';
-import { InterpretationManager } from '@akkadu/rsi.react'
+import { RsiApiInterpretationManager } from '@akkadu/rsi-api-react'
 
 render(
   <div>
-   <IntepretationManager api-key="RSI_API_KEY" />
+   < RsiApiInterpretationManager  apiKey="RSI_API_KEY" />
   </div>
 );
 ```
@@ -26,17 +26,28 @@ render(
 
 ```jsx
 import React from 'react';
-import { TranslationWidget } from '@akkadu/rsi.react'
+import { RsiApiInterpretationPlayer } } from '@akkadu/rsi-api-react'
 
 render(
   <div>
-   <TranslationWidget api-key="RSI_API_KEY" onChangeLanguage="handleSelectedLanguage" />
+   <RsiApiInterpretationPlayer 
+      apiKey="api_key_XXXX" 
+      positionMenu="bottom" 
+      onLanguageSelected="handleOnLanguageSelected"
+      onReady="handleOnReady"
+      onConnectionStatusUpdated="handleOnConnectionStatusUpdated" />
   </div>
 );
 
-handleSelectedLanguage() {
-
-}
+  handleOnLanguageSelected(e){
+    console.info('handleLanguageSelected event:',e);
+  },
+  handleOnReady(e){
+    console.info('handleOnReady event:',e);
+  },
+  handleOnConnectionStatusUpdated(e){
+    console.log('handleOnConnectionStatusUpdated event:',e);
+  }
 ```
 
 

@@ -1,8 +1,6 @@
 
 /* import RSIBase from '@akkadu/rsi-api-base' */
 import RSIBase from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-base'
-/* var html = require('/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player/src/widget-component.html').default */
-
 
 const defaultConsumerConfig = {
   languages:[],
