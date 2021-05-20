@@ -4,9 +4,6 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <br>
     <br>
-    <a href="/interpretation-player"> Interpretation Player Page </a>
-    <br>
-    <a href="/interpretation-manager"> Interpretation Manager Page </a>
       <router-view></router-view>
     </div>
   </div>
