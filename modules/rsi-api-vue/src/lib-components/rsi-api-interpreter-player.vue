@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import InterpretationPlayer from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player'
+import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
   export default {
     props: {
       apiKey: {
@@ -36,15 +36,14 @@ import InterpretationPlayer from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-
         if(!this.apiKey){
           throw Error('interpretation-player: apiKey is not defined')
         }
-        /*  const InterpretationPlayer = (await import('@/rsi-api-widget/modules/rsi-api-interpretation-player')).default */
-        //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player  //to update to @akkadu/rsi-api-interpretation-player
+        //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
         const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu}
         this.stream = new InterpretationPlayer(config);
         this.initListeners()
         this.stream.init()
       },
       getRoomname(){
-        return 'test'
+        return 'test' // to update later with the gateway api
       },
       /**
        * @description Additionnal information about theses events in : /interpretation-player/events.html

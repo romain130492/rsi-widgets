@@ -1,3 +1,4 @@
+
 <script>
 import Vue from 'vue';
 
@@ -18,8 +19,9 @@ export default Vue.extend({
 </script>
 
 <template>
+<!-- This file is for test purpose on dev -->
   <div id="app">
-    <rsi-api-interpreter-player 
+    <rsi-api-interpretation-player 
       apiKey="api_key_test" 
       positionMenu="bottom" 
       v-on:onLanguageSelected="handleOnLanguageSelected"

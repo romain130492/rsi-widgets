@@ -16,9 +16,6 @@ export default class Base {
     }
     return 'test gateway';
   }
-  testBase(){
-    console.log('testbase');
-  }
   on(event:any,fn:any) {
     this.emitter.on(event,fn)
   }

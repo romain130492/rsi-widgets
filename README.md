@@ -7,6 +7,6 @@
 
 
 ### Examples
-You can see an example of implementation for vueJs and reactJs :
+You can see an example of implementation of the `interpretation manager` and `interpretation player` for vueJs and reactJs :
 * `/vue-example`
 * `/react-example`
