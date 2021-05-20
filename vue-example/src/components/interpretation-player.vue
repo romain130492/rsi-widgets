@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">    
-   <h2> Interpretation Player Page: </h2> 
+   <h2> Interpretation Player: </h2> 
    <p> Widget: </p>
     <RsiApiInterpretationPlayer
       apiKey="api_key_test" 
@@ -13,7 +13,7 @@
 </template>
 
 <script>
- import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-vue' 
+import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-vue'  
 
 export default {
   name: 'InterpretationPlayerDemo',
