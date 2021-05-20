@@ -1,7 +1,7 @@
 
 module.exports = {
   lang: 'en-US',
-  title: 'Akkadu • RSI Api',
+  title: 'Akkadu • RSI API',
   description: 'Integrate simultaneous interpretation with Akkadu RSI Api',
   themeConfig: {
     docsDir: 'documentation',
@@ -35,7 +35,7 @@ function getSetupSidebar() {
       text: 'Getting Started',
       children: [
         { text: 'Our Api', link: '/' },
-        { text: 'Create An Api Key', link: '/getting-started/api-key' },
+        { text: 'Create an API Key', link: '/getting-started/api-key' },
         { text: 'With React', link: '/getting-started/react' },
         { text: 'With Vue', link: '/getting-started/vue' },
       ]
@@ -44,7 +44,7 @@ function getSetupSidebar() {
       text: 'Interpretation Manager',
       children: [
         { text: 'How does it works ?', link: '/interpretation-manager/index' },
-        { text: 'Props', link: '/interpretation-manager/props' },
+        { text: 'Properties', link: '/interpretation-manager/props' },
         { text: 'Events', link: '/interpretation-manager/events' },
       ]
     },
@@ -52,7 +52,7 @@ function getSetupSidebar() {
       text: 'Interpretation Player',
       children: [
         { text: 'How does it works ?', link: '/interpretation-player/index' },
-        { text: 'Props', link: '/interpretation-player/props' },
+        { text: 'Properties', link: '/interpretation-player/props' },
         { text: 'Events', link: '/interpretation-player/events' },
       ]
     },
