@@ -1,13 +1,12 @@
 <template>
   <div class="wrapper">    
-    Interpretation Manager Page: 
-    <RsiApiInterpreterPlayer apiKey="api_key_test"/>
+    Interpretation Manager Page: Comming soon
+   <!--  <RsiApiInterpreterPlayer apiKey="api_key_test"/> -->
   </div>
 </template>
 
 <script>
-import { RsiApiInterpreterPlayer } from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-vue'
-/* import { RsiApiInterpreterPlayer } from '@akkadu/rsi-api-vue' */
+ import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-vue' 
 
 export default {
   name: 'App',
