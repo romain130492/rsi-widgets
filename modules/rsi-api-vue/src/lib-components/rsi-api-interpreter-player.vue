@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
+import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player' 
   export default {
     props: {
       apiKey: {
@@ -16,6 +16,11 @@ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
         required: false,
         type:String,
         default: 'bottom',
+      },
+      isBoxShadow: {
+        required: false,
+        type: Boolean,
+        default: true,
       },
     },
     data() {
@@ -37,7 +42,7 @@ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
           throw Error('interpretation-player: apiKey is not defined')
         }
         //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
-        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu}
+        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow }
         this.stream = new InterpretationPlayer(config);
         this.initListeners()
         this.stream.init()
@@ -50,15 +55,15 @@ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
        */
       initListeners(){
         this.stream.on('interpretation-player:on-ready', ({ isReady }) => {
-          console.info('interpretation-player:on-ready', isReady);
+          console.info('emit interpretation-player:on-ready', isReady);
           this.$emit("onReady", { isReady });
         })
         this.stream.on('interpretation-player:on-language-selected', ({ languageSelected }) => {
-          console.info('interpretation-player:on-language-selected', languageSelected);
+          console.info('emit interpretation-player:on-language-selected', languageSelected);
           this.$emit("onLanguageSelected", { languageSelected });
         })
         this.stream.on('interpretation-player:on-connection-status-updated', ({ connection }) => {
-          console.info('interpretation-player:on-connection-status-updated', connection);
+          console.info('emit interpretation-player:on-connection-status-updated', connection);
           this.$emit("onConnectionStatusUpdated", { connection });
         })
       }

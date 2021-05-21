@@ -10,3 +10,6 @@
 You can see an example of implementation of the `interpretation manager` and `interpretation player` for vueJs and reactJs :
 * `/vue-example`, [Demo](https://rsi-akkadu-vue-demo.netlify.app/)
 * `/react-example`, [Demo](https://rsi-akkadu-react-demo.netlify.app/)
+
+
+* Package manager : npm

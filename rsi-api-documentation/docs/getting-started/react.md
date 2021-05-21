@@ -16,7 +16,7 @@ import { RsiApiInterpretationManager } from '@akkadu/rsi-api-react'
 
 render(
   <div>
-   < RsiApiInterpretationManager  apiKey="RSI_API_KEY" />
+   < RsiApiInterpretationManager  apiKey="api_key_XXXX" />
   </div>
 );
 ```
@@ -26,28 +26,34 @@ render(
 
 ```jsx
 import React from 'react';
-import { RsiApiInterpretationPlayer } } from '@akkadu/rsi-api-react'
+import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
 
-render(
-  <div>
-   <RsiApiInterpretationPlayer 
-      apiKey="api_key_XXXX" 
-      positionMenu="bottom" 
-      onLanguageSelected="handleOnLanguageSelected"
-      onReady="handleOnReady"
-      onConnectionStatusUpdated="handleOnConnectionStatusUpdated" />
-  </div>
-);
-
-  handleOnLanguageSelected(e){
-    console.info('handleLanguageSelected event:',e);
-  },
-  handleOnReady(e){
-    console.info('handleOnReady event:',e);
-  },
-  handleOnConnectionStatusUpdated(e){
-    console.log('handleOnConnectionStatusUpdated event:',e);
+ export default class ComponentInterpretationPlayer{
+  const handleOnReady = (e) => {
+    console.info('receive onReady event:',e );
   }
+  const handleOnLanguageSelected = (e) => {
+    console.info('receive onLanguageSelected event:',e );
+  }
+  const handleOnConnectionStatusUpdated = (e) => {
+    console.info('receive onConnectionStatusUpdated event:',e );
+  } 
+  render(){ 
+    return(  
+      <div>
+          <RsiApiInterpretationPlayer
+            apiKey="api_key_XXXX"
+            onReady = {handleOnReady}
+            onLanguageSelected = {handleOnLanguageSelected}
+            onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
+            isBoxShadow={false}
+            positionMenu="bottom" 
+          />
+      </div>
+    }
+  );
+ }
+
 ```
 
 

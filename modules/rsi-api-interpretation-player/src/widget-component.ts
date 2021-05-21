@@ -58,6 +58,7 @@ const component = {
   }
   #akkadu-interpretation-player  h3, #akkadu-interpretation-player .selectCustom-trigger{
     font-size: 16px;
+    color: #2C3D4F;
     font-weight: 400;
     text-transform: capitalize;
   }

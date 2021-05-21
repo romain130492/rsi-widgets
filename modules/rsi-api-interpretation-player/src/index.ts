@@ -10,13 +10,15 @@ export default class InterpretationPlayer extends RSIBase {
   roomName: string;
   consumerConfig: any;
   positionMenu: string;
+  isBoxShadow : boolean;
 
-  constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string }) {
+  constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean }) {
     super();
-    const { apiKey, roomName, container, positionMenu } = config;
+    const { apiKey, roomName, container, positionMenu, isBoxShadow } = config;
     this.apiKey = apiKey;
     this.roomName = roomName;
-    this.positionMenu = positionMenu
+    this.positionMenu = positionMenu;
+    this.isBoxShadow = isBoxShadow;
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = container;
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
@@ -76,6 +78,7 @@ export default class InterpretationPlayer extends RSIBase {
 
        newText = document.createElement('h3');
        newText.textContent= languagesList[i].name;
+       newText.id = i;
 
        newImage = document.createElement('img')
        newImage.src = this.getFlagUrl(languagesList[i].iso);
@@ -127,21 +130,23 @@ export default class InterpretationPlayer extends RSIBase {
         elSelectCustom.classList.remove("isActive");
       }
     });
-    // prop for position box - should do an auto one first ? 
-    // 6px -1px 8px 1px #e3e3e3 !important
-    //    bottom: 55px; top 0px  for .selectCustom-options
+
   }
 
   updateStylesWithProps(){
-    const propsDefault = {
-      'positionMenu':'bottom'
-    }
     let stylesStr;
     const styles = []
-    if(this.positionMenu !== propsDefault['positionMenu']){
+    if(this.positionMenu === 'top'){
       const style = `.selectCustom-options{
         box-shadow:6px -1px 8px 1px #e3e3e3 !important;
         top: -130px !important;
+      }`
+      styles.push(style)
+    }
+    if(this.isBoxShadow === false){
+      const style = `
+      #akkadu-interpretation-player .selectCustom-options{
+        box-shadow:none !important;
       }`
       styles.push(style)
     }

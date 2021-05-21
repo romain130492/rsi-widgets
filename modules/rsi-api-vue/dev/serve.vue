@@ -24,6 +24,7 @@ export default Vue.extend({
     <rsi-api-interpretation-player 
       apiKey="api_key_test" 
       positionMenu="bottom" 
+      :isBoxShadow="true"
       v-on:onLanguageSelected="handleOnLanguageSelected"
       v-on:onReady="handleOnReady"
       v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated" />
