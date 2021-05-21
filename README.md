@@ -8,5 +8,5 @@
 
 ### Examples
 You can see an example of implementation for vueJs and reactJs :
-* `/vue-example`
-* `/react-example`
+* `/vue-example` :  [Demo](https://rsi-akkadu-vue-demo.netlify.app/)
+* `/react-example` : [Demo](https://rsi-akkadu-react-demo.netlify.app/)
