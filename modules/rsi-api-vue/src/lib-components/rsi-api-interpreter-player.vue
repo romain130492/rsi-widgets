@@ -1,12 +1,11 @@
 <template>
   <div id="akkadu-interpretation-player">
-    interpretation player
-    {{apiKey}}
   </div>
 </template>
 
 <script>
- import InterpretationPlayer  from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player' 
+ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'  
+/* import InterpretationPlayer from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player/lib' */
   export default {
     props: {
       apiKey: {
@@ -14,29 +13,64 @@
         type:String,
         default: null,
       },
+      positionMenu: {
+        required: false,
+        type:String,
+        default: 'bottom',
+      },
+      isBoxShadow: {
+        required: false,
+        type: Boolean,
+        default: true,
+      },
+    },
+    data() {
+      return {
+        stream: null
+      }
     },
     mounted() {
       this.init()
     },
     methods: {
-      init(){
-        const roomname = this.getRoomname();
-        if(!roomname){
+      async init(){
+        const roomName = this.getRoomname();
+        console.info(this.apiKey,'api key');
+        if(!roomName){
           throw Error('interpretation-player: roomname is not defined')
         }
         if(!this.apiKey){
           throw Error('interpretation-player: apiKey is not defined')
         }
-        //const stream = new InterpretationPlayer({apiKey});
+        //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
+        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow }
+        this.stream = new InterpretationPlayer(config);
+        this.initListeners()
+        this.stream.init()
       },
       getRoomname(){
-        return 'test'
+        return 'test' // to update later with the gateway api
+      },
+      /**
+       * @description Additionnal information about theses events in : /interpretation-player/events.html
+       */
+      initListeners(){
+        this.stream.on('interpretation-player:on-ready', ({ isReady }) => {
+          console.info('emit interpretation-player:on-ready', isReady);
+          this.$emit("onReady", { isReady });
+        })
+        this.stream.on('interpretation-player:on-language-selected', ({ languageSelected }) => {
+          console.info('emit interpretation-player:on-language-selected', languageSelected);
+          this.$emit("onLanguageSelected", { languageSelected });
+        })
+        this.stream.on('interpretation-player:on-connection-status-updated', ({ connection }) => {
+          console.info('emit interpretation-player:on-connection-status-updated', connection);
+          this.$emit("onConnectionStatusUpdated", { connection });
+        })
       }
     },
     
   }
 </script>
 
-<style lang="scss" scoped>
 
-</style>

@@ -1,27 +1,13 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router';
+import Home from '@/views/home.vue';
 
-Vue.use(Router)
+Vue.use(VueRouter);
 
-const router = new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/interpretation-player',
-      name: 'interpretation-player',
-      component: function (resolve) {
-        require(['@/components/interpretation-player.vue'], resolve)
-      }
-    },
-    {
-      path: '/interpretation-manager',
-      name: 'interpretation-manager',
-      component: function (resolve) {
-        require(['@/components/interpretation-manager.vue'], resolve)
-      }
-    },
-  ]
-})
+const routes = [
+  { path: '/', component: Home },
+];
 
+const router = new VueRouter({routes});
 
-export default router
+export default router;
