@@ -72,7 +72,7 @@ export default class InterpretationPlayer extends RSIBase {
     },{
       name: { en: 'Chinese', zh: '中文' },
       code: 'zh-CN',
-    } ]
+    }];
   
     const languagesOptions = document.createDocumentFragment();
      for(let i=0; i < languagesList.length; i++){
