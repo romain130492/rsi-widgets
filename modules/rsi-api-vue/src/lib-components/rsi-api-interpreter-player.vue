@@ -4,7 +4,8 @@
 </template>
 
 <script>
-import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player' 
+ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'  
+/* import InterpretationPlayer from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player/lib' */
   export default {
     props: {
       apiKey: {

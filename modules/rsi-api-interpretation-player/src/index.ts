@@ -66,7 +66,14 @@ export default class InterpretationPlayer extends RSIBase {
 
     // Add Script to the DOM
       // to update with the list of languages
-    const languagesList = [{iso:'us', name:'english'}, {iso:'es', name:'spanish'}, {iso:'cn', name:'chinese'},] 
+    const languagesList =   [ {
+      name: { en: 'English', zh: '英语' },
+      code: 'en-US',
+    },{
+      name: { en: 'Chinese', zh: '中文' },
+      code: 'zh-CN',
+    } ]
+  
     const languagesOptions = document.createDocumentFragment();
      for(let i=0; i < languagesList.length; i++){
        let newOption : any
@@ -77,11 +84,11 @@ export default class InterpretationPlayer extends RSIBase {
        newOption.id = i;
 
        newText = document.createElement('h3');
-       newText.textContent= languagesList[i].name;
+       newText.textContent= languagesList[i].name.en;
        newText.id = i;
 
        newImage = document.createElement('img')
-       newImage.src = this.getFlagUrl(languagesList[i].iso);
+       newImage.src = this.getFlagUrl(languagesList[i].code);
 
        newOption.appendChild(newImage);
        newOption.appendChild(newText);
@@ -97,8 +104,8 @@ export default class InterpretationPlayer extends RSIBase {
     const elSelectCustom = document.getElementsByClassName("js-selectCustom")[0];
     const elSelectCustomValue = document.getElementById('interpretation-player-custom-value')
     const elSelectCustomOptions = document.getElementById('interpretation-player-options')
-    elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languagesList[0].name
-    elSelectCustomValue.getElementsByTagName("img")[0].src = this.getFlagUrl(languagesList[0].iso)
+    elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languagesList[0].name.en
+    elSelectCustomValue.getElementsByTagName("img")[0].src = this.getFlagUrl(languagesList[0].code)
 
 
     // Listen for each custom language option selected
@@ -110,8 +117,8 @@ export default class InterpretationPlayer extends RSIBase {
         let idOption = e.target.id;
         languageSelected = languagesList[idOption];
 
-        elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languageSelected.name;
-        elSelectCustomValue.getElementsByTagName("img")[0].src = that.getFlagUrl(languageSelected.iso) 
+        elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languageSelected.name.en;
+        elSelectCustomValue.getElementsByTagName("img")[0].src = that.getFlagUrl(languageSelected.code) 
         that.emitter.emit('interpretation-player:on-language-selected', { languageSelected });
         // Close select
         elSelectCustom.classList.remove("isActive");
@@ -155,7 +162,8 @@ export default class InterpretationPlayer extends RSIBase {
   }
 
   // Api to get the flags icons: https://www.countryflags.io/ 
-  getFlagUrl(iso:string){
+  getFlagUrl(code:string){
+    const iso  = code.slice(-2);
     return `https://www.countryflags.io/${iso}/flat/64.png` 
   }
 }
