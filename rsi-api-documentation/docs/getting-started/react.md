@@ -16,7 +16,7 @@ import { RsiApiInterpretationManager } from '@akkadu/rsi-api-react'
 
 render(
   <div>
-   < RsiApiInterpretationManager  apiKey="api_key_XXXX" />
+   < RsiApiInterpretationManager  apiKey="api_key_XXXX"/>
   </div>
 );
 ```
