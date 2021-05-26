@@ -6,7 +6,7 @@ Here is the list of events for the `interpretation manager` :
 
 | Events                 | Description           | 
 | -------------           |:-------------:|    
-| `on-ready`          | Is called when the event is ready |
-| `on-language-selected`          | Is called when a new language is selected |
-| `on-language-found`          | Is fire when a new language is found |
-| `on-connection-statut-updated`          | Is fire when the connection statut is updated |
+| `on-ready`          | Called when the event is ready |
+| `on-language-selected`          | Called when a new language is selected |
+| `on-language-found`          | Fired when a new language is found |
+| `on-connection-status-updated`          | Fired when the connection status is updated |

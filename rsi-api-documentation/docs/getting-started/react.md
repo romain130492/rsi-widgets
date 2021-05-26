@@ -1,4 +1,4 @@
-## Usage with React.js
+## Using React.js
 
 ### Installation
 ```bash
@@ -16,7 +16,7 @@ import { RsiApiInterpretationManager } from '@akkadu/rsi-api-react'
 
 render(
   <div>
-   < RsiApiInterpretationManager  apiKey="api_key_XXXX" />
+   < RsiApiInterpretationManager  apiKey="api_key_XXXX"/>
   </div>
 );
 ```
@@ -30,7 +30,7 @@ import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
 
  export default class ComponentInterpretationPlayer{
   const handleOnReady = (e) => {
-    console.info('receive onReady event:',e );
+    console.info('receive onReady event: ',e );
   }
   const handleOnLanguageSelected = (e) => {
     console.info('receive onLanguageSelected event:',e );

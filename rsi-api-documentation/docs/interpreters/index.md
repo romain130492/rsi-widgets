@@ -2,11 +2,11 @@
 
 ## Managing the interpreters
 
-You can either use your own interpreters or book ours.
+Your client can invite its own interpreters or book from our database.
 
-### Using your interpreters
-Each interpreter will have access to an interpreter account. You can invite them by adding their email to the [interpretation manager](/interpretation-player/index) when creating an event.
+### Using own interpreters
+Each interpreter will have access to an interpreter account. Your client can invite them by adding their email to the [interpretation manager](/interpretation-player/index) when creating an event.
 
 
 ### Booking our interpreters
-You can book from our +5K professional interpreters database.
+Your client can book from our +5K professional interpreters database.

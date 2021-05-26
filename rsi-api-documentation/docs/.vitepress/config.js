@@ -1,8 +1,8 @@
 
 module.exports = {
   lang: 'en-US',
-  title: 'Akkadu • RSI API',
-  description: 'Integrate simultaneous interpretation with Akkadu RSI Api',
+  title: 'Akkadu ⚡ RSI API',
+  description: 'Integrate simultaneous interpretation with Akkadu RSI API',
   themeConfig: {
     docsDir: 'rsi-api-documentation/docs/',
     lastUpdated: 'Last Updated',
@@ -35,10 +35,10 @@ function getSetupSidebar() {
     {
       text: 'Getting Started',
       children: [
-        { text: 'Our Api', link: '/' },
+        { text: 'Our API', link: '/' },
         { text: 'Create an API Key', link: '/getting-started/api-key' },
-        { text: 'With React', link: '/getting-started/react' },
-        { text: 'With Vue', link: '/getting-started/vue' },
+        { text: '🔹 React', link: '/getting-started/react' },
+        { text: '🔹 Vue', link: '/getting-started/vue' },
       ]
     },
     {
