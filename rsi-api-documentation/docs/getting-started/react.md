@@ -30,7 +30,7 @@ import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
 
  export default class ComponentInterpretationPlayer{
   const handleOnReady = (e) => {
-    console.info('receive onReady event:',e );
+    console.info('receive onReady event: ',e );
   }
   const handleOnLanguageSelected = (e) => {
     console.info('receive onLanguageSelected event:',e );
