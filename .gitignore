@@ -108,3 +108,5 @@ _test-server/
 lib
 
 .npmrc
+
+package-lock.json
