@@ -1,4 +1,4 @@
-# Akkadu RSI API
+# Akkadu ⚡ RSI API
 Enhance your Virtual Event Platform with `Remote Simultaneous Interpretation` (RSI).
 
 
