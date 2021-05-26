@@ -61,7 +61,7 @@ export default class InterpretationPlayer extends RSIBase {
     const videoPlayerVP = this.getVideoPlayerVP()
     console.info(videoPlayerVP,'videoPlayerVP');
     if(!videoPlayerVP){ 
-      console.warn('switchAudioVideoPlayerVP(): videoPlayerVP is not defined');
+      console.warn('switchAudioVideoPlayerVP(): videoPlayerVP is not defined.');
       return
      }
      Array.from(videoPlayerVP).forEach(function (video) {
