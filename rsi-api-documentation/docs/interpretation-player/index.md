@@ -5,7 +5,7 @@
 ![An image](../images/interpretation-player.png)
 
 
-The **interpretation player** should be use by the user of your event to switch between the languages of interpretation.
+The **interpretation player** should be used by the audience of your event to switch between the different languages of interpretation.
 
 
 ## Stream and Virtual Platform User's Event page

@@ -25,6 +25,10 @@ export default class InterpretationPlayer extends RSIBase {
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = container;
     this.gatewayResponse = null;
+    if(!document){ 
+      console.error('InterpretationPlayer: document is undefined');
+      return
+    }
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
     if (!this.apiKey) {
       throw Error('InterpretationPlayer: apiKey is undefined');
@@ -74,7 +78,7 @@ export default class InterpretationPlayer extends RSIBase {
    */
   getVideoPlayerVP(){
     if(!document){
-      console.warn('getVideoPlaterVP(), document is not defined');
+      console.warn('getVideoPlayerVP(), document is not defined');
       return
     }
     return document.getElementsByTagName('video');
@@ -105,10 +109,13 @@ export default class InterpretationPlayer extends RSIBase {
       styleProp.textContent =  styleStr
       document.head.appendChild(styleProp);
     }
-
+    interface LanguagesList {
+       name: { en: string; zh: string; }
+       code: string;
+    }
     // Add Script to the DOM
       // to update with the list of languages
-    const languagesList =   [ {
+    const languagesList : Array<LanguagesList> =   [ {
       name: { en: 'English', zh: '英语' },
       code: 'en-US',
     },{
@@ -121,6 +128,7 @@ export default class InterpretationPlayer extends RSIBase {
        let newOption : any
        let newImage : any
        let newText : any
+       
        newOption = document.createElement('div');
        newOption.className = 'selectCustom-option';
        newOption.id = i;
@@ -137,27 +145,30 @@ export default class InterpretationPlayer extends RSIBase {
 
        languagesOptions.appendChild(newOption);
      }
-     document.getElementById('interpretation-player-options').appendChild(languagesOptions);
+     document.getElementById('interpretation-player-options')!.appendChild(languagesOptions);
     var script = document.createElement('script');
     script.textContent = widget.js;
     document.body.appendChild(script);
 
      // interpretation-player-custom-value
-    const elSelectCustom = document.getElementsByClassName("js-selectCustom")[0];
-    const elSelectCustomValue = document.getElementById('interpretation-player-custom-value')
-    const elSelectCustomOptions = document.getElementById('interpretation-player-options')
+    const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
+    const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
+    const elSelectCustomOptions : any = document.getElementById('interpretation-player-options')
     elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languagesList[0].name.en
     elSelectCustomValue.getElementsByTagName("img")[0].src = this.getFlagUrl(languagesList[0].code)
 
 
     // Listen for each custom language option selected
     let that = this;
-    Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
-      elOption.addEventListener("click", (e) => {
+    Array.from(elSelectCustomOptions.children).forEach(function (elOption:any) {
+      elOption.addEventListener("click", (e: any ) => {
         // Update custom select text 
-        let languageSelected:string;
+        interface LanguageSelected {
+          name: {en:string},
+          code: string;
+        }
         let idOption = e.target.id;
-        languageSelected = languagesList[idOption];
+        let languageSelected : LanguageSelected = languagesList[idOption];
 
         elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languageSelected.name.en;
         elSelectCustomValue.getElementsByTagName("img")[0].src = that.getFlagUrl(languageSelected.code) 
@@ -169,13 +180,13 @@ export default class InterpretationPlayer extends RSIBase {
     });
 
     // Toggle select on label click
-    elSelectCustomValue.addEventListener("click", (e) => {
+    elSelectCustomValue.addEventListener("click", (e:any) => {
       elSelectCustom.classList.toggle("isActive");
     });
 
     // close the custom select when clicking outside.
-    document.addEventListener("click", (e) => {
-      const didClickedOutside = !elSelectCustom.contains(event.target);
+    document.addEventListener("click", (e:any) => {
+      const didClickedOutside = !elSelectCustom.contains(e.target);
       if (didClickedOutside) {
         elSelectCustom.classList.remove("isActive");
       }

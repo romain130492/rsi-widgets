@@ -11,6 +11,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
+    "install": "lerna run install",
+    "build": "lerna run build",
     "release": "git fetch --tags && lerna publish from-package"
   },
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
