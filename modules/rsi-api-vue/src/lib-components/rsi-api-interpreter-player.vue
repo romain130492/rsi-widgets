@@ -4,8 +4,7 @@
 </template>
 
 <script>
- import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'  
-/* import InterpretationPlayer from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player/lib' */
+  import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'   
   export default {
     props: {
       apiKey: {
@@ -22,6 +21,11 @@
         required: false,
         type: Boolean,
         default: true,
+      },
+      isPlayerControlled: {
+        required: false,
+        type: Boolean,
+        default: false,
       },
     },
     data() {
@@ -43,7 +47,7 @@
           throw Error('interpretation-player: apiKey is not defined')
         }
         //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
-        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow }
+        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow, isPlayerControlled:this.isPlayerControlled }
         this.stream = new InterpretationPlayer(config);
         this.initListeners()
         this.stream.init()

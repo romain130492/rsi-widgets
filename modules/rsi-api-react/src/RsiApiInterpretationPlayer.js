@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
 
  export default class RsiApiInterpretationPlayer extends Component {
-  constructor({apiKey, positionMenu, onReady, onLanguageSelected, onConnectionStatusUpdated, isBoxShadow }){
+  constructor({apiKey, positionMenu, onReady, onLanguageSelected, onConnectionStatusUpdated, isBoxShadow, isPlayerControlled }){
     super()
      this.state= {
       apiKey: apiKey,
@@ -14,7 +14,8 @@ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
       onLanguageSelected : onLanguageSelected,
       onConnectionStatusUpdated : onConnectionStatusUpdated,
       onReady : onReady,
-      isBoxShadow : isBoxShadow
+      isBoxShadow : isBoxShadow,
+      isPlayerControlled : isPlayerControlled
     }
   }
    getRoomname(){
@@ -45,7 +46,7 @@ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
     if(!this.state.apiKey){
       throw Error('interpretation-player: apiKey is not defined')
     }
-    const config = {apiKey:this.state.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.state.positionMenu, isBoxShadow: this.state.isBoxShadow }
+    const config = {apiKey:this.state.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.state.positionMenu, isBoxShadow: this.state.isBoxShadow, isPlayerControlled: this.state.isPlayerControlled }
     const stream = new InterpretationPlayer(config);
     this.initListeners(stream)
     stream.init()

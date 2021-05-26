@@ -4,11 +4,12 @@ module.exports = {
   title: 'Akkadu • RSI API',
   description: 'Integrate simultaneous interpretation with Akkadu RSI Api',
   themeConfig: {
-    docsDir: 'documentation',
+    docsDir: 'rsi-api-documentation/docs/',
     lastUpdated: 'Last Updated',
-    repo: 'https://github.com/Akkadu/rsi-api-widgets/tree/main/rsi-api-documentation',
+    repo: 'https://github.com/Akkadu/rsi-api-widgets',
     editLinks: true,
     editLinkText: 'Help us improve this page!',
+    docsBranch: 'main',
 
     nav: [
       { text: 'Getting Started', link: '/', activeMatch: '^/$|^/getting-started/' },

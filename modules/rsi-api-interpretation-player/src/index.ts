@@ -1,4 +1,4 @@
-import RSIBase from '@akkadu/rsi-api-base'
+ import RSIBase from '@akkadu/rsi-api-base' 
 
 const defaultConsumerConfig = {
   languages:[],
@@ -8,19 +8,23 @@ const defaultConsumerConfig = {
 export default class InterpretationPlayer extends RSIBase {
   apiKey: string;
   roomName: string;
+  gatewayResponse: any;
   consumerConfig: any;
   positionMenu: string;
   isBoxShadow : boolean;
+  isPlayerControlled : boolean;
 
-  constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean }) {
+  constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean, isPlayerControlled:boolean }) {
     super();
-    const { apiKey, roomName, container, positionMenu, isBoxShadow } = config;
+    const { apiKey, roomName, container, positionMenu, isBoxShadow, isPlayerControlled } = config;
     this.apiKey = apiKey;
     this.roomName = roomName;
     this.positionMenu = positionMenu;
     this.isBoxShadow = isBoxShadow;
+    this.isPlayerControlled = isPlayerControlled;
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = container;
+    this.gatewayResponse = null;
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
     if (!this.apiKey) {
       throw Error('InterpretationPlayer: apiKey is undefined');
@@ -33,9 +37,47 @@ export default class InterpretationPlayer extends RSIBase {
     }
   }
   async init() {
-    const gatewayReponse = /* await */ this.gatewayRequest(this.apiKey, this.roomName);
+    this.gatewayResponse = /* await */ this.gatewayRequest(this.apiKey, this.roomName);
     this.initListeners();
     this.addInterpretationPlayer();
+  }
+
+  isInterpretedLanguage(language:any){
+     if(this.gatewayResponse?.floorLang === language?.code){
+      return false
+    } 
+    return true
+  }
+/**
+ * @description We mute/unmute the video player of the Virtual Platform
+ * That method go through only if isPlayerControlled is true
+ * Additionnal info about that parameter here : https://rsi-akkadu-documentation.netlify.app//interpretation-player/props.html
+ * @private
+ */
+  switchAudioVideoPlayerVP(isMuted:boolean=false){
+    if(!this.isPlayerControlled){
+      return
+    }
+    const videoPlayerVP = this.getVideoPlayerVP()
+    console.info(videoPlayerVP,'videoPlayerVP');
+    if(!videoPlayerVP){ 
+      console.warn('switchAudioVideoPlayerVP(): videoPlayerVP is not defined');
+      return
+     }
+     Array.from(videoPlayerVP).forEach(function (video) {
+       video.muted = isMuted
+    });
+  }
+  /**
+   * @description Get the video player of the Virtual Platform page
+   * @private
+   */
+  getVideoPlayerVP(){
+    if(!document){
+      console.warn('getVideoPlaterVP(), document is not defined');
+      return
+    }
+    return document.getElementsByTagName('video');
   }
   initListeners() {
     //
@@ -120,6 +162,7 @@ export default class InterpretationPlayer extends RSIBase {
         elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languageSelected.name.en;
         elSelectCustomValue.getElementsByTagName("img")[0].src = that.getFlagUrl(languageSelected.code) 
         that.emitter.emit('interpretation-player:on-language-selected', { languageSelected });
+        that.switchAudioVideoPlayerVP(that.isInterpretedLanguage(languageSelected))
         // Close select
         elSelectCustom.classList.remove("isActive");
       });
