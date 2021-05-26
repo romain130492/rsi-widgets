@@ -16,4 +16,4 @@ You (our your client) can use own interpreters or, we can provide our interprete
 
 #### How to set up RSI on your platform ?
 
-![An image](../images/set-akkadu-vertical.png)
+![An image](./images/set-akkadu-vertical.png)
