@@ -22,7 +22,8 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
-    "@akkadu/rsi-api-interpretation-player": "^0.2.0"
+    "@akkadu/rsi-api-interpretation-player": "^0.2.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.2.4"
   }
 }
-
