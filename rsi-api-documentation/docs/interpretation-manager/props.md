@@ -1,7 +1,7 @@
-# Props
+# Properties
 
-The props for the **interpretation manager**
+The properties for the **interpretation manager**
 
-| Props                | Description           | required |
+| Properties                | Description           | Required |
 | -------------       |:-------------:|         -------------  |
 | api-keys            | Your RSI [api key](/getting-started/api-key) | true |

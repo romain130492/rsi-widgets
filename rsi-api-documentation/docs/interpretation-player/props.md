@@ -1,8 +1,8 @@
-# Props
+# Proprties
 
-The props for the **interpretation player**
+The properties for the **interpretation player**
 
-| Props                | Description           | required |     Choices |       Default|
+| Properties                | Description           | Required |     Choices |       Default|
 | -------------       |:-------------:|         -------------  |-------------  |-------------  |
 | apiKey            | Your RSI [api key](/getting-started/api-key) | true | string: api_key_XXXX | null |
 | positionMenu          | The position of the widget menu when open| false | string: "bottom", "top" | "bottom" |
