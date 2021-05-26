@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "release": "git fetch --tags && lerna publish from-package"
   },
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
