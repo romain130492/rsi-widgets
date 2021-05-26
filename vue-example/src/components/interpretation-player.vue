@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { RsiApiInterpretationPlayer } from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/modules/rsi-api-interpretation-player'
+import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-vue'  
 
 export default {
   name: 'InterpretationPlayerDemo',
