@@ -1,4 +1,4 @@
-## Usage with Vue.js
+## Using Vue.js
 
 ### Installation
 ```bash
