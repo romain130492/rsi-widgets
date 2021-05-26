@@ -1,4 +1,4 @@
-## Usage with React.js
+## Using React.js
 
 ### Installation
 ```bash
