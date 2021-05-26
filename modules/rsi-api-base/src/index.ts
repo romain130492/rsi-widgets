@@ -8,6 +8,7 @@ export default class Base {
   }
 
   gatewayRequest(apiKey: string, roomName: string) {
+    console.log('test base lerna');
     if (!apiKey) {
       throw Error('base akadu-rsi: apiKey is undefined.');
     }
