@@ -1,4 +1,5 @@
- import RSIBase from '@akkadu/rsi-api-base' 
+/* ff f import RSIBase from '@akkadu/rsi-api-base'   */
+ const RSIBase = require('@akkadu/rsi-api-base') 
 
 const defaultConsumerConfig = {
   languages:[],
@@ -25,6 +26,7 @@ export default class InterpretationPlayer extends RSIBase {
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = container;
     this.gatewayResponse = null;
+    console.log('TEST CONSTRUCTOR');
     if(!document){ 
       console.error('InterpretationPlayer: document is undefined');
       return

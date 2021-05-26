@@ -2,6 +2,7 @@
   "name": "rsi-api-widget",
   "version": "0.0.1",
   "description": "rsi api widget for Akkadu RSI",
+  "private": true,
   "main": "index.js",
   "workspaces": [
     "modules/*"
@@ -19,6 +20,9 @@
   "license": "MIT",
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "@akkadu/rsi-api-interpretation-player": "^0.2.0"
   }
 }
 

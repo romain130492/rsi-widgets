@@ -4,7 +4,8 @@
 </template>
 
 <script>
-  import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'   
+  import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'    
+  /* const InterpretationPlayer = require('akkadu/rsi-api-interpretation-player') */
   export default {
     props: {
       apiKey: {
