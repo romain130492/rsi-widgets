@@ -19,5 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "@akkadu/rsi-api-base": "^0.2.0"
-  }
+  },
+  "gitHead": "fc12042562ab4f561c67f9733a363e8915b6da3d"
 }
