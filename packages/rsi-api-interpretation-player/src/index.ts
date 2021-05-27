@@ -25,7 +25,7 @@ export default class InterpretationPlayer extends RSIBase {
     this.consumerConfig.container = container;
     this.gatewayResponse = null;
     if(!document){ 
-      console.error('InterpretationPlayer: document is undefined');
+      console.error('InterpretationPlayer: document is undefined.');
       return
     }
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
