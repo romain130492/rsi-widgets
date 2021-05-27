@@ -11,12 +11,15 @@
 
 ## How to start the project
 
-* Installation : in the root folder run `yarn` 
+*  **Installation** : in the root folder run:
+* 1- `yarn install` 
 <details>
   <summary> What it does :</summary>
   <p> - It installs packages in all the modules of the folder packages </p>
   <p> - It creates symlinks </p>
 </details>
+
+* 2- `yarn build` 🚨 **!! Important**
 
 * Running a package : 
   * `cd packages`
@@ -98,3 +101,21 @@ You should not have to use them. To get a Vue/react preview see the comments abo
     * If you want to have a **react preview** you should use `yarn start` in the package `rsi-api-react`
     * When releasing the packages, `rsi-api-react` and `rsi-api-vue` should be updated with the new packages on production.
        * if you still want to have a preview of the change you made on theses 2 packages, run `yarn pre-release`.
+
+
+
+
+* The packages are not symlinked together ? I have some dependencies error,
+  * When setting up the project, did you run in the root `yarn install` and `yarn build` ?
+  * If yes, you can manually create symlinks.
+<details>
+    <summary> How to add one of our package to a dependency of an other package using symlinks ? </summary>
+    <p>If we wanted to add the my-design-system-button as a dependency to our my-design-system-form and have Lerna symlink them, we can do so by cd into that package</p>
+    <p></p>
+    <p><i> cd my-design-system-form</i> </p>
+    <p>and then running the following:</p>
+    <p> <i> lerna add @my-scope-name/design-system-button --scope=@my-scope-name/my-design-system-form </i><p>
+    <p>This will update the package.json of @my-scope-name/my-design-system-form.</p>
+</details>
+
+
