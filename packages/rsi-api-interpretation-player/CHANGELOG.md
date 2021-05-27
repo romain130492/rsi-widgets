@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.5](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-interpretation-player@0.3.4...@akkadu/rsi-api-interpretation-player@0.3.5) (2021-05-27)
+
+**Note:** Version bump only for package @akkadu/rsi-api-interpretation-player
+
+
+
+
+
 ## [0.3.4](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-interpretation-player@0.3.3...@akkadu/rsi-api-interpretation-player@0.3.4) (2021-05-27)
 
 **Note:** Version bump only for package @akkadu/rsi-api-interpretation-player
