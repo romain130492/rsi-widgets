@@ -1,14 +1,20 @@
 {
   "name": "@akkadu/rsi-api-interpretation-manager",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint"
   },
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@akkadu/rsi-api-base": "0.0.5"
-  }
+  },
+  "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb"
 }

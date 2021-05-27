@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-api-base",
-  "version": "0.0.6",
+  "version": "0.2.0",
   "description": "",
   "main": "lib/index.js",
   "private": false,
@@ -23,5 +23,6 @@
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.2.4"
-  }
+  },
+  "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb"
 }

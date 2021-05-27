@@ -48,15 +48,15 @@ export default {
     RsiApiInterpretationPlayer
   },
   methods: {
-  handleOnLanguageSelected(e){
-    console.info('handleLanguageSelected event:',e);
-  },
-  handleOnReady(e){
-    console.info('handleOnReady event:',e);
-  },
-  handleOnConnectionStatusUpdated(e){
-    console.log('handleOnConnectionStatusUpdated event:',e);
-  }
+    handleOnLanguageSelected(e){
+      console.info('handleLanguageSelected event:',e);
+    },
+    handleOnReady(e){
+      console.info('handleOnReady event:',e);
+    },
+    handleOnConnectionStatusUpdated(e){
+      console.log('handleOnConnectionStatusUpdated event:',e);
+    }
 },
 }
 </script>

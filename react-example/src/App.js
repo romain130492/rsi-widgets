@@ -29,6 +29,7 @@ function App() {
            onReady = {handleOnReady}
            onLanguageSelected = {handleOnLanguageSelected}
            onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
+           isPlayerControlled={true}
         />
         <br></br>
         <br></br>

@@ -1,14 +1,29 @@
 {
-  "name": "rsi-api-widget",
+  "name": "@akkadu/rsi-api-widget",
   "version": "0.0.1",
   "description": "rsi api widget for Akkadu RSI",
+  "private": false,
   "main": "index.js",
+  "workspaces": [
+    "modules/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "install": "lerna run install",
+    "build": "lerna run build",
+    "release": "git fetch --tags && lerna publish from-package"
   },
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "@akkadu/rsi-api-interpretation-player": "^0.2.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.2.4"
+  }
 }

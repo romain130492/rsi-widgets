@@ -1,5 +1,4 @@
 import RSIBase from '@akkadu/rsi-api-base'
-
 const defaultConsumerConfig = {
   languages:[],
   container:null,
@@ -8,19 +7,27 @@ const defaultConsumerConfig = {
 export default class InterpretationPlayer extends RSIBase {
   apiKey: string;
   roomName: string;
+  gatewayResponse: any;
   consumerConfig: any;
   positionMenu: string;
   isBoxShadow : boolean;
+  isPlayerControlled : boolean;
 
-  constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean }) {
+  constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean, isPlayerControlled:boolean }) {
     super();
-    const { apiKey, roomName, container, positionMenu, isBoxShadow } = config;
+    const { apiKey, roomName, container, positionMenu, isBoxShadow, isPlayerControlled } = config;
     this.apiKey = apiKey;
     this.roomName = roomName;
     this.positionMenu = positionMenu;
     this.isBoxShadow = isBoxShadow;
+    this.isPlayerControlled = isPlayerControlled;
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = container;
+    this.gatewayResponse = null;
+    if(!document){ 
+      console.error('InterpretationPlayer: document is undefined');
+      return
+    }
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
     if (!this.apiKey) {
       throw Error('InterpretationPlayer: apiKey is undefined');
@@ -33,9 +40,47 @@ export default class InterpretationPlayer extends RSIBase {
     }
   }
   async init() {
-    const gatewayReponse = /* await */ this.gatewayRequest(this.apiKey, this.roomName);
+    this.gatewayResponse = /* await */ this.gatewayRequest(this.apiKey, this.roomName);
     this.initListeners();
     this.addInterpretationPlayer();
+  }
+
+  isInterpretedLanguage(language:any){
+     if(this.gatewayResponse?.floorLang === language?.code){
+      return false
+    } 
+    return true
+  }
+/**
+ * @description We mute/unmute the video player of the Virtual Platform
+ * That method go through only if isPlayerControlled is true
+ * Additionnal info about that parameter here : https://rsi-akkadu-documentation.netlify.app//interpretation-player/props.html
+ * @private
+ */
+  switchAudioVideoPlayerVP(isMuted:boolean=false){
+    if(!this.isPlayerControlled){
+      return
+    }
+    const videoPlayerVP = this.getVideoPlayerVP()
+    console.info(videoPlayerVP,'videoPlayerVP');
+    if(!videoPlayerVP){ 
+      console.warn('switchAudioVideoPlayerVP(): videoPlayerVP is not defined.');
+      return
+     }
+     Array.from(videoPlayerVP).forEach(function (video) {
+       video.muted = isMuted
+    });
+  }
+  /**
+   * @description Get the video player of the Virtual Platform page
+   * @private
+   */
+  getVideoPlayerVP(){
+    if(!document){
+      console.warn('getVideoPlayerVP(), document is not defined');
+      return
+    }
+    return document.getElementsByTagName('video');
   }
   initListeners() {
     //
@@ -63,10 +108,13 @@ export default class InterpretationPlayer extends RSIBase {
       styleProp.textContent =  styleStr
       document.head.appendChild(styleProp);
     }
-
+    interface LanguagesList {
+       name: { en: string; zh: string; }
+       code: string;
+    }
     // Add Script to the DOM
       // to update with the list of languages
-    const languagesList =   [ {
+    const languagesList : Array<LanguagesList> =   [ {
       name: { en: 'English', zh: '英语' },
       code: 'en-US',
     },{
@@ -79,6 +127,7 @@ export default class InterpretationPlayer extends RSIBase {
        let newOption : any
        let newImage : any
        let newText : any
+       
        newOption = document.createElement('div');
        newOption.className = 'selectCustom-option';
        newOption.id = i;
@@ -95,44 +144,48 @@ export default class InterpretationPlayer extends RSIBase {
 
        languagesOptions.appendChild(newOption);
      }
-     document.getElementById('interpretation-player-options').appendChild(languagesOptions);
+     document.getElementById('interpretation-player-options')!.appendChild(languagesOptions);
     var script = document.createElement('script');
     script.textContent = widget.js;
     document.body.appendChild(script);
 
      // interpretation-player-custom-value
-    const elSelectCustom = document.getElementsByClassName("js-selectCustom")[0];
-    const elSelectCustomValue = document.getElementById('interpretation-player-custom-value')
-    const elSelectCustomOptions = document.getElementById('interpretation-player-options')
+    const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
+    const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
+    const elSelectCustomOptions : any = document.getElementById('interpretation-player-options')
     elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languagesList[0].name.en
     elSelectCustomValue.getElementsByTagName("img")[0].src = this.getFlagUrl(languagesList[0].code)
 
 
     // Listen for each custom language option selected
     let that = this;
-    Array.from(elSelectCustomOptions.children).forEach(function (elOption) {
-      elOption.addEventListener("click", (e) => {
+    Array.from(elSelectCustomOptions.children).forEach(function (elOption:any) {
+      elOption.addEventListener("click", (e: any ) => {
         // Update custom select text 
-        let languageSelected:string;
+        interface LanguageSelected {
+          name: {en:string},
+          code: string;
+        }
         let idOption = e.target.id;
-        languageSelected = languagesList[idOption];
+        let languageSelected : LanguageSelected = languagesList[idOption];
 
         elSelectCustomValue.getElementsByTagName("h3")[0].textContent = languageSelected.name.en;
         elSelectCustomValue.getElementsByTagName("img")[0].src = that.getFlagUrl(languageSelected.code) 
         that.emitter.emit('interpretation-player:on-language-selected', { languageSelected });
+        that.switchAudioVideoPlayerVP(that.isInterpretedLanguage(languageSelected))
         // Close select
         elSelectCustom.classList.remove("isActive");
       });
     });
 
     // Toggle select on label click
-    elSelectCustomValue.addEventListener("click", (e) => {
+    elSelectCustomValue.addEventListener("click", (e:any) => {
       elSelectCustom.classList.toggle("isActive");
     });
 
     // close the custom select when clicking outside.
-    document.addEventListener("click", (e) => {
-      const didClickedOutside = !elSelectCustom.contains(event.target);
+    document.addEventListener("click", (e:any) => {
+      const didClickedOutside = !elSelectCustom.contains(e.target);
       if (didClickedOutside) {
         elSelectCustom.classList.remove("isActive");
       }
