@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-/* import {ExampleComponent} from '@akkadu/rsi-api-react' */
 import { RsiApiInterpretationPlayer, /* RsiApiInterpretationManager */ } from '@akkadu/rsi-api-react'
 import '@akkadu/rsi-api-react/dist/index.css'
 

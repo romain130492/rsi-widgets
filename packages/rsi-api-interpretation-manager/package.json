@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "",
   "main": "lib/index.js",
+  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
@@ -14,7 +15,10 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@akkadu/rsi-api-base": "0.0.5"
+    "@akkadu/rsi-api-base": "^0.2.0"
   },
-  "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb"
+  "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }

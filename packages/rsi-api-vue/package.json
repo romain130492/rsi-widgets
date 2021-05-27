@@ -2,6 +2,7 @@
   "name": "@akkadu/rsi-api-vue",
   "version": "1.2.2",
   "description": "",
+  "private": false,
   "main": "dist/rsi-api-vue.ssr.js",
   "browser": "dist/rsi-api-vue.esm.js",
   "module": "dist/rsi-api-vue.esm.js",

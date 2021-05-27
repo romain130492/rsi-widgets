@@ -1,5 +1,5 @@
 {
-  "name": "vue-example-3",
+  "name": "@akkadu/rsi-api-vue-example",
   "version": "0.1.0",
   "private": true,
   "scripts": {
