@@ -1,4 +1,4 @@
-# RSI API Interpretation Base
+# RSI API Interpretation Player
 
 
 ### How to start the project

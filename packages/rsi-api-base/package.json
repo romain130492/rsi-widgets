@@ -13,7 +13,8 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run lint"
+    "prepublishOnly": "npm run lint",
+    "start": "tsc --watch"
   },
   "keywords": [],
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
