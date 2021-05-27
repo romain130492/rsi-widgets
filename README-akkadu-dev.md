@@ -43,6 +43,10 @@ Since `rsi-api-vue` dependencies are **symlinked** to the root node_modules, you
 ### When to publish packages ?
 
 Packages can be published once your PR was reviewed and accepted.
+<details>
+    <summary> Lerna is not publishing ? </summary>
+    <p>  Lerna will not release anything if the changes made were not pushed to github first.</p>
+</details> 
 
 ### How to publish packages ?
 
