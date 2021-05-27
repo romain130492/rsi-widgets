@@ -35,7 +35,7 @@ Example: We want to work with `rsi-api-interpretation-player` and `rsi-api-vue`.
 
 When making change to `rsi-api-interpretation-player` **typecript file** it will build new **javacripts files**. and that will update the **node_modules of the root folder**.
 
-Since `rsi-api-vue` dependencies are **symlinked** to the root node_modules, you will get the changes made on `rsi-api-interpretation-player` without the need to re-build anything.
+📌 Since `rsi-api-vue` dependencies are **symlinked** to the root node_modules, you will get the changes made on `rsi-api-interpretation-player` without the need to re-build anything.
 
 
 ## How to publish packages and when ? 
@@ -65,6 +65,11 @@ Packages must be published form the `root` folder. with the command `year releas
 1- Push you changes on Github.
 
 2- `npm login` (if it's not already done)
+
+3- Add `.npmrc` in the root folder : 
+  ```
+  //registry.npmjs.org/:_authToken=YOUR_NPM_AUTH_TOKEN
+  ```
 
 3- Once your PR is reviewed /accepted. Use the command :  `yarn release` in the root folder.
 
