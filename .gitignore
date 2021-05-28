@@ -33,7 +33,7 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-build/
+rsi-api-react-example/build/
 
 
 # Dependency directories
