@@ -64,7 +64,7 @@ export default class Base {
       updatedAt: "2021-05-13T04:52:47.934Z",
       userId: 622
      }
-    return streamTest
+    return { stream:streamTest, languageState:'en' }
   }
   on(event:any,fn:any) {
     this.emitter.on(event,fn)

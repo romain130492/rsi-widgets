@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "rm -rf ./dist && yarn rollup -c ./rollup.config.js && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -19,7 +19,8 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@akkadu/rsi-api-base": "^0.2.4"
+    "@akkadu/rsi-api-base": "^0.2.4",
+    "@akkadu/rtc-streamer-consumer": "^3.0.2"
   },
   "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb"
 }

@@ -1,4 +1,10 @@
 import RSIBase from '@akkadu/rsi-api-base'
+/* const RTCConsumer = (await import('@akkadu/rtc-streamer-consumer')).default */
+/* import RTCConsumer from '../stream-test/index.js'  */
+/* import Akkadu from '/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/packages/rsi-api-interpretation-player/stream-test/index.js' */
+/* const Akkadu = require('../streamer-consumer-import.js').default */
+const Akkadu = require('../dist/index.js').default
+console.log(Akkadu ,'Akkadu Akk222ad000777770fff');
 const defaultConsumerConfig = {
   languages:[],
   container:null,
@@ -12,6 +18,8 @@ export default class InterpretationPlayer extends RSIBase {
   positionMenu: string;
   isBoxShadow : boolean;
   isPlayerControlled : boolean;
+  stream : any;
+  languageState: string;
 
   constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean, isPlayerControlled:boolean }) {
     super();
@@ -24,6 +32,8 @@ export default class InterpretationPlayer extends RSIBase {
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = container;
     this.gatewayResponse = null;
+    this.stream = null;
+    this.languageState = '';
     if(!document){ 
       console.error('InterpretationPlayer: document is undefined.');
       return
@@ -41,6 +51,14 @@ export default class InterpretationPlayer extends RSIBase {
   }
   async init() {
     this.gatewayResponse = /* await */ this.gatewayRequest(this.apiKey, this.roomName);
+    const { stream, languageState } = this.gatewayResponse;
+    this.languageState = languageState;
+    console.log('init????2222555');
+    this.stream = stream;
+/*   const RTCConsumer = (await import('/Users/romain/Desktop/Projects/Akkadu/rsi-api-widget/rsi-api-widget/packages/rsi-api-interpretation-player/stream-test/index.js')).default */
+/*   console.log(RTCConsumer ,'RTCConsumer ');  */
+/*     console.log(RTCConsumer ,'RTCStreamerConsumer ');  */
+    /* this.stream = new RTCStreamerConsumer(this.stream)  */
     this.initListeners();
     this.addInterpretationPlayer();
   }

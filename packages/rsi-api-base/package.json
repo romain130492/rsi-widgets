@@ -19,11 +19,14 @@
   "keywords": [],
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
+    "@akkadu/browser-info": "^2.5.3",
     "prettier": "^2.3.0",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "ua-parser-js": "^0.7.21",
+    "@akkadu/rtm-messenger": "^1.0.0"
   },
   "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb"
 }
