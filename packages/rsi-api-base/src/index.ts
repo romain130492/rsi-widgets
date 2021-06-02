@@ -18,8 +18,8 @@ export default class Base {
 
     // the request below are for test purpose and will have to be removed 
     // once the gateway set up.
-    const eventId = '685'
-    const roomname = 'rqag'
+    const eventId = '778' // 685
+    const roomname = 'pvzj' // rqag
     let streamRequest = await (await fetch(`https://devapi.akkadu.com/v2/events/${eventId}/streams`)).json()
     const eventLanguagesRequest = await  (await (fetch(`https://devapi.akkadu.com/v2/events/${eventId}/languages`))).json()
     const eventLanguageState = await  (await (fetch(`https://devapi.akkadu.com/v2/language-state?roomname=${roomname}`))).json()

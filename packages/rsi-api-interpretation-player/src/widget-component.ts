@@ -60,7 +60,6 @@ const component = {
     font-size: 16px;
     color: #2C3D4F;
     font-weight: 400;
-    text-transform: capitalize;
   }
   #akkadu-interpretation-player .selectCustom-trigger::after {
     content: "▾";

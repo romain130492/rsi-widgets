@@ -46,7 +46,7 @@ import InterpretationPlayer from '@akkadu/rsi-api-interpretation-player'
     if(!this.state.apiKey){
       throw Error('interpretation-player: apiKey is not defined')
     }
-    const config = {apiKey:this.state.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.state.positionMenu, isBoxShadow: this.state.isBoxShadow, isPlayerControlled: this.state.isPlayerControlled }
+    const config = {apiKey:this.state.apiKey, roomName, positionMenu:this.state.positionMenu, isBoxShadow: this.state.isBoxShadow, isPlayerControlled: this.state.isPlayerControlled }
     const stream = new InterpretationPlayer(config);
     this.initListeners(stream)
     stream.init()
