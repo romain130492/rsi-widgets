@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@akkadu/rsi-api-base": "^0.2.4",
-    "@akkadu/rtc-streamer-consumer": "^3.0.2"
+    "@akkadu/rtc-streamer-consumer": "^3.0.3"
   },
   "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb"
 }
