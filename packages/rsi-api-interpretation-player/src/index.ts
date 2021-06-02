@@ -160,6 +160,7 @@ export default class InterpretationPlayer extends RSIBase {
     })
     this.stream.on('connection-status',(msg) => {
       const { id } = msg
+      this.emitter.emit('interpretation-player:on-connection-status-updated', { connection: id });
       switch (id) {
         case 'connection-active':
           this.rtcActive = true
@@ -212,7 +213,7 @@ export default class InterpretationPlayer extends RSIBase {
 
     this.stream.on('consumer:unmuted-language', (language, video, audio) => {
       console.info('consumer:unmuted-language', this.currentSubscription)
-      this.currentSubscription.isPlay = true
+      this.currentSubscription.isPlay = true;
       //this.streamHasBeenRefreshed()  // add the refresh button feature later
     })
 
@@ -226,6 +227,7 @@ export default class InterpretationPlayer extends RSIBase {
       const currentSubscription = Object.assign({}, this.currentSubscription)
       currentSubscription.isPlay = false
       this.currentSubscription = currentSubscription
+      this.handleDisplayRefresh(true)
       //this.refresh = true // add the refresh button feature later
     })
 
@@ -237,7 +239,24 @@ export default class InterpretationPlayer extends RSIBase {
     })
   }
 
+  /**
+   * @description Allow the user to refresh the stream. 
+   * The button appear when the stream is stuck and requires a mnually click from the user.
+   */
+  toggleRefresh(){
+    console.info('toggleRefresh');
+    this.stream.unmuteLanguage({ language: this.currentSubscription.language, audio: true })
+    this.handleDisplayRefresh(false)
+  }
 
+  /**
+   * @description Show/hide the refresh button
+   */
+  handleDisplayRefresh(isRefreshButton){
+    if(this.isOriginalLanguage === null){ return }
+    let refreshButton = document.getElementById('interpretation-player-refresh');
+    refreshButton.style.display = isRefreshButton ? 'inline' : 'none';
+  }
   /**
    * @description add the interpretation player to the dom "#akkadu-interpretation-player"
    * @private
@@ -247,7 +266,6 @@ export default class InterpretationPlayer extends RSIBase {
       console.error('addInterpretationPlayer(): this.stream is null.')
       return
     }
-    this.emitter.emit('interpretation-player:on-ready', { isReady:true });
 
     /** * @description widget: {html:string, css:string} */
     const widget = require('../lib/widget-component.js').default 
@@ -275,7 +293,7 @@ export default class InterpretationPlayer extends RSIBase {
       newOption = document.createElement('div');
       newOption.className = 'selectCustom-option';
       newOption.id = index
-      newOption.onclick = () => { this.handleLanguageChange(languageType, index) }; 
+      newOption.onclick = () => { this.handleLanguageChange(languageType) }; 
       newText = document.createElement('h3');
       newText.textContent= this.langChannels()[languageType].name.en;
       newText.id = index;
@@ -291,10 +309,10 @@ export default class InterpretationPlayer extends RSIBase {
     languagesOptions.appendChild(createItemLanguage('target', 1)); 
   
     document.getElementById('interpretation-player-options')!.appendChild(languagesOptions);
-    var script = document.createElement('script');
-    script.textContent = widget.js;
-    document.body.appendChild(script);
 
+    // Init refresh
+    document.getElementById('interpretation-player-refresh').onclick = () => { this.toggleRefresh() }; 
+    
     // Init Dropdown header
     const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
     const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
@@ -312,6 +330,7 @@ export default class InterpretationPlayer extends RSIBase {
         elSelectCustom.classList.remove("isActive");
       }
     });
+    this.emitter.emit('interpretation-player:on-ready', { isReady:true });
   }
 
   /**
@@ -352,8 +371,6 @@ export default class InterpretationPlayer extends RSIBase {
     const iso  = code.slice(-2);
     return `https://www.countryflags.io/${iso}/flat/64.png` 
   }
-
-
 
   // Language Channels Methods:
 

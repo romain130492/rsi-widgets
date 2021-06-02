@@ -55,6 +55,7 @@ function getSetupSidebar() {
         { text: 'How does it works ?', link: '/interpretation-player/index' },
         { text: 'Properties', link: '/interpretation-player/props' },
         { text: 'Events', link: '/interpretation-player/events' },
+        { text: 'Refresh Button', link: '/interpretation-player/refresh' },
       ]
     },
     {
