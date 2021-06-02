@@ -73,7 +73,7 @@ export default class InterpretationPlayer extends RSIBase {
    * - stream
    * - subscribe to the translation channel.
    * - stream's listeners
-   * - language's dropdown
+   * - language's dropdown.
    * @private
    */
   async init() {
