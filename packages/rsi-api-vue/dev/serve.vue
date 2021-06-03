@@ -12,7 +12,14 @@ export default Vue.extend({
       console.info('handleOnReady event:',e);
     },
     handleOnConnectionStatusUpdated(e){
-      console.log('handleOnConnectionStatusUpdated event:',e);
+      console.info('handleOnConnectionStatusUpdated event:',e);
+    }
+  },
+  mounted() {
+    const params = new URLSearchParams(window.location.search)
+    const roomname = params.get('rsi-roomname');
+    if(!roomname){
+       window.location.href = 'http://localhost:8080/?rsi-roomname=pvzj'
     }
   },
 });
@@ -25,7 +32,7 @@ export default Vue.extend({
       <source type="video/mp4" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
     </video>
     <br>
-       <br>
+    <br>
     <rsi-api-interpretation-player 
       apiKey="api_key_test" 
       positionMenu="bottom" 
@@ -36,9 +43,3 @@ export default Vue.extend({
       v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated" />
   </div>
 </template>
-
-
-
-<style scoped>
-.test{margin-top:100px;}
-</style>

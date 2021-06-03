@@ -52,7 +52,12 @@
         this.stream.init()
       },
       getRoomname(){
-        return 'test' // to update later with the gateway api
+        const params = new URLSearchParams(window.location.search)
+        const roomname = params.get('rsi-roomname');
+        if(!roomname){
+         console.error('No rsi-roomname defined on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-akkadu-documentation.netlify.app/interpretation-player/roomname.html');
+        }
+        return roomname 
       },
       /**
        * @description Additionnal information about theses events in : /interpretation-player/events.html

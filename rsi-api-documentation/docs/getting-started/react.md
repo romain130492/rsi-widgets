@@ -56,5 +56,7 @@ import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
 
 ```
 
+* You will also have to add a roomname query parameter on your audience pages. [More](/interpretation-player/roomname.md)
+
 
 
