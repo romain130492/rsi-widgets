@@ -1,7 +1,7 @@
 {
   "name": "@akkadu/rsi-api-base",
   "version": "0.2.7",
-  "description": "",
+  "description": ",",
   "main": "lib/index.js",
   "private": false,
   "files": [
