@@ -76,6 +76,7 @@ Packages must be published form the `root` folder. with the command `year releas
 
 3- Once your PR is reviewed /accepted. Use the command :  `yarn release` in the root folder.
 
+* Once released it should push the new json packages version to your current branch.
 
 ## Dev deployment:
 **TypeScript**
