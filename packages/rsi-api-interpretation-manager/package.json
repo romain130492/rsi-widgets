@@ -18,7 +18,7 @@
   "dependencies": {
     "@akkadu/rsi-api-base": "^0.2.5"
   },
-  "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb",
+  "gitHead": "771f6eafb74ba1f09ba349eae05c03263a6cbc70",
   "devDependencies": {
     "lerna": "^4.0.0"
   }

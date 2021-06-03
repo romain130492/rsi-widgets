@@ -21,15 +21,15 @@ export default class Base {
     const eventRequest = await(await fetch(`https://devapi.akkadu.com/v2/events/?roomName=${roomName}`)).json()
     const eventId = eventRequest?.data?.events?.[0]?.id;
     if(!eventId){
-      console.error('no eventId for this event');
+      throw Error('no eventId for this event');
     }
-    let streamRequest = await (await fetch(`https://devapi.akkadu.com/v2/events/${eventId}/streams`)).json()
+    const streamRequest = await (await fetch(`https://devapi.akkadu.com/v2/events/${eventId}/streams`)).json()
     const eventLanguagesRequest = await  (await (fetch(`https://devapi.akkadu.com/v2/events/${eventId}/languages`))).json()
     const eventLanguageState = await  (await (fetch(`https://devapi.akkadu.com/v2/language-state?roomname=${roomName}`))).json()
     const stream = streamRequest?.data
     const eventLanguages  = eventLanguagesRequest?.data.languages
     const languageState = eventLanguageState?.data.languageState;
- 
+    /* eslint-disable-next-line */
     return { stream:stream, languageState, eventLanguages }
   }
   on(event:any,fn:any) {
