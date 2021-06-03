@@ -17,7 +17,7 @@
     "start": "tsc --watch"
   },
   "keywords": [],
-  "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
+  "author": "Rouiller Romain <rouiller.romain11@gmail.com>.",
   "license": "MIT",
   "dependencies": {
     "@akkadu/browser-info": "^2.5.3",
