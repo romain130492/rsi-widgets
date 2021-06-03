@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-api-interpretation-player",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "rsi api interpretation player package",
   "main": "lib/index.js",
   "files": [
@@ -19,7 +19,7 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@akkadu/rsi-api-base": "^0.2.5",
+    "@akkadu/rsi-api-base": "^0.2.6",
     "@akkadu/rtc-streamer-consumer": "^3.0.3"
   },
   "gitHead": "771f6eafb74ba1f09ba349eae05c03263a6cbc70"
