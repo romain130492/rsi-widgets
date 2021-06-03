@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-api-widget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "rsi api widget for Akkadu RSI",
   "private": true,
   "main": "index.js",
