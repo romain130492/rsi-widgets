@@ -29,8 +29,7 @@ export default class Base {
     const stream = streamRequest?.data
     const eventLanguages  = eventLanguagesRequest?.data.languages
     const languageState = eventLanguageState?.data.languageState;
-    /* eslint-disable-next-line */
-    return { stream:stream, languageState, eventLanguages }
+    return { stream, languageState, eventLanguages }
   }
   on(event:any,fn:any) {
     this.emitter.on(event,fn)
