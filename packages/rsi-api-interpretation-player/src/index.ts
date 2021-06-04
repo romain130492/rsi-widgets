@@ -495,7 +495,7 @@ export default class InterpretationPlayer extends RSIBase {
           playVideo: false,
           playAudio: false,
           subscribeToAudio: true,
-          subscribeToVideo: true
+          subscribeToVideo: false
         })
       }
     };
