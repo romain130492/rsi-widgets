@@ -481,13 +481,22 @@ export default class InterpretationPlayer extends RSIBase {
      subscribeToChannels() {
       if (this.stream) {
         this.stream.subscribeToLanguage({
+          language: this.floorLanguage().language,
+          autoPlay:true,
+          playVideo: false,
+          playAudio: false,
+          subscribeToAudio: true,
+          subscribeToVideo: false,
+        })
+        // Subscribes interpreter, we don't autoplay/play anything
+        this.stream.subscribeToLanguage({
           language:this.interpretingLanguage().language,
           autoPlay:false,
           playVideo: false,
           playAudio: false,
           subscribeToAudio: true,
-          subscribeToVideo: false,
-        }) 
+          subscribeToVideo: true
+        })
       }
     };
 }
