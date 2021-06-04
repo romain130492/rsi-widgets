@@ -39,7 +39,6 @@
     methods: {
       async init(){
         const roomName = this.getRoomname();
-        console.info(this.apiKey,'api key');
         if(!roomName){
           throw Error('interpretation-player: roomname is not defined')
         }
@@ -47,13 +46,18 @@
           throw Error('interpretation-player: apiKey is not defined')
         }
         //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
-        const config = {apiKey:this.apiKey, roomName, container:'akkadu-interpretation-player', positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow, isPlayerControlled:this.isPlayerControlled }
+        const config = {apiKey:this.apiKey, roomName, positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow, isPlayerControlled:this.isPlayerControlled }
         this.stream = new InterpretationPlayer(config);
         this.initListeners()
         this.stream.init()
       },
       getRoomname(){
-        return 'test' // to update later with the gateway api
+        const params = new URLSearchParams(window.location.search)
+        const roomname = params.get('rsi-roomname');
+        if(!roomname){
+         console.error('No rsi-roomname defined on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-akkadu-documentation.netlify.app/interpretation-player/roomname.html');
+        }
+        return roomname 
       },
       /**
        * @description Additionnal information about theses events in : /interpretation-player/events.html

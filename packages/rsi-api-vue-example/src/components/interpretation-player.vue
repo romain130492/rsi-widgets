@@ -33,7 +33,7 @@ export default {
       console.info('handleOnReady event:',e);
     },
     handleOnConnectionStatusUpdated(e){
-      console.log('handleOnConnectionStatusUpdated event:',e);
+      console.info('handleOnConnectionStatusUpdated event:',e);
     }
   },
 }

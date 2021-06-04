@@ -8,8 +8,9 @@ const component = {
           <div class="selectCustom js-selectCustom">
             <div id="interpretation-player-custom-value" class="selectCustom-trigger">  <img src=''/> <h3> </h3> </div>
             <div id="interpretation-player-options" class="selectCustom-options">
-            </div>
           </div>
+          </div>
+          <button id="interpretation-player-refresh" class="refresh-button" style="display:none;"> <h3> Refresh </h3> </button>
         </div>
   </body>
   `,
@@ -60,7 +61,6 @@ const component = {
     font-size: 16px;
     color: #2C3D4F;
     font-weight: 400;
-    text-transform: capitalize;
   }
   #akkadu-interpretation-player .selectCustom-trigger::after {
     content: "▾";
@@ -114,8 +114,26 @@ const component = {
     border-bottom: 1px solid #e0e7ef;
   }
   
+  #akkadu-interpretation-player .refresh-button{
+    margin-left: 50px;
+  }
+  #akkadu-interpretation-player button{
+    background:#58C283;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  #akkadu-interpretation-player button:hover{
+    background: #56b77d;
+  }
 
- 
+  #akkadu-interpretation-player button h3{
+    padding: 0px 20px;
+    color:white;
+  }
+  #akkadu-interpretation-player .selectWrapper{ 
+    display: flex;
+  }
   `
 }
 

@@ -1,4 +1,4 @@
-# Interpretation PLayer
+# Interpretation Player
 
 ## How does it works ? 
 

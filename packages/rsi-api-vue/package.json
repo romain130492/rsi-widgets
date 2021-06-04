@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-api-vue",
-  "version": "1.2.7",
+  "version": "1.2.12",
   "description": "",
   "private": false,
   "main": "dist/rsi-api-vue.ssr.js",
@@ -20,7 +20,7 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
-    "@akkadu/rsi-api-interpretation-player": "^0.3.6"
+    "@akkadu/rsi-api-interpretation-player": "^0.3.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -46,5 +46,5 @@
   "engines": {
     "node": ">=12"
   },
-  "gitHead": "f82f6176e65de3858f306ac7ea27d2b0d7a0d8eb"
+  "gitHead": "1e87df3071e7dd8f413315e14834b242ee3a7a06"
 }

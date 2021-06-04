@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.12](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-vue@1.2.11...@akkadu/rsi-api-vue@1.2.12) (2021-06-04)
+
+**Note:** Version bump only for package @akkadu/rsi-api-vue
+
+
+
+
+
+## [1.2.11](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-vue@1.2.10...@akkadu/rsi-api-vue@1.2.11) (2021-06-03)
+
+**Note:** Version bump only for package @akkadu/rsi-api-vue
+
+
+
+
+
+## [1.2.10](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-vue@1.2.9...@akkadu/rsi-api-vue@1.2.10) (2021-06-03)
+
+**Note:** Version bump only for package @akkadu/rsi-api-vue
+
+
+
+
+
+## [1.2.9](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-vue@1.2.8...@akkadu/rsi-api-vue@1.2.9) (2021-06-03)
+
+**Note:** Version bump only for package @akkadu/rsi-api-vue
+
+
+
+
+
+## [1.2.8](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-vue@1.2.7...@akkadu/rsi-api-vue@1.2.8) (2021-06-03)
+
+**Note:** Version bump only for package @akkadu/rsi-api-vue
+
+
+
+
+
 ## [1.2.7](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-api-vue@1.2.6...@akkadu/rsi-api-vue@1.2.7) (2021-05-27)
 
 **Note:** Version bump only for package @akkadu/rsi-api-vue

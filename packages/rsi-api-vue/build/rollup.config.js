@@ -87,6 +87,7 @@ if (!argv.format || argv.format === 'es') {
       file: 'dist/rsi-api-vue.esm.js',
       format: 'esm',
       exports: 'named',
+      inlineDynamicImports:true,
     },
     plugins: [
       replace(baseConfig.plugins.replace),
