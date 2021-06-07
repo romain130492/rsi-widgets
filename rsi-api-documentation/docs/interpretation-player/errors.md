@@ -1,4 +1,4 @@
-# Error message
+# Error Messages
 
 When you use our `interpretation-player` the SDK may return error message:
 

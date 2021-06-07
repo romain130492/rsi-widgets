@@ -57,7 +57,7 @@ function getSetupSidebar() {
         { text: 'Events', link: '/interpretation-player/events' },
         { text: 'Room Name', link: '/interpretation-player/roomname' },
         { text: 'Refresh Button', link: '/interpretation-player/refresh' },
-        { text: 'Errors Messages', link: '/interpretation-player/errors' }
+        { text: 'Error Messages', link: '/interpretation-player/errors' }
       ]
     },
     {
