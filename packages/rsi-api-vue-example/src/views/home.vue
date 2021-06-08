@@ -21,7 +21,7 @@ import InterpretationManager from '@/components/interpretation-manager.vue'
        var arr = url.split("/");
        var currentUrl = arr[0] + "//" + arr[2]
        if(!roomname){
-          window.location.href = `${currentUrl}/?rsi-roomname=pvzj`
+          window.location.href = `${currentUrl}/?rsi-roomname=rgxo`
        }
     },
   }
