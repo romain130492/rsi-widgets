@@ -110,3 +110,6 @@ lib
 .npmrc
 
 package-lock.json
+
+*CHANGELOG.md
+CHANGELOG.md
