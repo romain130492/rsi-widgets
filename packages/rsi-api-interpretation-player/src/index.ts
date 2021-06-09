@@ -77,7 +77,7 @@ export default class InterpretationPlayer extends RSIBase {
    * @private
    */
   async init() {
-    this.gatewayResponse = await this.gatewayRequest(this.apiKey, this.roomName);
+    this.gatewayResponse = await this.gatewayAuthenticate(this.apiKey, this.roomName);
     const { stream, languageState, eventLanguages } = this.gatewayResponse;
     this.remoteLanguageState = languageState;
     if(!stream){

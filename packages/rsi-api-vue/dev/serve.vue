@@ -19,7 +19,7 @@ export default Vue.extend({
     const params = new URLSearchParams(window.location.search)
     const roomname = params.get('rsi-roomname');
     if(!roomname){
-       window.location.href = 'http://localhost:8080/?rsi-roomname=pvzj'
+       window.location.href = 'http://localhost:8080/?rsi-roomname=rgxo'
     }
   },
 });
@@ -34,7 +34,7 @@ export default Vue.extend({
     <br>
     <br>
     <rsi-api-interpretation-player 
-      apiKey="api_key_test" 
+      apiKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
       positionMenu="bottom" 
       :isBoxShadow="true"
       :isPlayerControlled="true"

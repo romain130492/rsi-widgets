@@ -1,37 +1,46 @@
 import { EventEmitter } from 'events';
-/* const axios = require('axios') */
 export default class Base {
   emitter: any;
+  RSI_GATEWAY_API: string;
 
   constructor() {
     this.emitter = new EventEmitter();
+    this.RSI_GATEWAY_API = "https://54i2k0z0vf.execute-api.cn-north-1.amazonaws.com.cn/prod"
   }
 
-  async gatewayRequest(apiKey: string, roomName: string) {
+  /**
+   * @description It authenticates the apiKey by checking on our dynamoDb rsi-api-table 
+   * that the apiKey exist 
+   * and that this apiKey is associated to that roomName
+   * @param {string} apiKey
+   * @param {string} roomName
+   * @returns {Promise} {stream:object, languageState:string, eventLanguages:array}
+   */
+  async gatewayAuthenticate(apiKey: string, roomName: string) {
     if (!apiKey) {
       throw Error('base akadu-rsi: apiKey is undefined.');
     }
     if (!roomName) {
       throw Error('base akkadu-rsi: roomName is undefined.');
     }
-    // we get the stream /events/{eventId}/streams 
+      const rawResponse = await fetch(`${this.RSI_GATEWAY_API}/authenticate`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({apiKey, roomName})
+      });
+      const content = await rawResponse.json();
+      const body = content.body;
+      if(body.error){
+        throw Error(`interpretation-player: An error occured: ${body.error}`)
+      }
+      const { stream , languageState, eventLanguages } = body.data;
+      return { stream , languageState, eventLanguages }
+  }
 
-    // the request below are for test purpose and will have to be removed 
-    // once the gateway set up.
-    const eventRequest = await(await fetch(`https://devapi.akkadu.com/v2/events/?roomName=${roomName}`)).json()
-    const eventId = eventRequest?.data?.events?.[0]?.id;
-    if(!eventId){
-      throw Error('no eventId for this event');
+    on(event:any,fn:any) {
+      this.emitter.on(event,fn)
     }
-    const streamRequest = await (await fetch(`https://devapi.akkadu.com/v2/events/${eventId}/streams`)).json()
-    const eventLanguagesRequest = await  (await (fetch(`https://devapi.akkadu.com/v2/events/${eventId}/languages`))).json()
-    const eventLanguageState = await  (await (fetch(`https://devapi.akkadu.com/v2/language-state?roomname=${roomName}`))).json()
-    const stream = streamRequest?.data
-    const eventLanguages  = eventLanguagesRequest?.data.languages
-    const languageState = eventLanguageState?.data.languageState;
-    return { stream, languageState, eventLanguages }
-  }
-  on(event:any,fn:any) {
-    this.emitter.on(event,fn)
-  }
 }

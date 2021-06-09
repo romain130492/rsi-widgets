@@ -12,7 +12,7 @@ var url = window.location.href
 var arr = url.split("/");
 var currentUrl = arr[0] + "//" + arr[2]
 if(!roomname){
-    window.location.href = `${currentUrl}/?rsi-roomname=pvzj`
+    window.location.href = `${currentUrl}/?rsi-roomname=rgxo`
 }
 
 const handleOnReady = (e) => {
@@ -30,7 +30,7 @@ const App = () => {
       <source type="video/mp4" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"/>
     </video>
      <RsiApiInterpretationPlayer
-        apiKey="api_key_test1"
+        apiKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c"
         onReady = {handleOnReady}
         onLanguageSelected = {handleOnLanguageSelected}
         onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
