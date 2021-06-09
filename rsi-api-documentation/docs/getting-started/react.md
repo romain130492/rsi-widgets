@@ -2,10 +2,10 @@
 
 ### Installation
 ```bash
-yarn add @akkadu/rsi
+yarn add @akkadu/rsi-api-vue
 ```
 ```bash
-npm install @akkadu/rsi
+npm install @akkadu/rsi-api-vue
 ```
 
 ### Registering the [Interpretation Manager](/interpretation-manager/index.html)
