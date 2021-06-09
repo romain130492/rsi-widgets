@@ -2,7 +2,7 @@
   <div class="wrapper">    
    <h2> Interpretation Player: </h2> 
     <video autoplay loop="" controls="" width="640" height="480">
-      <source type="video/mp4" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+      <source type="video/mp4" src="https://assets.akkadu.com/akkadu-rsi-api-widget/musk-short.mp4">
     </video>
     <br>
    <p> Widget: </p>

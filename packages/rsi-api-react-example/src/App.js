@@ -10,7 +10,7 @@ var url = window.location.href
 var arr = url.split("/");
 var currentUrl = arr[0] + "//" + arr[2]
 if(!roomname){
-    window.location.href = `${currentUrl}/?rsi-roomname=rgxo`
+    window.location.href = `${currentUrl}/?rsi-roomname=aljx`
 }
 const handleOnReady = (e) => {
   console.info('receive onReady event:',e );

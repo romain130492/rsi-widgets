@@ -19,7 +19,7 @@ export default Vue.extend({
     const params = new URLSearchParams(window.location.search)
     const roomname = params.get('rsi-roomname');
     if(!roomname){
-       window.location.href = 'http://localhost:8080/?rsi-roomname=rgxo'
+       window.location.href = 'http://localhost:8080/?rsi-roomname=aljx'
     }
   },
 });
@@ -29,7 +29,7 @@ export default Vue.extend({
 <!-- This file is for test purpose on dev -->
   <div id="app">
     <video autoplay loop="" controls="" width="640" height="480">
-      <source type="video/mp4" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+      <source autoplay type="video/mp4" src="https://assets.akkadu.com/akkadu-rsi-api-widget/musk-short.mp4">
     </video>
     <br>
     <br>

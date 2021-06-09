@@ -39,6 +39,7 @@ function getSetupSidebar() {
         { text: 'Create an API Key', link: '/getting-started/api-key' },
         { text: '🔹 React', link: '/getting-started/react' },
         { text: '🔹 Vue', link: '/getting-started/vue' },
+        { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js' },
       ]
     },
     {
@@ -57,6 +58,7 @@ function getSetupSidebar() {
         { text: 'Events', link: '/interpretation-player/events' },
         { text: 'Room Name', link: '/interpretation-player/roomname' },
         { text: 'Refresh Button', link: '/interpretation-player/refresh' },
+        { text: 'Demo', link: '/interpretation-player/demo' },
         { text: 'Error Messages', link: '/interpretation-player/errors' }
       ]
     },
