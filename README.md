@@ -1,4 +1,4 @@
-# Akkdu RSI API WIDGET
+# Akkadu RSI API WIDGET
 
 
 
