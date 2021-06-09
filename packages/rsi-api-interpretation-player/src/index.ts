@@ -107,7 +107,7 @@ export default class InterpretationPlayer extends RSIBase {
 /**
  * @description We mute/unmute the video player of the Virtual Platform if the user switch to the "source" language
  * That method go through only if isPlayerControlled is true (the VP can choose whether they want us to use that function of not.)
- * Additionnal info about that parameter here : https://rsi-akkadu-documentation.netlify.app//interpretation-player/props.html
+ * Additionnal info about that parameter here : https://rsi-docs.akkadu.com//interpretation-player/props.html
  * @private
  */
   switchAudioVideoPlayerVP(languageType:string){

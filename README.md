@@ -3,7 +3,7 @@
 
 
 ### Our Official Documentation
-[Doc](https://rsi-akkadu-documentation.netlify.app/)
+[Doc](https://rsi-docs-akkadu.com)
 
 
 ### Doc to Akkadu Developpers
