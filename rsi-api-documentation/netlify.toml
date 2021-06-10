@@ -1,0 +1,9 @@
+# See docs for help with netlify.toml files
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+# A redirect rule with many of the supported properties
+[[redirects]]
+  from = "rsi-akkadu-documentation.netlify.app"
+  to = "https://rsi-docs.akkadu.com"
+  status = 301
+  force = true
