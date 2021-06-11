@@ -67,6 +67,6 @@ export default {
 
 * You can use our `vue-example` respository [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/vue-example).
   * In this package you will find the implementation of the `interpretation manager` and `interpretation player`. 
-* 🌈 Check our [Vue online demo](https://rsi-akkadu-vue-demo.netlify.app/)
+* 🌈 Check out our [Vue online demo](https://rsi-akkadu-vue-demo.netlify.app/)
 
 
