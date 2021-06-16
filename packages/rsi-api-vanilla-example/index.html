@@ -7,15 +7,27 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-
-    window.addEventListener('load', function () {
-      var s = document.createElement("script");
-      s.type = "text/javascript";
-      s.src= './dist/index.min.js'
-      document.head.appendChild(s);
-    })
-  </script>
-  
+  <h2>Rsi api vanilla example</h2>
+   <div 
+     id="akkadu-interpretation-player" 
+     data-api-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
+     data-position-menu="bottom" 
+     data-is-box-shadow="true"
+     data-is-player-controlled="true"
+   >
+    </div> 
+    <script>
+      const component = document.querySelector('#akkadu-interpretation-player')
+      component.addEventListener('onReady', function (e) { 
+        console.info('received onReady event:', e?.detail?.isReady);
+      });
+      component.addEventListener('onLanguageSelected', function (e) { 
+        console.info('received onLanguageSelected event:', e?.detail?.languageSelected);
+      });
+      component.addEventListener('onConnectionStatusUpdated', function (e) { 
+        console.info('received onConnectionStatusUpdated event:', e?.detail?.connection);
+      });
+    </script>
+    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-api-widget/rsi-api-vanilla/dist/index.min.js" ></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 # How to run
 
 * you can use vscode to open a live server for `index.html`
-* make sur the url include : `localhost`.
+* make sur the url includes : `localhost`.
 
 
 ## How to add our script on your html page
@@ -12,7 +12,7 @@
 ```
 2- Add the script under the first bloc
 ```html
-   <script src="dist/index.min.js" ></script>
+   <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-api-widget/rsi-api-vanilla/dist/index.min.js" ></script>
 ```
 
 🚨 The bloc with id of `akkadu-interpretation-player` must be loaded on the page before the script.

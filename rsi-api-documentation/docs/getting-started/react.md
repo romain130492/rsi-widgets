@@ -57,6 +57,9 @@ import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
 ```
 
 * You will also have to add a roomname query parameter on your audience pages. [More](/interpretation-player/roomname.md)
+
+* You can also use our **react-example repository** [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-react-example).
+
 * 🌈 Check out our [React online demo](https://rsi-akkadu-react-demo.netlify.app/)
 
 
