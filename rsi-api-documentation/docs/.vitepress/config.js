@@ -39,7 +39,7 @@ function getSetupSidebar() {
         { text: 'Create an API Key', link: '/getting-started/api-key' },
         { text: '🔹 React', link: '/getting-started/react' },
         { text: '🔹 Vue', link: '/getting-started/vue' },
-        { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js' },
+        { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js', children:[ {text:'VanillaJs Versions', link:'/vanilla-js/versions.html'}] },
       ]
     },
     {

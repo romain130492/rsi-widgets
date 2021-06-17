@@ -1,6 +1,7 @@
 {
   "name": "@akkadu/rsi-api-vanilla",
   "version": "1.0.0",
+  "tmpVersion":"1.0.0",
   "main": "index.js",
   "license": "MIT",
   "files": [
@@ -17,8 +18,11 @@
     "path": "^0.12.7",
     "webpack": "^5.39.0",
     "webpack-cli": "^4.7.2",
-    "filemanager-webpack-plugin": "^5.0.0"
+    "filemanager-webpack-plugin": "^5.0.0",
+    "aws-sdk": "^2.930.0"
   },
+  "author": "Rouiller Romain <rouiller.romain11@gmail.com>.",
+  "license": "MIT",
   "dependencies": {
     "@akkadu/rsi-api-interpretation-player": "^0.3.12"
   }

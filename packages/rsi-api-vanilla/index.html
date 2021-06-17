@@ -17,6 +17,10 @@
    >
     </div> 
     <script>
+      // You can remove that redirection and add your own roomName in the url
+      if(!window.location.href.includes('?rsi-roomname=aljx')){
+         window.location.href = `${window.location.href}?rsi-roomname=aljx` 
+      } 
       const component = document.querySelector('#akkadu-interpretation-player')
       component.addEventListener('onReady', function (e) { 
         console.info('received onReady event:', e?.detail?.isReady);

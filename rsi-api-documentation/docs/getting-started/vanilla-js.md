@@ -65,3 +65,5 @@
 * You can also use our **vanilla-example repository** [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-vanilla-example).
 
 
+* Get the latest versions of the script [here](/vanilla-js/versions.html)
+
