@@ -19,10 +19,8 @@ const currentVersion = packageJson.version
 const myBucket = 'akkadu-assets'
 const filePath = path.resolve('./packages/rsi-api-vanilla/dist/index.min.js')
 
-let tmpVersionFile = require('./tmp-version.json');
+let tmpVersionFile = require(path.resolve('./packages/rsi-api-vanilla/tmp-version.json'));
 let tmpVersion;
-
-
 
 if(tmpVersionFile && tmpVersionFile.tmpVersion){
   tmpVersion = tmpVersionFile.tmpVersion
@@ -32,10 +30,10 @@ if(tmpVersionFile && tmpVersionFile.tmpVersion){
 
 // We do not update our asset folder on AWS if the current packageJson version is equal to
 // the version in the tmpVersion file
-/* if(tmpVersion === currentVersion){
+ if(tmpVersion === currentVersion){
   console.info("No need to update rsi-api-vanilla on AWS akkadu-assets bucket. The version didn't change");
   return
-}  */
+}  
 /**
  * @description We write a new tmpVersion file
  */

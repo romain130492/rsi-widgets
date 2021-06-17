@@ -33,7 +33,7 @@
 
     <!-- Script must be loaded after the component -->
 
-    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-api-widget/rsi-api-vanilla/dist/index.min.js" ></script>
+    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-api-widget/rsi-api-vanilla/1.0.0/index.min.js" ></script>
 
 
 ```
@@ -54,7 +54,7 @@
       window.addEventListener('load', function () {
         var s = document.createElement("script");
         s.type = "text/javascript";
-        s.src= 'dist/index.min.js'
+        s.src= 'https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-api-widget/rsi-api-vanilla/1.0.0/index.min.js'
         document.head.appendChild(s);
       })
     </script> 
