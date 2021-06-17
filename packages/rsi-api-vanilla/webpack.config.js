@@ -5,7 +5,6 @@ module.exports = {
     rules: [
       {
         test: /\.(js)$/,
-        /* exclude: /node_modules/, */
         use: ['babel-loader']
       }
     ]
@@ -18,17 +17,3 @@ module.exports = {
     filename: 'index.min.js',
   },
 };
-
-/* 
-{
-  dir: "dist/esm",
-  format: "esm",
-  exports: "named",
-  sourcemap: true,
-},
-{
-  dir: "dist/cjs",
-  format: "cjs",
-  exports: "named",
-  sourcemap: true,
-}, */
