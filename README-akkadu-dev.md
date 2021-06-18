@@ -28,6 +28,8 @@
 
 
 
+3- When **Publishing** you will need to add an `.env file` in the root folder, with your AWS access keys. See the .env.example. 🚨
+
 ## How to work with typescript dependency and react/vue dependency at the same time ?
 
 Example: We want to work with `rsi-api-interpretation-player` and `rsi-api-vue`.

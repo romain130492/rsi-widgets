@@ -65,7 +65,7 @@ export default {
 * You will also have to add a roomname query parameter on your audience pages. [More](/interpretation-player/roomname.md)
 
 
-* You can use our `vue-example` respository [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/vue-example).
+* You can use our `vue-example` **repository** [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-vue-example)
   * In this package you will find the implementation of the `interpretation manager` and `interpretation player`. 
 * 🌈 Check out our [Vue online demo](https://rsi-akkadu-vue-demo.netlify.app/)
 

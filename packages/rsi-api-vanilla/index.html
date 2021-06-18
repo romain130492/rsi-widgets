@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rsi-api-vanilla-dev-example</title>
+</head>
+<body>
+  <h2>Rsi api vanilla dev - example</h2>
+   <div 
+     id="akkadu-interpretation-player" 
+     data-api-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
+     data-position-menu="bottom" 
+     data-is-box-shadow="true"
+     data-is-player-controlled="true"
+   >
+    </div> 
+    <script>
+      // You can remove that redirection and add your own roomName in the url
+      if(!window.location.href.includes('?rsi-roomname=aljx')){
+         window.location.href = `${window.location.href}?rsi-roomname=aljx` 
+      } 
+      const component = document.querySelector('#akkadu-interpretation-player')
+      component.addEventListener('onReady', function (e) { 
+        console.info('received onReady event:', e?.detail?.isReady);
+      });
+      component.addEventListener('onLanguageSelected', function (e) { 
+        console.info('received onLanguageSelected event:', e?.detail?.languageSelected);
+      });
+      component.addEventListener('onConnectionStatusUpdated', function (e) { 
+        console.info('received onConnectionStatusUpdated event:', e?.detail?.connection);
+      });
+    </script>
+    <script src="dist/index.min.js" ></script>
+</body>
+</html>

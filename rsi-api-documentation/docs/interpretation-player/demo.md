@@ -33,3 +33,14 @@ We will then send you :
 <br>
 
 
+### Let's Start
+
+Choose your framework and install our `interpretation player` :
+- [Vanilla Javascript Doc](/getting-started/vanilla-js.html#registering-the-interpretation-player)
+  - Vanilla Javascript [Demo repo](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-vanilla-example)
+
+- [ReactJs Doc](/getting-started/react.html#registering-the-interpretation-player)
+  - React Js [Demo repo](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-react-example)
+
+- [VueJs Doc](/getting-started/vue.html#registering-the-interpretation-player)
+  - VueJs [Demo repo](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-vue-example)
