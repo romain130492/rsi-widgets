@@ -1,7 +1,7 @@
 {
   "name": "@akkadu/rsi-api-interpretation-player",
   "version": "0.3.12",
-  "description": "rsi api interpretation player package",
+  "description": "RSI SDK interpretation player package",
   "main": "lib/index.js",
   "files": [
     "lib/**/*"

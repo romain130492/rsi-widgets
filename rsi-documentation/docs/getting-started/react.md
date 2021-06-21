@@ -2,21 +2,21 @@
 
 ### Installation
 ```bash
-yarn add @akkadu/rsi-api-vue
+yarn add @akkadu/rsi-react
 ```
 ```bash
-npm install @akkadu/rsi-api-vue
+npm install @akkadu/rsi-react
 ```
 
 ### Registering the [Interpretation Manager](/interpretation-manager/index.html)
 
 ```jsx
 import React from 'react';
-import { RsiApiInterpretationManager } from '@akkadu/rsi-api-react'
+import { RsiInterpretationManager } from '@akkadu/rsi-react'
 
 render(
   <div>
-   < RsiApiInterpretationManager  apiKey="api_key_XXXX"/>
+   < RsiInterpretationManager  sdkKey="sdk_key_XXXX"/>
   </div>
 );
 ```
@@ -26,7 +26,7 @@ render(
 
 ```jsx
 import React from 'react';
-import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
+import { RsiInterpretationPlayer } from '@akkadu/rsi-react'
 
  export default class ComponentInterpretationPlayer{
   const handleOnReady = (e) => {
@@ -41,8 +41,8 @@ import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
   render(){ 
     return(  
       <div>
-          <RsiApiInterpretationPlayer
-            apiKey="api_key_XXXX"
+          <RsiInterpretationPlayer
+            sdkKey="sdk_key_XXXX"
             onReady = {handleOnReady}
             onLanguageSelected = {handleOnLanguageSelected}
             onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
@@ -58,7 +58,7 @@ import { RsiApiInterpretationPlayer } from '@akkadu/rsi-api-react'
 
 * You will also have to add a roomname query parameter on your audience pages. [More](/interpretation-player/roomname.md)
 
-* You can also use our **react-example repository** [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-react-example).
+* You can also use our **react-example repository** [here](https://github.com/Akkadu/rsi-widgets/tree/main/packages/rsi-react-example).
 
 * 🌈 Check out our [React online demo](https://rsi-akkadu-react-demo.netlify.app/)
 

@@ -12,7 +12,7 @@ You want to test our demo-beta, contact us by email at :`alvaro@akkadu-team.com`
 - **m3u8 stream url**. One stream URL in m3u8 format that you will use for the demo.
 
 We will then send you : 
-- a demo **apiKey**: xx_api_key
+- a demo **sdkKey**: xx_sdk_key
 - a **roomName** : abcd
 
 - An **interpreter demo account**:
@@ -37,10 +37,10 @@ We will then send you :
 
 Choose your framework and install our `interpretation player` :
 - [Vanilla Javascript Doc](/getting-started/vanilla-js.html#registering-the-interpretation-player)
-  - Vanilla Javascript [Demo repo](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-vanilla-example)
+  - Vanilla Javascript [Demo repo](https://github.com/Akkadu/rsi-widgets/tree/main/packages/rsi-vanilla-example)
 
 - [ReactJs Doc](/getting-started/react.html#registering-the-interpretation-player)
-  - React Js [Demo repo](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-react-example)
+  - React Js [Demo repo](https://github.com/Akkadu/rsi-widgets/tree/main/packages/rsi-react-example)
 
 - [VueJs Doc](/getting-started/vue.html#registering-the-interpretation-player)
-  - VueJs [Demo repo](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-vue-example)
+  - VueJs [Demo repo](https://github.com/Akkadu/rsi-widgets/tree/main/packages/rsi-vue-example)

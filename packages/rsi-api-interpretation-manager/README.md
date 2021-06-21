@@ -1,4 +1,4 @@
-# RSI API Interpretation Manager
+# RSI SDK Interpretation Manager
 
 
 ### How to start the project

@@ -1,4 +1,4 @@
-# Akkadu ⚡ RSI API
+# Akkadu ⚡ RSI SDK
 Enhance your Virtual Event Platform with `Remote Simultaneous Interpretation` (RSI).
 
 
@@ -11,9 +11,9 @@ Unlike in consecutive interpreting, this way the natural flow of the speaker is 
 `Remote` means that the human interpreters will be remotely (inisde Akkadu platform) doing the simultaneous interpretation.
 
 
-#### Why shoul I use Akkadu RSI API ?
+#### Why shoul I use Akkadu RSI SDK ?
 
-By using our API you can stream your events in multiples languages creating bigger impact.
+By using our SDK you can stream your events in multiples languages creating bigger impact.
 
 
 #### Where does the interpreters come from ?

@@ -1,7 +1,7 @@
 {
-  "name": "@akkadu/rsi-api-widget",
+  "name": "@akkadu/rsi-widget",
   "version": "0.0.2",
-  "description": "rsi api widget for Akkadu RSI",
+  "description": "RSI SDK widget for Akkadu RSI",
   "private": true,
   "main": "index.js",
   "workspaces": [
@@ -9,9 +9,6 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
     "install": "lerna run install",
     "build": "lerna run build",
     "update-version-rsi-api-vanilla":"node packages/rsi-api-vanilla/update-version.js",

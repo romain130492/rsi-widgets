@@ -12,7 +12,7 @@
   <!-- Component -->
   <div 
      id="akkadu-interpretation-player" 
-     data-api-key="your_api_key" 
+     data-sdk-key="your_sdk_key" 
      data-position-menu="bottom" 
      data-is-box-shadow="true"
      data-is-player-controlled="true"
@@ -62,7 +62,7 @@
 </details>
 
 
-* You can also use our **vanilla-example repository** [here](https://github.com/Akkadu/rsi-api-widgets/tree/main/packages/rsi-api-vanilla-example).
+* You can also use our **vanilla-example repository** [here](https://github.com/Akkadu/rsi-widgets/tree/main/packages/rsi-vanilla-example).
 
 
 * Get the latest versions of the script [here](/vanilla-js/versions.html)
