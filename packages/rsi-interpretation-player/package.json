@@ -1,0 +1,26 @@
+{
+  "name": "@akkadu/rsi-interpretation-player",
+  "version": "0.3.17",
+  "description": "RSI SDK interpretation player package",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf ./dist && yarn rollup -c ./rollup.config.js && tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "start": "tsc --watch"
+  },
+  "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@akkadu/rsi-base": "^0.2.13",
+    "@akkadu/rtc-streamer-consumer": "^3.0.3"
+  },
+  "gitHead": "1e87df3071e7dd8f413315e14834b242ee3a7a06"
+}

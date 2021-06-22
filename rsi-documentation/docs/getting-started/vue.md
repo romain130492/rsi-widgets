@@ -1,0 +1,72 @@
+## Using Vue.js
+
+### Installation
+```bash
+yarn add @akkadu/rsi-vue
+```
+```bash
+npm install @akkadu/rsi-vue
+```
+
+### Registering the [Interpretation Manager](/interpretation-manager/index.html)
+
+```vue
+<template>
+  <RsiIntepretationManager sdkKey="RSI_SDK_KEY" />
+</template>
+
+<script>
+
+import { RsiInterpretationManager } from '@akkadu/rsi-vue'
+
+export default {
+  components:{
+    RsiInterpretationManager
+  }
+}
+</script>
+```
+
+### Registering the [Interpretation Player](/interpretation-player/index.html)
+
+```vue
+<template>
+  <RsiInterpretationPlayer
+    sdkKey="sdk_key_XXXX" 
+    positionMenu="bottom" 
+    v-on:onLanguageSelected="handleOnLanguageSelected"
+    v-on:onReady="handleOnReady"
+    v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated"  >
+</template>
+
+<script lang="js">
+
+import { RsiInterpretationPlayer } from '@akkadu/rsi-vue'
+
+export default {
+  components:{
+    RsiInterpretationPlayer
+  },
+  methods: {
+    handleOnLanguageSelected(e){
+      console.info('handleLanguageSelected event:',e);
+    },
+    handleOnReady(e){
+      console.info('handleOnReady event:',e);
+    },
+    handleOnConnectionStatusUpdated(e){
+      console.info('handleOnConnectionStatusUpdated event:',e);
+    }
+},
+}
+</script>
+```
+
+* You will also have to add a roomname query parameter on your audience pages. [More](/interpretation-player/roomname.md)
+
+
+* You can use our `vue-example` **repository** [here](https://github.com/Akkadu/rsi-widgets/tree/main/packages/rsi-vue-example)
+  * In this package you will find the implementation of the `interpretation manager` and `interpretation player`. 
+* 🌈 Check out our [Vue online demo](https://rsi-akkadu-vue-demo.netlify.app/)
+
+

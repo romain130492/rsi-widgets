@@ -1,0 +1,27 @@
+{
+  "name": "@akkadu/rsi-vanilla",
+  "version": "1.0.6",
+  "tmpVersion": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "start": "tsc --watch",
+    "dev": "webpack --hot",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.930.0",
+    "babel-loader": "^8.2.2",
+    "filemanager-webpack-plugin": "^5.0.0",
+    "path": "^0.12.7",
+    "webpack": "^5.39.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "author": "Rouiller Romain <rouiller.romain11@gmail.com>.",
+  "dependencies": {
+    "@akkadu/rsi-interpretation-player": "^0.3.17"
+  }
+}
