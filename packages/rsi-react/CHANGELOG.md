@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.21](http://romain130492/@akkadu/rsi-react/compare/@akkadu/rsi-react@1.3.20...@akkadu/rsi-react@1.3.21) (2021-06-22)
+
+**Note:** Version bump only for package @akkadu/rsi-react
+
+
+
+
+
 ## 1.3.20 (2021-06-22)
 
 
