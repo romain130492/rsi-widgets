@@ -1,8 +1,7 @@
 {
   "name": "@akkadu/rsi-widget",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "RSI SDK widget for Akkadu RSI",
-  "private": true,
   "main": "index.js",
   "workspaces": [
     "packages/*"
@@ -11,9 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "lerna run install",
     "build": "lerna run build",
-    "update-version-rsi-api-vanilla":"node packages/rsi-api-vanilla/update-version.js",
+    "update-version-rsi-vanilla":"node packages/rsi-vanilla/update-version.js",
     "pre-release": "lerna version patch && lerna run build && lerna run install",
-    "release": "git fetch --tags && lerna run build && lerna version && lerna publish from-package && yarn update-version-rsi-api-vanilla"
+    "release": "git fetch --tags && lerna run build && lerna version && lerna publish from-package && yarn update-version-rsi-vanilla"
   },
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",

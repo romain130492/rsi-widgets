@@ -32,15 +32,15 @@
 
 ## How to work with typescript dependency and react/vue dependency at the same time ?
 
-Example: We want to work with `rsi-api-interpretation-player` and `rsi-api-vue`.
+Example: We want to work with `rsi-interpretation-player` and `rsi-vue`.
 
-1- Go the folder `rsi-api-interpretation-player` and run `yarn start`
+1- Go the folder `rsi-interpretation-player` and run `yarn start`
 
-2- In a second terminal go to the folder `rsi-api-vue` and run `yarn start`
+2- In a second terminal go to the folder `rsi-vue` and run `yarn start`
 
-When making change to `rsi-api-interpretation-player` **typecript file** it will build new **javacripts files**. and that will update the **node_modules of the root folder**.
+When making change to `rsi-interpretation-player` **typecript file** it will build new **javacripts files**. and that will update the **node_modules of the root folder**.
 
-📌 Since `rsi-api-vue` dependencies are **symlinked** to the root node_modules, you will get the changes made on `rsi-api-interpretation-player` without the need to re-build anything.
+📌 Since `rsi-vue` dependencies are **symlinked** to the root node_modules, you will get the changes made on `rsi-interpretation-player` without the need to re-build anything.
 
 
 ## How to publish packages and when ? 
@@ -82,27 +82,27 @@ Packages must be published form the `root` folder. with the command `year releas
 
 ## Dev deployment:
 **TypeScript**
-* `rsi-api-base`
-* `rsi-api-interpretation-manager`
-* `rsi-api-interpretation-player`
+* `rsi-base`
+* `rsi-interpretation-manager`
+* `rsi-interpretation-player`
 
 **VueJs**
-* `rsi-api-vue`
+* `rsi-vue`
   * That package includes a VueJs test server you can run with `yarn start`.
 
 **ReactJs**
-* `rsi-api-react`
+* `rsi-react`
   * That package includes a ReactJs test server you can run with `yarn start`.
 
-**!Important** `rsi-api-react-example` and `rsi-api-vue-example` are not made for development. 
+**!Important** `rsi-react-example` and `rsi-vue-example` are not made for development. 
 You should not have to use them. To get a Vue/react preview see the comments above.
 
 ## Possible bugs
-* The change made on `rsi-api-vue`, `rsi-api-interpretation-player` are not showing on `rsi-api-vue-example` on `rsi-api-react-example` during development ?
-  * Theses two packages : `rsi-api-vue-example` and `rsi-api-react-example` are not made for development.
-    * If you want to have a **vue preview** you should use `yarn start` in the package `rsi-api-vue`
-    * If you want to have a **react preview** you should use `yarn start` in the package `rsi-api-react`
-    * When releasing the packages, `rsi-api-react` and `rsi-api-vue` should be updated with the new packages on production.
+* The change made on `rsi-vue`, `rsi-interpretation-player` are not showing on `rsi-vue-example` on `rsi-react-example` during development ?
+  * Theses two packages : `rsi-vue-example` and `rsi-react-example` are not made for development.
+    * If you want to have a **vue preview** you should use `yarn start` in the package `rsi-vue`
+    * If you want to have a **react preview** you should use `yarn start` in the package `rsi-react`
+    * When releasing the packages, `rsi-react` and `rsi-vue` should be updated with the new packages on production.
        * if you still want to have a preview of the change you made on theses 2 packages, run `yarn pre-release`.
 
 

@@ -33,7 +33,7 @@
 
     <!-- Script must be loaded after the component -->
 
-    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-api-widget/rsi-api-vanilla/1.0.0/index.min.js" ></script>
+    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.2/index.min.js" ></script>
 
 
 ```
