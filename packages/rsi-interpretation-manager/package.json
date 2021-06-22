@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-interpretation-manager",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "",
   "main": "lib/index.js",
   "private": false,
@@ -16,7 +16,7 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@akkadu/rsi-base": "^0.2.11"
+    "@akkadu/rsi-base": "^0.2.12"
   },
   "gitHead": "1e87df3071e7dd8f413315e14834b242ee3a7a06",
   "devDependencies": {
