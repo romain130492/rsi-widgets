@@ -51,6 +51,7 @@
     "dist"
   ],
   "dependencies": {
+    "@akkadu/logger": "^2.1.0",
     "@akkadu/rsi-interpretation-player": "^0.3.17"
   },
   "gitHead": "1e87df3071e7dd8f413315e14834b242ee3a7a06"

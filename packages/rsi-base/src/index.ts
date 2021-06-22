@@ -39,6 +39,11 @@ export default class Base {
       const { stream , languageState, eventLanguages } = body.data;
       return { stream , languageState, eventLanguages }
   }
+    // Api to get the flags icons: https://www.countryflags.io/ 
+    getFlagUrl(code:string){
+      const iso  = code.slice(-2);
+      return `https://www.countryflags.io/${iso}/flat/64.png` 
+    }
 
     on(event:any,fn:any) {
       this.emitter.on(event,fn)

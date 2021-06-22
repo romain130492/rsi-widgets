@@ -25,6 +25,7 @@
     "webpack": "4.44.2"
   },
   "dependencies": {
+    "@akkadu/logger": "^2.1.0",
     "@akkadu/rsi-interpretation-player": "^0.3.13",
     "dotenv": "^10.0.0",
     "rollup-plugin-commonjs": "^10.1.0",

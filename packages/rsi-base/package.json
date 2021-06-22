@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@akkadu/browser-info": "^2.5.3",
+    "@akkadu/logger": "^2.1.0",
     "prettier": "^2.3.0",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",

@@ -47,7 +47,6 @@
         if(!this.apiKey){
           throw Error('interpretation-player: sdkKey is not defined')
         }
-        //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
         const config = {apiKey:this.apiKey, roomName, positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow, isPlayerControlled:this.isPlayerControlled }
         this.stream = new InterpretationPlayer(config);
         this.initListeners()

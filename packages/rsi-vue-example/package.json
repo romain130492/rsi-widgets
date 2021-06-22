@@ -6,6 +6,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@akkadu/logger": "^2.1.0",
     "@akkadu/rsi-vue": "^1.2.19",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"

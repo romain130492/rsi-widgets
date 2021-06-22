@@ -52,7 +52,7 @@ export default class InterpretationPlayer extends RSIBase {
     this.eventLanguages = null;
     this.$logger = new Logger()
     if(!document){ 
-      console.error('InterpretationPlayer: .document is undefined.');
+      throw Error('InterpretationPlayer: document is undefined.');
       return
     }
     if (!this.apiKey) {
@@ -61,10 +61,10 @@ export default class InterpretationPlayer extends RSIBase {
     if (!this.roomName) {
       throw Error('InterpretationPlayer: roomName is undefined');
     }
-    console.log(this.consumerConfig.container,'this.consumerConfig.domfffContainer');
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
     if (!this.consumerConfig.domContainer) {
-      throw new Error(`Unable to detect stream container ${this.consumerConfig.container} on the DOM`)
+      throw new Error(`Unable to detect container: ${this.consumerConfig.container} on the DOM, please add <div id="akkadu-interpretation-player"/>, 
+      see the doc : https://rsi-docs.akkadu.com/getting-started/react.html#registering-the-interpretation-player`)
     }
   }
 
@@ -305,8 +305,8 @@ export default class InterpretationPlayer extends RSIBase {
       newOption.appendChild(newText);
       return newOption
     } 
-    languagesOptions.appendChild(createItemLanguage('source', 0));
-    languagesOptions.appendChild(createItemLanguage('target', 1)); 
+   languagesOptions.appendChild(createItemLanguage('source', 0 ));
+   languagesOptions.appendChild(createItemLanguage('target', 1 )); 
   
     document.getElementById('interpretation-player-options')!.appendChild(languagesOptions);
 
@@ -366,11 +366,6 @@ export default class InterpretationPlayer extends RSIBase {
    return stylesStr
   }
 
-  // Api to get the flags icons: https://www.countryflags.io/ 
-  getFlagUrl(code:string){
-    const iso  = code.slice(-2);
-    return `https://www.countryflags.io/${iso}/flat/64.png` 
-  }
 
   // Language Channels Methods:
 

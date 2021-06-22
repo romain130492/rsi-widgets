@@ -2,6 +2,7 @@
   "name": "@akkadu/rsi-react-example",
   "version": "0.1.17",
   "dependencies": {
+    "@akkadu/logger": "^2.1.0",
     "@akkadu/rsi-react": "^1.3.21",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
