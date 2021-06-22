@@ -2,6 +2,7 @@
   "name": "@akkadu/rsi-widget",
   "version": "0.0.3",
   "description": "RSI SDK widget for Akkadu RSI",
+  "private": true,
   "main": "index.js",
   "workspaces": [
     "packages/*"
@@ -10,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "lerna run install",
     "build": "lerna run build",
-    "update-version-rsi-vanilla":"node packages/rsi-vanilla/update-version.js",
+    "update-version-rsi-vanilla": "node packages/rsi-vanilla/update-version.js",
     "pre-release": "lerna version patch && lerna run build && lerna run install",
     "release": "git fetch --tags && lerna run build && lerna version && lerna publish from-package && yarn update-version-rsi-vanilla"
   },
@@ -24,7 +25,7 @@
     "webpack": "4.44.2"
   },
   "dependencies": {
-    "@akkadu/rsi-api-interpretation-player": "^0.2.0",
+    "@akkadu/rsi-interpretation-player": "^0.3.13",
     "dotenv": "^10.0.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-builtins": "^2.1.2",

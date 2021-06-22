@@ -44,18 +44,6 @@
   dependencies:
     "@akkadu/timer" "^2.1.0"
 
-"@akkadu/rsi-api-base@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@akkadu/rsi-api-base/-/rsi-api-base-0.1.0.tgz#38d5778722d614ab127d12e1d1cf3a0389b8795b"
-  integrity sha512-aQ0QfZ2iiMrCXWB4AnFRnK/WyKaLMmcPahRbZZ3vnXJ7vzBhF2ejkszQ1ckhWHDS3HBov0D6hXSMNwQtkDWOCQ==
-
-"@akkadu/rsi-api-interpretation-player@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@akkadu/rsi-api-interpretation-player/-/rsi-api-interpretation-player-0.2.0.tgz#90c4e1bff78f198b729e561ea3903bbceb3f55e9"
-  integrity sha512-HfbROH1rX6Ubx9SxyyORczUIzj1lwdlHa23U0md81YRA+Sm7kmKfg/f6xVMlV2auO1sVpzdP5asRK4FKcIZulA==
-  dependencies:
-    "@akkadu/rsi-api-base" "^0.1.0"
-
 "@akkadu/rtc-errors@^2.5.3":
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@akkadu/rtc-errors/-/rtc-errors-2.5.3.tgz#0c873da2aca42bbcc4a1fcf2d6346f44f5e0bc72"
