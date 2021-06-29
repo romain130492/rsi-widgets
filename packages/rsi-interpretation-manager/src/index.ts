@@ -319,6 +319,13 @@ export default class InterpretationManager extends RSIBase {
     const feedback : any = document.querySelector('#int-manager-feedback');
     feedback.innerHTML = msg;
   }
+
+  validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+
+
   handleValidation(){
     const buttonValidation : any = document.querySelector('#int-manager-validate');
     const payload = { 
@@ -342,10 +349,17 @@ export default class InterpretationManager extends RSIBase {
         this.createEvent(payload)
       }
       else if(this.interpreterRadio === 'own-interpreter'){
-        if(Object.keys(this.ownInterpreterEmail).length === 0){
-          this.updateFeedback("Please add at least one interpreter email for your event.")
+        if(Object.keys(this.ownInterpreterEmail).length !== (this.interpretationLanguages.length * 2) ){
+          this.updateFeedback("Please add at least 2 interpreter email by language.")
           return 
         }
+         for (const key in this.ownInterpreterEmail) {
+          const isEmailValid = this.validateEmail(this.ownInterpreterEmail[key]);
+          if(!isEmailValid){
+            this.updateFeedback(`The email "${this.ownInterpreterEmail[key]}" is not a valid email address.`)
+            return
+           }
+         }
         console.info('validate own-interpreter');
         payload.interpretaterEmail = this.ownInterpreterEmail;
         this.createEvent(payload)

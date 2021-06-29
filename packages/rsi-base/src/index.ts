@@ -51,7 +51,8 @@ export default class Base {
    */
     createEvent(payload:any ){
       const { eventLanguage,interpretaterEmail,interpretationLanguages } = payload;
-
+      const eventCreated = { roomName:'abcd'}
+      this.emitter.emit('interpretation-manager:on-create-event',  eventCreated );
     }
     on(event:any,fn:any) {
       this.emitter.on(event,fn)

@@ -21,7 +21,6 @@ export default Vue.extend({
       console.info('handleOnCreateEvent event:',e);
     }
 
-
   },
   mounted() {
     const params = new URLSearchParams(window.location.search)
@@ -36,7 +35,6 @@ export default Vue.extend({
 <template>
 <!-- This file is for test purpose on dev -->
   <div id="app">
- To add it back later 
     <video autoplay loop="" controls="" width="640" height="480">
       <source autoplay type="video/mp4" src="https://assets.akkadu.com/akkadu-rsi-api-widget/musk-short.mp4">
     </video>
@@ -63,6 +61,6 @@ export default Vue.extend({
 
 <style scoped>
 #app{
-  padding-bottom: 180px;
+  padding-bottom: 180px; 
 }
 </style>

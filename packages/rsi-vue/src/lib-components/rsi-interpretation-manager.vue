@@ -34,9 +34,9 @@
        * @description Additionnal information about theses events in : /interpretation-manager/events.html
        */
       initListeners(){
-        this.manager.on('interpretation-manager:on-create-event', ({ event }) => {
-          console.info('emit interpretation-manager:on-create-event', event);
-          this.$emit("onCreateEvent", { event });
+        this.manager.on('interpretation-manager:on-create-event', ({ roomName }) => {
+          console.info('emit interpretation-manager:on-create-event', roomName);
+          this.$emit("onCreateEvent", { roomName });
         })
       }
     },
