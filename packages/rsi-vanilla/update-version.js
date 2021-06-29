@@ -41,7 +41,7 @@ if(tmpVersionFile && tmpVersionFile.tmpVersion){
   const newTmpVersion =  { tmpVersion: currentVersion }
   const toJSON  = JSON.stringify(newTmpVersion, null, "\t")
   fs.writeFile(`./packages/rsi-vanilla/tmp-version.json`, toJSON, function(err, result) {
-    if(err) console.log('error', err);
+    if(err) console.error('error', err);
    });
 }
 
@@ -53,7 +53,7 @@ if(tmpVersionFile && tmpVersionFile.tmpVersion){
     const newVersion = `- Version ${currentVersion}: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/${currentVersion}/index.min.js`
     const newDoc = `${doc} \n ${newVersion}`
     fs.writeFile(`./rsi-documentation/docs/vanilla-js/versions.md`, newDoc, function(err, result) {
-      if(err) console.log('error when updating the doc with the new version', err);
+      if(err) console.error('error when updating the doc with the new version', err);
      });
   });
 }
@@ -62,7 +62,7 @@ if(tmpVersionFile && tmpVersionFile.tmpVersion){
 console.info('🚧🚧🚧');
 console.info('Updating the version on our bucket akkadu-rsi-widget/rsi-vanilla/, it will take a few minutes ...');
 console.info('🚧🚧🚧');
-console.log('currentVersion',currentVersion);
+console.info('currentVersion',currentVersion);
 
 AWS.config.update({ accessKeyId: process.env.AWS_ACCESS_KEY, secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, });
   fs.readFile(filePath, function (err, data) {
@@ -75,7 +75,7 @@ AWS.config.update({ accessKeyId: process.env.AWS_ACCESS_KEY, secretAccessKey: pr
       Body: base64data,
       ACL: 'public-read'
     },function (resp) {
-      console.log(`Successfully uploaded the new version of rsi-widget on AWS, version: ${currentVersion}.`);
+      console.info(`Successfully uploaded the new version of rsi-widget on AWS, version: ${currentVersion}.`);
       writeTmpVersion();
       concatMarkdownDoc()
     });

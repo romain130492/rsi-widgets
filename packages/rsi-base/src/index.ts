@@ -45,6 +45,14 @@ export default class Base {
       return `https://www.countryflags.io/${iso}/flat/64.png` 
     }
 
+  /**
+   * @description It calls our lambda : /create-event
+   * and create an event on the interpretation-manager
+   */
+    createEvent(payload:any ){
+      const { eventLanguage,interpretaterEmail,interpretationLanguages } = payload;
+
+    }
     on(event:any,fn:any) {
       this.emitter.on(event,fn)
     }

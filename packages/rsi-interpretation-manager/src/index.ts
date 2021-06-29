@@ -1,12 +1,5 @@
-
-
-
-
-
 import RSIBase from '@akkadu/rsi-base'
 import {  languagesList } from './languages'
-/* import Logger from '@akkadu/logger' */
-
 export default class InterpretationManager extends RSIBase {
   apiKey: string; 
   $logger: any;
@@ -18,6 +11,8 @@ export default class InterpretationManager extends RSIBase {
   isSelectorInterpretationLanguage:boolean;
   isAddLanguageButtonOn : boolean;
   interpretationLanguages : Array<any>;
+  ownInterpreterEmail : any;
+  interpreterRadio: string;
   constructor( apiKey:string ) {
     super()
     this.apiKey = apiKey;
@@ -27,6 +22,8 @@ export default class InterpretationManager extends RSIBase {
     this.languageSelectorInterpretation = null;
     this.isAddLanguageButtonOn = true;
     this.interpretationLanguages = [];
+    this.ownInterpreterEmail = {};
+    this.interpreterRadio = "need-interpreter";
     if(!document){ 
       throw Error('InterpretationManager: document is undefined.');
     }
@@ -35,7 +32,7 @@ export default class InterpretationManager extends RSIBase {
     }
     this.domContainer = document.querySelector(`#${this.container}`)
     if (!this.domContainer) {
-      throw new Error(`Unable to detect container: ${this.container} on the DOM, please add <div id="akkadu-interpretation-manager"/>, 
+      throw Error(`Unable to detect container: ${this.container} on the DOM, please add <div id="akkadu-interpretation-manager"/>, 
       see the doc : https://rsi-docs.akkadu.com/getting-started/react.html#registering-the-interpretation-manager`)
     }
   }
@@ -84,10 +81,15 @@ export default class InterpretationManager extends RSIBase {
     this.buttonAddLanguage = interpretationWrapper.getElementsByTagName('button')[0];
     this.languageSelectorInterpretation = document.querySelector('#int-manager-interpretation-language-selector');
     this.buttonAddLanguage.addEventListener("click", (e:any) => {
+      this.updateFeedback('')
       this.isAddLanguageButtonOn =! this.isAddLanguageButtonOn
       this.switchBetweenButtonAndSelector(this.isAddLanguageButtonOn)
     })
   }
+  /**
+   * @description When the user select a language, we add that language to the "interpretationLanguages" array
+   * We also create a language label.
+   */
   addLanguageToInterpretation(language:any){
     const generateLanguageLabel  = (language:any) => {
       const label = document.createElement('div');
@@ -111,11 +113,14 @@ export default class InterpretationManager extends RSIBase {
     if(!this.interpretationLanguages.includes(language)){
       this.interpretationLanguages.push(language);
       const label = generateLanguageLabel(language);
-      const rowLanguage = document.querySelector(`#int-manager-row-language`);
+      const rowLanguage: any = document.querySelector(`#int-manager-row-language`);
       rowLanguage.appendChild(label) 
     }
   }
 
+  /**
+   * @description On click, the user can delete a language label
+   */
   deleteLanguageLabel(language:any){
     try {
       this.interpretationLanguages = this.interpretationLanguages.filter(function(language){
@@ -228,6 +233,7 @@ export default class InterpretationManager extends RSIBase {
     // Listeners Languages Selector
       // Toggle select on label click
     selectorHeader.addEventListener("click", (e:any) => {
+      this.updateFeedback('')
       elSelectCustom.classList.toggle("isActive");
     });
     // Close the language selector when clicking outside.
@@ -237,18 +243,127 @@ export default class InterpretationManager extends RSIBase {
         closeSelector(elSelectCustom)
       }
     });
-
-    // Listeners Languages Options
+  }
+  /**
+   * @description Fire when the user input an email in the email-box
+   * It updated the array ownInterpreterEmail
+   */
+  const updateInterpretersEmail = (e) => {
+    this.updateFeedback('')
+    const value = e.target.value;
+    const id = e.target.id;
+    this.ownInterpreterEmail[id] = value;
 
   }
 
   /**
-   * @description Add the interpretation Manager to the dom on the ID #akkadu-interpretation-manager
+   * @description Handle the section "Add an interpreter"
+   */
+  handleAddInterpreter(){
+    this.addNewEmailBox() // we add one email-box on init
+    const buttonAddInterpreter: any = document!.querySelector(`#int-add-interpreter`);
+    buttonAddInterpreter.addEventListener("click", (e:any) => {
+      this.updateFeedback('')
+      this.addNewEmailBox()
+    });
+  }
+
+  /**
+   * @description Add a new email box in the div #int-wrapper-email-box
+   */
+  addNewEmailBox(){
+    const id = Object.keys(this.ownInterpreterEmail).length +1;
+    const emailDiv = document.createElement('div');
+    emailDiv.id = `int-manager-email-div-${id}`
+    const emailInput = document.createElement('input');
+    emailInput.placeholder = "interpreter@gmail.com";
+    emailInput.className = "email-box";
+    emailInput.id = id;
+    emailInput.addEventListener('input', this.updateInterpretersEmail )
+    const closeButton = document.createElement('span');
+    closeButton.textContent = 'x'
+    closeButton.className = 'delete-button'
+    closeButton.id = id;
+    closeButton.addEventListener('click', (e:any) => {
+      let node:any = document.getElementById(`int-manager-email-div-${id}`);
+      node.parentNode.removeChild(node);
+    } )
+    emailDiv.append(emailInput)
+    emailDiv.append(closeButton)
+    document.querySelector('#int-wrapper-email-box')?.appendChild(emailDiv)
+  }
+
+  switchManageInterpreterPopUp(){
+    console.info('switch ManageInterpreter Pop Up');
+  }
+
+  
+  handleManageInterpreter(){
+    // manage-interpreter
+    const manageInterpreterButton : any = document.querySelector('#manage-interpreter');
+    manageInterpreterButton.addEventListener('click', this.switchManageInterpreterPopUp )
+
+    document.querySelectorAll("input[name='int-interpreter-radio']").forEach((input) => {
+      input.addEventListener("change", (e:any) => { 
+        this.updateFeedback('')
+        this.interpreterRadio = e.target.id;
+        console.info('interpreterRadio:', e.target.id );
+      });
+  });
+  }
+
+  /**
+   * @description Update the feedback <p>  #int-manager-feedback
+   */
+  updateFeedback(msg:string){
+    const feedback : any = document.querySelector('#int-manager-feedback');
+    feedback.innerHTML = msg;
+  }
+  handleValidation(){
+    const buttonValidation : any = document.querySelector('#int-manager-validate');
+    const payload = { 
+      eventLanguage:this.eventLanguage, 
+      interpretationLanguages:this.interpretationLanguages,
+      interpreterEmail:null 
+    }
+
+    buttonValidation.addEventListener("click", (e:any) => { 
+      this.updateFeedback('')
+      if(!this.eventLanguage){
+        this.updateFeedback("Please choose an event language")
+        return 
+      }
+      if(this.interpretationLanguages.length < 1){
+        this.updateFeedback("Please choose at least 2 languages for this event.")
+        return 
+      }
+      if(this.interpreterRadio === 'need-interpreter'){
+        console.info('validate need-interpreter');
+        this.createEvent(payload)
+      }
+      else if(this.interpreterRadio === 'own-interpreter'){
+        if(Object.keys(this.ownInterpreterEmail).length === 0){
+          this.updateFeedback("Please add at least one interpreter email for your event.")
+          return 
+        }
+        console.info('validate own-interpreter');
+        payload.interpretaterEmail = this.ownInterpreterEmail;
+        this.createEvent(payload)
+      }
+    })
+    
+  }
+
+  /**
+   * @description Add the interpretation Manager to the dom on the under the ID: #akkadu-interpretation-manager
    */
   addInterpretationManager(){
     this.setUpBaseInterpretationManager()
     this.handleEventLanguagesSection()
     this.handleInterpretationLanguagesSection()
+    this.handleAddInterpreter()
+    this.handleManageInterpreter()
+    this.handleValidation()
   }
 }
 

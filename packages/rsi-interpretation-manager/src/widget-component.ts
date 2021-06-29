@@ -20,7 +20,23 @@ const component = {
           </div>
       </div>
       <div class="int-manager-column">
-      <h2> Manage Interpreters </h2>
+        <h2> Manage Interpreters </h2>
+        <form name="int-form-radio">
+          <div class="wrapper-radio">
+            <input type="radio" id="need-interpreter" name="int-interpreter-radio" class="radio" value="CSS" checked="checked">
+            <label for="need-interpreter"> I don't have interpreters. Help me book some </label>
+          </div>
+            <p class="extra-small"> <span class="green"> Interpreters booked and ready ! </span> <span class="blue" id="manage-interpreter"> <u> Manage</u> </span> </p> 
+          <div class="wrapper-radio">
+            <input type="radio" id="own-interpreter" name="int-interpreter-radio" class="radio" value="CSS">
+            <label for="own-interpreter"> I have my own interpreters</label>
+          </div>
+        </form>
+        <div id="int-wrapper-email-box">
+        </div>
+        <p class="extra-small blue" id="int-add-interpreter"> <u > Add Interpreter</u> </p>
+         <div class="button-done"> <button id="int-manager-validate"> Done </button>  </div>
+         <p class="extra-small" id="int-manager-feedback"> </p>
       </div>
     </div>
   </body>
@@ -76,7 +92,7 @@ const component = {
   .int-manager-column{
     flex: 1 0 50%;
     white-space: nowrap;
-    padding: 0rem 2rem;
+    /* padding: 0rem 2rem; */
   }
   .int-manager-column:nth-child(1){
     border-right:1px solid #D8E0E8;
@@ -113,6 +129,8 @@ const component = {
 
   .int-manager-row{
     display:flex;
+    padding: 1rem 2rem;
+    column-gap: 2rem; 
   }
   #int-manager-options{
     max-height: 175px;
@@ -220,7 +238,6 @@ const component = {
       background: white;
       border-radius: 5px;
       margin:0rem 1rem 1rem 0rem;
-      
     }
     .js-selectCustom-interpretation-language{
       margin-right:2rem;
@@ -231,7 +248,55 @@ const component = {
       cursor:pointer;
       color:#949494;
     }
-    
+    .wrapper-radio{
+      display:flex;
+    }
+    #wrapper-int-manager p, #wrapper-int-manager input{
+      margin-bottom: 1rem ;
+    }
+    #wrapper-int-manager .email-box, #wrapper-int-manager .extra-small{
+      margin-left:2rem;
+    }
+    .email-box{
+      margin-left:1.5 rem;
+    }
+    #wrapper-int-manager .radio{
+      margin-right:0.5rem;
+    }
+    .extra-small{
+      font-size: 13px;
+    }
+    #wrapper-int-manager  .blue{
+      color:#2D72FE;
+    }
+    #wrapper-int-manager  .green{
+      color:#51b581;
+    }
+    #wrapper-int-manager .email-box {
+      padding: 5px 5px;
+      border-radius: 5px;
+      border: 1px solid;
+      border-color: #c8c8c8;
+      width: 200px;
+    }
+    #wrapper-int-manager u {
+      cursor:pointer;
+    }
+    .button-done{
+      text-align:right;
+    }
+    .button-done button{
+      width: 100px;
+    }
+    #wrapper-int-manager .delete-button{
+      cursor:pointer;
+      padding-left:1rem;
+      color: #b8b8b8;
+    }
+    #wrapper-int-manager #int-manager-feedback{
+      padding-top:1rem;
+      color:#f28282;
+    }
   `
 }
 
