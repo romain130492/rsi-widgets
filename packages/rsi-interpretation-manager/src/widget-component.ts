@@ -70,6 +70,10 @@ const component = {
     padding:0rem 0rem 1rem 0rem;
   }
 
+  label{
+    font-size:13px;
+    color:black;
+  }
   #wrapper-int-manager h3{
     font-size: 16px;
     color: #2C3D4F;

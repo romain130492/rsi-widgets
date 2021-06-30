@@ -37,6 +37,7 @@ export default class InterpretationManager extends RSIBase {
     }
   }
   async init(){
+    console.log('i000');
     this.addInterpretationManager()
   }
 
@@ -248,7 +249,7 @@ export default class InterpretationManager extends RSIBase {
    * @description Fire when the user input an email in the email-box
    * It updated the array ownInterpreterEmail
    */
-  const updateInterpretersEmail = (e) => {
+  updateInterpretersEmail = (e:any) => {
     this.updateFeedback('')
     const value = e.target.value;
     const id = e.target.id;
@@ -275,12 +276,12 @@ export default class InterpretationManager extends RSIBase {
     const id = Object.keys(this.ownInterpreterEmail).length +1;
     const emailDiv = document.createElement('div');
     emailDiv.id = `int-manager-email-div-${id}`
-    const emailInput = document.createElement('input');
+    const emailInput :any = document.createElement('input');
     emailInput.placeholder = "interpreter@gmail.com";
     emailInput.className = "email-box";
     emailInput.id = id;
     emailInput.addEventListener('input', this.updateInterpretersEmail )
-    const closeButton = document.createElement('span');
+    const closeButton :any = document.createElement('span');
     closeButton.textContent = 'x'
     closeButton.className = 'delete-button'
     closeButton.id = id;
@@ -320,7 +321,7 @@ export default class InterpretationManager extends RSIBase {
     feedback.innerHTML = msg;
   }
 
-  validateEmail(email) {
+  validateEmail(email:string) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
@@ -328,10 +329,10 @@ export default class InterpretationManager extends RSIBase {
 
   handleValidation(){
     const buttonValidation : any = document.querySelector('#int-manager-validate');
-    const payload = { 
+    const payload : any = { 
       eventLanguage:this.eventLanguage, 
       interpretationLanguages:this.interpretationLanguages,
-      interpreterEmail:null 
+      interpreterEmail: null 
     }
 
     buttonValidation.addEventListener("click", (e:any) => { 
@@ -361,7 +362,7 @@ export default class InterpretationManager extends RSIBase {
            }
          }
         console.info('validate own-interpreter');
-        payload.interpretaterEmail = this.ownInterpreterEmail;
+        payload.interpreterEmail = this.ownInterpreterEmail;
         this.createEvent(payload)
       }
     })

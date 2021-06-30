@@ -20,9 +20,6 @@ export default {
       console.info('handleOnCreateEvent event:',e);
     }
   },
-  mounted() {
-    console.log(RsiInterpretationManager,'RsiInterpretationManager')
-  },
 }
 </script>
 
