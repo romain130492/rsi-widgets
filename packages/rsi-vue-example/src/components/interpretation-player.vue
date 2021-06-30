@@ -36,6 +36,11 @@ export default {
       console.info('handleOnConnectionStatusUpdated event:',e);
     }
   },
+  mounted() {
+          console.log(this.$route,'the route here222')
+                    console.log(this.$route.query,'the route here222')
+    console.log(RsiApiInterpretationPlayer,'RsiApiInterpretationPlayer')
+  },
 }
 </script>
 

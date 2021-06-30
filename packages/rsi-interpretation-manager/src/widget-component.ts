@@ -4,22 +4,22 @@ const component = {
   html:`
   <body>
     <div id="wrapper-int-manager">
-     <h1 class="title">Interpretation </h1>
+     <h1 class="title tx-left ">Interpretation </h1>
       <div class="int-manager-row">
-        <div class="int-manager-column">
+        <div class="int-manager-column tx-left">
           <div class="int-manager-event-languages">
             <h3>Event Languages </h3> 
             <div id="int-manager-event-language-selector"> </div>
           </div>
           <div id="int-manager-interpretation-wrapper">  
-            <h2>Interpretation Languages: </h2> 
+            <h2 class="tx-left">Interpretation Languages: </h2> 
             <div id="int-manager-row-language">
               <div id="int-manager-interpretation-language-selector" class="undisplay"> </div>
               <button id="int-manager-add-language" class="button-add-language">Add Language + </button>
             </div>
           </div>
       </div>
-      <div class="int-manager-column">
+      <div class="int-manager-column tx-left">
         <h2> Manage Interpreters </h2>
         <form name="int-form-radio">
           <div class="wrapper-radio">
@@ -137,7 +137,9 @@ const component = {
     overflow-y: scroll;
   }
 
-  
+  .tx-left{
+    text-align:left !important;
+  }
   #wrapper-int-manager .select {
       position: relative;
     }
