@@ -56,7 +56,6 @@ const getRoomName = () => {
  * @returns {Object} { sdkKey:string, positionMenu:string, isBoxShadow:string, isPlayerControlled:string, roomName:string  }
  */
 const getConfig = () =>{
-  console.log(component.dataset,'component.dataset');
   let {
      sdkKey:apiKey,
      positionMenu, 

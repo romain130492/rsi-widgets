@@ -22,7 +22,6 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
    getRoomname(){
       const params = new URLSearchParams(window.location.search)
       const roomname =  this.state.roomName ? this.state.roomName : params.get('rsi-roomname');
-      console.log(roomname,'the roomanem ehre');
       if(!roomname){
        console.error('No rsi-roomname define on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-docs.akkadu.com/interpretation-player/roomname.html');
       }
