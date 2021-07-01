@@ -2,6 +2,7 @@
 
 * We made a simple version of our `interpretation-player` that doesn't require you to listen to our events.
 * In this version we will control your `video-player` for you.
+* We have Quick Implementations for <a href="https://rsi-docs.akkadu.com/getting-started/vue.html#%F0%9F%9A%80-quick-implementation">Vue</a>, <a href="https://rsi-docs.akkadu.com/getting-started/react.html#%F0%9F%9A%80-quick-implementation">React</a> and <a href="https://rsi-docs.akkadu.com/getting-started/vanilla-js.html#%F0%9F%9A%80-quick-implementation">Vanilla Javascript</a>. Below is an example of the `Vanilla Javascript` quick implementation:
 
 
 ```html
