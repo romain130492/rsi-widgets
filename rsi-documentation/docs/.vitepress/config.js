@@ -14,7 +14,7 @@ module.exports = {
     nav: [
       { text: 'Getting Started', link: '/', activeMatch: '^/$|^/getting-started/' },
       {
-        text: '🏡 Homepage',
+        text: '🏠 Homepage',
         link: 'https://rsi.akkadu.com/'
       },
       { text: '✉️ Contact', link: 'mailto:contact@akkadu-team.com'},
@@ -39,6 +39,11 @@ function getSetupSidebar() {
         { text: '🔹 React', link: '/getting-started/react' },
         { text: '🔹 Vue', link: '/getting-started/vue' },
         { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js' },
+        { text: 'Versions',
+               children: [
+                 { text: 'Vanilla Javascript', link: '/vanilla-js/versions' },
+                 ]             
+             },
       ]
     },
     {
@@ -57,7 +62,7 @@ function getSetupSidebar() {
         { text: 'Events', link: '/interpretation-player/events' },
         { text: 'Room Name', link: '/interpretation-player/roomname' },
         { text: 'Refresh Button', link: '/interpretation-player/refresh' },
-        { text: 'Demo', link: '/interpretation-player/demo' },
+        { text: '🔥 Demo', link: '/interpretation-player/demo' },
         { text: 'Error Messages', link: '/interpretation-player/errors' }
       ]
     },
