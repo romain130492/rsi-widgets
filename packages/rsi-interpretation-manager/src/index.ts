@@ -1,5 +1,6 @@
 import RSIBase from '@akkadu/rsi-base'
 import {  languagesList } from './languages'
+
 export default class InterpretationManager extends RSIBase {
   apiKey: string; 
   $logger: any;
@@ -37,7 +38,7 @@ export default class InterpretationManager extends RSIBase {
     }
   }
   async init(){
-    console.log('i000');
+    console.log('i00011');
     this.addInterpretationManager()
   }
 
@@ -60,9 +61,10 @@ export default class InterpretationManager extends RSIBase {
     const widget = require('../lib/widget-component.js').default 
     this.domContainer.insertAdjacentHTML( 'beforeend', widget.html); 
     // Add Styles to the DOM
-    var style = document.createElement('style');
+    let style = document.createElement('style');
+    //style.setAttribute('scoped', 'true');
     style.textContent =  widget.css;
-    document.head.appendChild(style);
+    document.getElementById(this.container).appendChild(style); 
   }
 
   /**
@@ -153,7 +155,7 @@ export default class InterpretationManager extends RSIBase {
 
   addToDomLanguageSelectorBase(divIdTarget:string, id:string){
   const divElement = `<div class="select">
-                        <div class="selectWrapper">
+                        <div class="select-wrapper">
                           <div  class="selectCustom js-selectCustom js-selectCustom-${id}" >
                             <div id="int-manager-custom-value" class="selectCustom-trigger int-manager-custom-value-${id}">  <img src=''/> <h3></h3> </div>
                             <div id="int-manager-options" class="selectCustom-options int-manager-options-${id}"/>

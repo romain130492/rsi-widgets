@@ -42,7 +42,136 @@ const component = {
   </body>
   `,
   css:`
-
+  /* Css Base */
+  h1, h2, h3{
+    color: black;
+    margin:0px;
+    padding:1rem 0rem;
+  }
+  label{
+    color: black;
+    margin:0px;
+    font-size: 13px;
+  }
+  p{
+    color: black;
+    margin:0px;
+  }
+  h1{
+    font-size:24px;
+  }
+  
+  h2{
+    font-size: 19px;
+  }
+  button{
+    padding: 0.8rem 1rem;
+    color: white;
+    background:#58C283;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover{
+    background: #56b77d;
+  }
+  .extra-small{
+    font-size: 13px;
+  }
+  .blue{
+    color:#2D72FE;
+  }
+  .green{
+    color:#51b581;
+  }
+  img{
+    margin:0px;
+    padding:0px;
+    max-width: 20px;
+    margin-right:10px;
+  }
+  .undisplay{
+    display:none;
+  }
+  .select {
+    position: relative;
+  }
+  .selectLabel {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .select-wrapper {
+    position: relative;
+  }
+  .selectCustom {
+    position: relative;
+    height: 100%;
+  }
+  .selectCustom-trigger {
+    display: flex;
+    position: relative;
+    min-width: 150px;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+  }
+  .selectCustom-trigger::after {
+    content: "▾";
+    color:#908f8f;
+    position: absolute;
+    top: 7px;
+    line-height: 20px;
+    right: 10px;
+  }
+  .selectCustom-trigger:hover {
+    box-shadow: 0 0 4px #e9e1f8;
+  }
+  .selectCustom-options {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 4px #e9e1f8;
+    z-index: 1;
+    padding:0px;
+    display: none;
+    cursor: pointer;
+    box-shadow: 3px 6px 7px 4px #e3e3e3;
+  }
+  
+  .selectCustom.isActive .selectCustom-options {
+    display: block;
+    min-width: 260px;
+  }
+  .selectCustom-option {
+    position: relative;
+    padding: 10px 15px;
+    display: flex;
+  }
+  .selectCustom-option:hover {
+    background-color: #F2F2F2;
+  }
+  .selectCustom-option:not(:last-of-type)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 95%;
+    border-bottom: 1px solid #e0e7ef;
+  }
+  .tx-left{
+    text-align:left !important;
+  }
+  
+  /* Interpretation-manager */
   #wrapper-int-manager{
     box-shadow: 3px 6px 7px 4px #e3e3e3;
     background-color: #F7FAFD;
@@ -52,74 +181,37 @@ const component = {
     margin: auto;
     border-radius: 10px;
   }
-  #wrapper-int-manager h1,
-  #wrapper-int-manager h2, 
-  #wrapper-int-manager h3, 
-  #wrapper-int-manager p{
-    color: black;
-    margin:0px;
-    padding:0px;
-  }
-  #wrapper-int-manager h1{
-    font-size:24px;
-    padding:1rem 0rem;
   
-  }
-  #wrapper-int-manager h2{
-    font-size: 19px;
+  h2{
     padding:0rem 0rem 1rem 0rem;
   }
-
-  label{
-    font-size:13px;
-    color:black;
-  }
-  #wrapper-int-manager h3{
+  
+  h3{
     font-size: 16px;
     color: #2C3D4F;
     padding:0rem 0rem;
+    font-weight: 400;
   }
-  #wrapper-int-manager button{
-    padding: 0.8rem 1rem;
-    color: white;
-  }
-  #wrapper-int-manager .button-add-language{
+  
+  .button-add-language{
     background: #2D72FE;
     margin:0rem 1rem 1rem 0rem;
   }
-  #wrapper-int-manager p{
   
-  }
-  #wrapper-int-manager .title{
+  .title{
     padding: 1rem 1rem 1.5rem 2rem;
   }
+  
   .int-manager-column{
     flex: 1 0 50%;
     white-space: nowrap;
-    /* padding: 0rem 2rem; */
   }
   .int-manager-column:nth-child(1){
     border-right:1px solid #D8E0E8;
   }
-
-  #wrapper-int-manager img{
-      margin:0px;
-      padding:0px;
-      max-width: 20px;
-      margin-right:10px;
-  }
-  #wrapper-int-manager button{
-      background:#58C283;
-      border-radius: 20px;
-      border: none;
-      cursor: pointer;
-  }
-  #wrapper-int-manager button:hover{
-    background: #56b77d;
-  }
-  #wrapper-int-manager button h3{
-      padding: 0px 20px;
-      color:white;
+  button h3{
+    padding: 0px 20px;
+    color:white;
   }
   .int-manager-event-languages{
     display: table;
@@ -130,7 +222,6 @@ const component = {
     vertical-align: middle;
     padding-right: 2rem !important;
   }
-
   .int-manager-row{
     display:flex;
     padding: 1rem 2rem;
@@ -140,169 +231,74 @@ const component = {
     max-height: 175px;
     overflow-y: scroll;
   }
-
-  .tx-left{
-    text-align:left !important;
-  }
-  #wrapper-int-manager .select {
-      position: relative;
-    }
-    #wrapper-int-manager .selectLabel {
-      display: block;
-      margin-bottom: 10px;
-    }
-    #wrapper-int-manager .selectWrapper {
-      position: relative;
-    }
-    #wrapper-int-manager  .selectCustom {
-      position: relative;
-      height: 100%;
-    }
-    #wrapper-int-manager .selectCustom-trigger {
-      display: flex;
-      position: relative;
-      min-width: 150px;
-      background-color: white;
-      border: 1px solid #dbdbdb;
-      border-radius: 5px;
-      cursor: pointer;
-      padding: 10px 15px;
-      width: 100%;
-      height: 100%;
-    }
-    #wrapper-int-manager  h3, #wrapper-int-manager .selectCustom-trigger{
-      font-weight: 400;
-    }
-    #wrapper-int-manager .selectCustom-trigger::after {
-      content: "▾";
-      color:#908f8f;
-      position: absolute;
-      top: 7px;
-      line-height: 20px;
-      right: 10px;
-    }
-    
-    #wrapper-int-manager .selectCustom-trigger:hover {
-      box-shadow: 0 0 4px #e9e1f8;
-    }
-    #wrapper-int-manager .selectCustom-options {
-      position: absolute;
-      top: 45px;
-      left: 0;
-      width: 100%;
-      border: 1px solid #dbdbdb;
-      border-radius: 5px;
-      background-color: #fff;
-      box-shadow: 0 0 4px #e9e1f8;
-      z-index: 1;
-      padding:0px;
-      display: none;
-      cursor: pointer;
-      box-shadow: 3px 6px 7px 4px #e3e3e3;
-    }
-    
-    #wrapper-int-manager .selectCustom.isActive .selectCustom-options {
-      display: block;
-      min-width: 260px;
-    }
-    
-    #wrapper-int-manager .selectCustom-option {
-      position: relative;
-      padding: 10px 15px;
-      display: flex;
-    }
-    
-    #wrapper-int-manager  .selectCustom-option:hover {
-      background-color: #F2F2F2;
-    }
-    
-    #wrapper-int-manager  .selectCustom-option:not(:last-of-type)::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 5px;
-      width: 95%;
-      border-bottom: 1px solid #e0e7ef;
-    }
-    
   
-    #wrapper-int-manager .selectWrapper{ 
-      display: flex;
-    }
-    #int-manager-interpretation-wrapper .undisplay{
-      display:none;
-    }
-    #int-manager-row-language{
-      display: flex;
-      flex-wrap: wrap;
-    }
-    #int-manager-row-language .int-manager-label-language{
-      position: relative;
-      padding: 10px 15px;
-      display: flex;
-      box-shadow: 2px 4px 9px 1px #e3e3e3;
-      background: white;
-      border-radius: 5px;
-      margin:0rem 1rem 1rem 0rem;
-    }
-    .js-selectCustom-interpretation-language{
-      margin-right:2rem;
-      min-width: 100px !important;
-    }
-    #int-manager-row-language .cross{
-      padding-left:0.5rem;
-      cursor:pointer;
-      color:#949494;
-    }
-    .wrapper-radio{
-      display:flex;
-    }
-    #wrapper-int-manager p, #wrapper-int-manager input{
-      margin-bottom: 1rem ;
-    }
-    #wrapper-int-manager .email-box, #wrapper-int-manager .extra-small{
-      margin-left:2rem;
-    }
-    .email-box{
-      margin-left:1.5 rem;
-    }
-    #wrapper-int-manager .radio{
-      margin-right:0.5rem;
-    }
-    .extra-small{
-      font-size: 13px;
-    }
-    #wrapper-int-manager  .blue{
-      color:#2D72FE;
-    }
-    #wrapper-int-manager  .green{
-      color:#51b581;
-    }
-    #wrapper-int-manager .email-box {
-      padding: 5px 5px;
-      border-radius: 5px;
-      border: 1px solid;
-      border-color: #c8c8c8;
-      width: 200px;
-    }
-    #wrapper-int-manager u {
-      cursor:pointer;
-    }
-    .button-done{
-      text-align:right;
-    }
-    .button-done button{
-      width: 100px;
-    }
-    #wrapper-int-manager .delete-button{
-      cursor:pointer;
-      padding-left:1rem;
-      color: #b8b8b8;
-    }
-    #wrapper-int-manager #int-manager-feedback{
-      padding-top:1rem;
-      color:#f28282;
-    }
+  .select-wrapper{ 
+    display: flex;
+  }
+  #int-manager-row-language{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #int-manager-row-language .int-manager-label-language{
+    position: relative;
+    padding: 10px 15px;
+    display: flex;
+    box-shadow: 2px 4px 9px 1px #e3e3e3;
+    background: white;
+    border-radius: 5px;
+    margin:0rem 1rem 1rem 0rem;
+  }
+  .js-selectCustom-interpretation-language{
+    margin-right:2rem;
+    min-width: 100px !important;
+  }
+  .cross{
+    padding-left:0.5rem;
+    cursor:pointer;
+    color:#949494;
+  }
+  .wrapper-radio{
+    display:flex;
+  }
+  
+   p, input{
+    margin-bottom: 1rem ;
+  }
+  .email-box, .extra-small{
+    margin-left:2rem;
+  }
+  
+  .radio{
+    margin-right:0.5rem;
+  }
+  
+  .email-box {
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #c8c8c8;
+    width: 200px;
+  }
+  u {
+    cursor:pointer;
+  }
+  
+  .button-done{
+    text-align:right;
+  }
+  .button-done button{
+    width: 100px;
+  }
+  .delete-button{
+    cursor:pointer;
+    padding-left:1rem;
+    color: #b8b8b8;
+  }
+  
+  #int-manager-feedback{
+    padding-top:1rem;
+    color:#f28282;
+  }
   `
 }
 

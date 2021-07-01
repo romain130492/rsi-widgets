@@ -14,4 +14,5 @@
  - Version 1.0.6: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.6/index.min.js 
 
  
- - Version 1.0.6: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.6/interpretation-manager.min.js
+ - Version 1.0.6: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.6/interpretation-manager.min.js 
+ - Version 1.0.6: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.6/interpretation-player.min.js
