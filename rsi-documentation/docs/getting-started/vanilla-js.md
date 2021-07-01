@@ -96,13 +96,3 @@ Get the latest versions of the script [here](/vanilla-js/versions.html)
   * `data-is-player-controlled` to **true**, [more](/interpretation-player/props.html)
   * Your `data-room-name` 
 
-
-
-## Vanilla Js Versions
-Here you can find the latest version of our widgets
-
-### Interpretation Player
-
- - Version 1.0.7: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.7/index.min.js
- - Version 1.0.6: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.6/index.min.js 
- - Version 1.0.2: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.2/index.min.js 
