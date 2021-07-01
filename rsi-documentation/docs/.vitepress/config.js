@@ -40,6 +40,12 @@ function getSetupSidebar() {
         { text: '🔹 Vue', link: '/getting-started/vue' },
         { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js' },
         { text: 'VanillaJs Versions', link: '/vanilla-js/versions.html' },
+        { text: '🔹 Vanilla Javascript',
+               link: '/getting-started/vanilla-js',
+               children: [
+                 { text: 'VanillaJs Versions', link: '/vanilla-js/versions.html' },                 
+                 ]             
+             },
       ]
     },
     {
