@@ -62,7 +62,7 @@ export default class InterpretationManager extends RSIBase {
     this.domContainer.insertAdjacentHTML( 'beforeend', widget.html); 
     // Add Styles to the DOM
     let style = document.createElement('style');
-    //style.setAttribute('scoped', 'true');
+    //style.setAttribute('scoped', 'true');,
     style.textContent =  widget.css;
     document.getElementById(this.container).appendChild(style); 
   }
