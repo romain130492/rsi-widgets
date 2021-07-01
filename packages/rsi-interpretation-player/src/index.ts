@@ -18,6 +18,8 @@ export default class InterpretationPlayer extends RSIBase {
   consumerConfig: any;
   positionMenu: string;
   isBoxShadow : boolean;
+  displayFlag: boolean;
+  textSelectorHeader: string;
   isPlayerControlled : boolean;
   stream : any;
   languageState: string;
@@ -29,14 +31,21 @@ export default class InterpretationPlayer extends RSIBase {
   remoteLanguageState: string;
   isOriginalLanguage: boolean;
   eventLanguages: Array<{ eventId:string, id:string,interpreterId:string,interpreterLevel:number, sourceLanguage: boolean, interpreterNeeded:boolean, language:string, userId:string }>
+  styleProps: { fontFamily:string, backgroundSelectorHeader:string, fontSizeHeaderSelector:string, backgroundHoverHeaderSelector:string, colorHeaderSelector:string, borderRadiusHeaderSelector:string, fontSizeOptionSelector:string, colorOptionSelector:string, backgroundOptionSelector:string, backgroundHoverOptionSelector:string, borderRadiusOptionSelector:string, optionsDistanceFromHeader:string };
 
-  constructor(config:{apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean, isPlayerControlled:boolean }) {
+  constructor(
+    config: { apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean, textSelectorHeader:string, isPlayerControlled:boolean, displayFlag:boolean },
+    styleProps: { fontFamily:string, backgroundSelectorHeader:string, fontSizeHeaderSelector:string, backgroundHoverHeaderSelector:string, colorHeaderSelector:string, borderRadiusHeaderSelector:string, fontSizeOptionSelector:string, colorOptionSelector:string, backgroundOptionSelector:string, backgroundHoverOptionSelector:string, borderRadiusOptionSelector:string, optionsDistanceFromHeader:string }
+  ) {
     super();
-    const { apiKey, roomName, positionMenu, isBoxShadow, isPlayerControlled } = config;
+    const { apiKey, roomName, positionMenu, isBoxShadow, isPlayerControlled, displayFlag, textSelectorHeader } = config;
+    this.styleProps = styleProps;
     this.apiKey = apiKey;
     this.roomName = roomName;
     this.positionMenu = positionMenu;
     this.isBoxShadow = isBoxShadow;
+    this.displayFlag = displayFlag;
+    this.textSelectorHeader = textSelectorHeader || 'Select a language';
     this.isPlayerControlled = isPlayerControlled;
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = 'akkadu-interpretation-player';
@@ -275,7 +284,7 @@ export default class InterpretationPlayer extends RSIBase {
 
     // Add Styles to the DOM
     var style = document.createElement('style');
-    style.textContent =  widget.css;
+    style.textContent =  widget.css(this.styleProps);
     document.head.appendChild(style);
     const styleStr = this.updateStylesWithProps()
     if(styleStr){
@@ -287,7 +296,6 @@ export default class InterpretationPlayer extends RSIBase {
     const languagesOptions = document.createDocumentFragment();
     const createItemLanguage =(languageType:string, index:number) => {
       let newOption : any
-      let newImage : any
       let newText : any
       
       newOption = document.createElement('div');
@@ -298,10 +306,12 @@ export default class InterpretationPlayer extends RSIBase {
       newText.textContent= this.langChannels()[languageType].name.en;
       newText.id = index;
 
-      newImage = document.createElement('img')
-      newImage.src = this.getFlagUrl(this.langChannels()[languageType].code);
+      if (this.displayFlag) {
+        const newImage = document.createElement('img');
+        newImage.src = this.getFlagUrl(this.langChannels()[languageType].code);
+        newOption.appendChild(newImage);
+      }
 
-      newOption.appendChild(newImage);
       newOption.appendChild(newText);
       return newOption
     } 
@@ -316,7 +326,7 @@ export default class InterpretationPlayer extends RSIBase {
     // Init Dropdown header
     const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
     const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
-    elSelectCustomValue.getElementsByTagName("h3")[0].textContent = 'Select a language';
+    elSelectCustomValue.getElementsByTagName("h3")[0].textContent = this.textSelectorHeader;
 
     // Toggle select on label click
     elSelectCustomValue.addEventListener("click", (e:any) => {

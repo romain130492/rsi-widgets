@@ -58,20 +58,55 @@ const getRoomName = () => {
 const getConfig = () =>{
   console.log(component.dataset,'component.dataset');
   const {
-     sdkKey:apiKey,
+     sdkKey: apiKey,
      positionMenu, 
      isBoxShadow, 
-     isPlayerControlled 
+     isPlayerControlled,
+     displayFlag = true,
+     textSelectorHeader,
+     fontFamily,
+     backgroundSelectorHeader,
+     fontSizeHeaderSelector,
+     backgroundHoverHeaderSelector,
+     colorHeaderSelector,
+     borderRadiusHeaderSelector,
+     fontSizeOptionSelector,
+     colorOptionSelector,
+     backgroundOptionSelector,
+     backgroundHoverOptionSelector,
+     borderRadiusOptionSelector,
+     optionsDistanceFromHeader
   } = component.dataset;
 
   if(!apiKey){
     throw Error("data-sdk-key is undefined. Add it to the <div data-sdk-key='your_sdk_key'>")
   }
   const roomName = getRoomName()
-  return { apiKey, positionMenu, isBoxShadow, isPlayerControlled, roomName }
+  return [{
+    apiKey,
+    positionMenu,
+    isBoxShadow,
+    isPlayerControlled,
+    roomName,
+    displayFlag: displayFlag === 'false' ? false : true,
+    textSelectorHeader
+  }, {
+    fontFamily,
+    backgroundSelectorHeader,
+    fontSizeHeaderSelector,
+    backgroundHoverHeaderSelector,
+    colorHeaderSelector,
+    borderRadiusHeaderSelector,
+    fontSizeOptionSelector,
+    colorOptionSelector,
+    backgroundOptionSelector,
+    backgroundHoverOptionSelector,
+    borderRadiusOptionSelector,
+    optionsDistanceFromHeader
+  }]
 }
-let config = getConfig()
+let [config, styleProps] = getConfig()
 
-const stream = new InterpretationPlayer(config);
+const stream = new InterpretationPlayer(config, styleProps);
 initListeners(stream)
 stream.init()

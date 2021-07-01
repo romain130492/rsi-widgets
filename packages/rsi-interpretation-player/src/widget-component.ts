@@ -14,39 +14,69 @@ const component = {
         </div>
   </body>
   `,
-  css:`
+  css: ({
+    fontFamily = '"Helvetica Neue", Arial, sans-serif',
+    backgroundSelectorHeader = '#ffffff',
+    fontSizeHeaderSelector,
+    backgroundHoverHeaderSelector,
+    colorHeaderSelector = '#2C3D4F',
+    borderRadiusHeaderSelector = '5px',
+    fontSizeOptionSelector,
+    colorOptionSelector = '#2C3D4F',
+    backgroundOptionSelector = '#ffffff',
+    backgroundHoverOptionSelector = '#F2F2F2',
+    borderRadiusOptionSelector = '5px',
+    optionsDistanceFromHeader = '45px'
+  }) => `
 
   #akkadu-interpretation-player {
     display: inline-table;
     position: relative;
-    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-family: ${fontFamily};
   }
+
   #akkadu-interpretation-player .select {
     position: relative;
   }
+
   #akkadu-interpretation-player .selectLabel {
     display: block;
     margin-bottom: 10px;
   }
+
   #akkadu-interpretation-player .selectWrapper {
     position: relative;
   }
-  #akkadu-interpretation-player  .selectCustom {
+
+  #akkadu-interpretation-player .selectCustom {
     position: relative;
     height: 100%;
   }
+
+  #akkadu-interpretation-player h3, #akkadu-interpretation-player .selectCustom-trigger {
+    font-size: 16px;
+    color: #2C3D4F;
+    font-weight: 400;
+  }
+
   #akkadu-interpretation-player .selectCustom-trigger {
     display: flex;
     position: relative;
     min-width: 150px;
-    background-color: white;
+    background-color: ${backgroundSelectorHeader};
     border: 1px solid #dbdbdb;
-    border-radius: 5px;
+    border-radius: ${borderRadiusHeaderSelector};
     cursor: pointer;
     padding: 10px 15px;
     width: 100%;
     height: 100%;
   }
+
+  #akkadu-interpretation-player .selectCustom-trigger, #akkadu-interpretation-player .selectCustom-trigger h3 {
+    ${ fontSizeHeaderSelector ? `font-size: ${fontSizeHeaderSelector};` : ''  }
+    color: ${colorHeaderSelector};
+  }
+
   #akkadu-interpretation-player h3{
     margin:0px;
     padding:0px;
@@ -57,14 +87,10 @@ const component = {
     max-width: 20px;
     margin-right:10px;
   }
-  #akkadu-interpretation-player  h3, #akkadu-interpretation-player .selectCustom-trigger{
-    font-size: 16px;
-    color: #2C3D4F;
-    font-weight: 400;
-  }
+
   #akkadu-interpretation-player .selectCustom-trigger::after {
     content: "▾";
-    color:#908f8f;
+    color: ${colorHeaderSelector};
     position: absolute;
     top: 7px;
     line-height: 20px;
@@ -73,21 +99,29 @@ const component = {
   
   #akkadu-interpretation-player .selectCustom-trigger:hover {
     box-shadow: 0 0 4px #e9e1f8;
+    ${backgroundHoverHeaderSelector ? `background: ${backgroundHoverHeaderSelector};` : '' };
   }
+
   #akkadu-interpretation-player .selectCustom-options {
     position: absolute;
-    top: 45px;
+    top: ${optionsDistanceFromHeader};
     left: 0;
     width: 100%;
     border: 1px solid #dbdbdb;
-    border-radius: 5px;
-    background-color: #fff;
+    border-radius: ${borderRadiusOptionSelector};
+    background-color: #ffffff;
     box-shadow: 0 0 4px #e9e1f8;
     z-index: 1;
     padding:0px;
     display: none;
     cursor: pointer;
     box-shadow: 3px 6px 7px 4px #e3e3e3;
+    overflow: hidden;
+  }
+  
+  #akkadu-interpretation-player .selectCustom-options .selectCustom-option h3 {
+    color: ${colorOptionSelector};
+    ${ fontSizeOptionSelector ? `font-size: ${fontSizeOptionSelector};` : ''  }
   }
   
   #akkadu-interpretation-player .selectCustom.isActive .selectCustom-options {
@@ -96,13 +130,14 @@ const component = {
   }
   
   #akkadu-interpretation-player .selectCustom-option {
+    background-color: ${backgroundOptionSelector};
     position: relative;
     padding: 10px 15px;
     display: flex;
   }
   
   #akkadu-interpretation-player  .selectCustom-option:hover {
-    background-color: #F2F2F2;
+    background-color: ${backgroundHoverOptionSelector};
   }
   
   #akkadu-interpretation-player  .selectCustom-option:not(:last-of-type)::after {
@@ -117,6 +152,7 @@ const component = {
   #akkadu-interpretation-player .refresh-button{
     margin-left: 50px;
   }
+
   #akkadu-interpretation-player button{
     background:#58C283;
     border-radius: 20px;
@@ -131,7 +167,8 @@ const component = {
     padding: 0px 20px;
     color:white;
   }
-  #akkadu-interpretation-player .selectWrapper{ 
+
+  #akkadu-interpretation-player .selectWrapper{
     display: flex;
   }
   `

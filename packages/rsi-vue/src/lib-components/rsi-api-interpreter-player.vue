@@ -27,6 +27,23 @@
         type: Boolean,
         default: false,
       },
+      displayFlag: {
+        type: Boolean,
+        default: true
+      },
+      fontFamily: { type: String },
+      backgroundSelectorHeader: { type: String },
+      fontSizeHeaderSelector: { type: String },
+      textSelectorHeader: { type: String },
+      backgroundHoverHeaderSelector: { type: String },
+      colorHeaderSelector: { type: String },
+      borderRadiusHeaderSelector: { type: String },
+      fontSizeOptionSelector: { type: String },
+      colorOptionSelector: { type: String },
+      backgroundOptionSelector: { type: String },
+      backgroundHoverOptionSelector: { type: String },
+      borderRadiusOptionSelector: { type: String },
+      optionsDistanceFromHeader: { type: String }
     },
     data() {
       return {
@@ -48,8 +65,30 @@
           throw Error('interpretation-player: sdkKey is not defined')
         }
         //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
-        const config = {apiKey:this.apiKey, roomName, positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow, isPlayerControlled:this.isPlayerControlled }
-        this.stream = new InterpretationPlayer(config);
+        const config = {
+          apiKey: this.apiKey,
+          roomName,
+          positionMenu: this.positionMenu,
+          isBoxShadow: this.isBoxShadow,
+          isPlayerControlled: this.isPlayerControlled,
+          displayFlag: this.displayFlag,
+          textSelectorHeader: this.textSelectorHeader
+        }
+        const styleProps = { 
+          fontFamily: this.fontFamily,
+          backgroundSelectorHeader: this.backgroundSelectorHeader,
+          fontSizeHeaderSelector: this.fontSizeHeaderSelector,
+          backgroundHoverHeaderSelector: this.backgroundHoverHeaderSelector,
+          colorHeaderSelector: this.colorHeaderSelector,
+          borderRadiusHeaderSelector: this.borderRadiusHeaderSelector,
+          fontSizeOptionSelector: this.fontSizeOptionSelector,
+          colorOptionSelector: this.colorOptionSelector,
+          backgroundOptionSelector: this.backgroundOptionSelector,
+          backgroundHoverOptionSelector: this.backgroundHoverOptionSelector,
+          borderRadiusOptionSelector: this.borderRadiusOptionSelector,
+          optionsDistanceFromHeader: this.optionsDistanceFromHeader
+        }
+        this.stream = new InterpretationPlayer(config, styleProps);
         this.initListeners()
         this.stream.init()
       },

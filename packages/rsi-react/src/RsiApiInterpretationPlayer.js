@@ -6,16 +6,55 @@ import React, { Component } from 'react'
 import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
 
  export default class RsiApiInterpretationPlayer extends Component {
-  constructor({ sdkKey, positionMenu, onReady, onLanguageSelected, onConnectionStatusUpdated, isBoxShadow, isPlayerControlled }){
+   constructor({ 
+     sdkKey,
+     positionMenu,
+     onReady,
+     onLanguageSelected,
+     onConnectionStatusUpdated,
+     isBoxShadow,
+     isPlayerControlled,
+     displayFlag = true,
+     textSelectorHeader,
+     fontFamily,
+     backgroundSelectorHeader,
+     fontSizeHeaderSelector,
+     backgroundHoverHeaderSelector,
+     colorHeaderSelector,
+     borderRadiusHeaderSelector,
+     fontSizeOptionSelector,
+     colorOptionSelector,
+     backgroundOptionSelector,
+     backgroundHoverOptionSelector,
+     borderRadiusOptionSelector,
+     optionsDistanceFromHeader
+    }){
+    console.log(process.env)
     super()
-     this.state= {
+     this.state = {
       apiKey: sdkKey,
       positionMenu : positionMenu,
       onLanguageSelected : onLanguageSelected,
       onConnectionStatusUpdated : onConnectionStatusUpdated,
       onReady : onReady,
       isBoxShadow : isBoxShadow,
-      isPlayerControlled : isPlayerControlled
+      isPlayerControlled : isPlayerControlled,
+      displayFlag,
+      textSelectorHeader,
+      styleProps: {
+        fontFamily,
+        backgroundSelectorHeader,
+        fontSizeHeaderSelector,
+        backgroundHoverHeaderSelector,
+        colorHeaderSelector,
+        borderRadiusHeaderSelector,
+        fontSizeOptionSelector,
+        colorOptionSelector,
+        backgroundOptionSelector,
+        backgroundHoverOptionSelector,
+        borderRadiusOptionSelector,
+        optionsDistanceFromHeader 
+      }
     }
   }
    getRoomname(){
@@ -51,8 +90,16 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
     if(!this.state.apiKey){
       throw Error('interpretation-player: sdkKey is not defined')
     }
-    const config = {apiKey:this.state.apiKey, roomName, positionMenu:this.state.positionMenu, isBoxShadow: this.state.isBoxShadow, isPlayerControlled: this.state.isPlayerControlled }
-    const stream = new InterpretationPlayer(config);
+    const config = {
+      apiKey: this.state.apiKey,
+      roomName,
+      positionMenu: this.state.positionMenu,
+      isBoxShadow: this.state.isBoxShadow,
+      isPlayerControlled: this.state.isPlayerControlled,
+      displayFlag: this.state.displayFlag,
+      textSelectorHeader: this.state.textSelectorHeader
+    }
+    const stream = new InterpretationPlayer(config, this.state.styleProps);
     this.initListeners(stream)
     stream.init()
    }

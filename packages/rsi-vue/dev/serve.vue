@@ -34,12 +34,13 @@ export default Vue.extend({
     <br>
     <br>
     <rsi-api-interpretation-player 
-      sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
+      sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c"
       positionMenu="bottom" 
       :isBoxShadow="true"
       :isPlayerControlled="true"
       v-on:onLanguageSelected="handleOnLanguageSelected"
       v-on:onReady="handleOnReady"
-      v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated" />
+      v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated"
+    />
   </div>
 </template>
