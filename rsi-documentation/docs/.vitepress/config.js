@@ -17,8 +17,6 @@ module.exports = {
         text: 'Homepage',
         link: 'https://rsi.akkadu.com/'
       },
-      { text: 'Login', link: 'https://rsi.akkadu.com/login' },
-      { text: 'Register', link: 'https://rsi.akkadu.com/register'},
       { text: '✉️ Contact', link: 'mailto:contact@akkadu-team.com'},
     ],
 
