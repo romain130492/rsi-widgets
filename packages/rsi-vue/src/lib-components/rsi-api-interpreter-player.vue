@@ -27,6 +27,11 @@
         type: Boolean,
         default: false,
       },
+      roomName: {
+        required: false,
+        type: String,
+        default: null,
+      },
     },
     data() {
       return {
@@ -40,9 +45,9 @@
     methods: {
       async init(){
         this.apiKey = this.sdkKey
-        const roomName = this.getRoomname();
+        const roomName = this.roomName ? this.roomName : this.getRoomname();
         if(!roomName){
-          throw Error('interpretation-player: roomname is not defined')
+          throw Error('interpretation-player: roomName is not defined')
         }
         if(!this.apiKey){
           throw Error('interpretation-player: sdkKey is not defined')

@@ -7,5 +7,5 @@
 
   In order to use them in browser we need to transpile them to es5.
 
-  We use babel + webpack to achieve that.
+  We use babel + webpack to achieve that. ,
 

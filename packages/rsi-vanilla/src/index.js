@@ -56,18 +56,20 @@ const getRoomName = () => {
  * @returns {Object} { sdkKey:string, positionMenu:string, isBoxShadow:string, isPlayerControlled:string, roomName:string  }
  */
 const getConfig = () =>{
-  console.log(component.dataset,'component.dataset');
-  const {
+  let {
      sdkKey:apiKey,
      positionMenu, 
      isBoxShadow, 
-     isPlayerControlled 
+     isPlayerControlled,
+     roomName
   } = component.dataset;
 
   if(!apiKey){
     throw Error("data-sdk-key is undefined. Add it to the <div data-sdk-key='your_sdk_key'>")
   }
-  const roomName = getRoomName()
+  if(!roomName){
+    roomName =  getRoomName();
+  }
   return { apiKey, positionMenu, isBoxShadow, isPlayerControlled, roomName }
 }
 let config = getConfig()

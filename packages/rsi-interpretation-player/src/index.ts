@@ -61,7 +61,6 @@ export default class InterpretationPlayer extends RSIBase {
     if (!this.roomName) {
       throw Error('InterpretationPlayer: roomName is undefined');
     }
-    console.log(this.consumerConfig.container,'this.consumerConfig.domfffContainer');
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
     if (!this.consumerConfig.domContainer) {
       throw new Error(`Unable to detect stream container ${this.consumerConfig.container} on the DOM`)
