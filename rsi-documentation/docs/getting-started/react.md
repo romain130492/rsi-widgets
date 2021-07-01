@@ -64,7 +64,7 @@ import { RsiInterpretationPlayer } from '@akkadu/rsi-react'
 
 
 
-### 🚀 Quick Start 
+### 🚀 Quick Implementation 
 
 * We made a simple version of our `interpretation-player` that doesn't require you to listen to our events.
 * In this version we will control your `video-player` for you.
