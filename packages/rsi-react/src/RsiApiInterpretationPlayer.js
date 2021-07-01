@@ -6,11 +6,12 @@ import React, { Component } from 'react'
 import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
 
  export default class RsiApiInterpretationPlayer extends Component {
-  constructor({ sdkKey, positionMenu, onReady, onLanguageSelected, onConnectionStatusUpdated, isBoxShadow, isPlayerControlled }){
+  constructor({ sdkKey, positionMenu, onReady, onLanguageSelected, onConnectionStatusUpdated, isBoxShadow, isPlayerControlled, roomName }){
     super()
      this.state= {
       apiKey: sdkKey,
       positionMenu : positionMenu,
+      roomName : roomName,
       onLanguageSelected : onLanguageSelected,
       onConnectionStatusUpdated : onConnectionStatusUpdated,
       onReady : onReady,
@@ -20,7 +21,8 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
   }
    getRoomname(){
       const params = new URLSearchParams(window.location.search)
-      const roomname = params.get('rsi-roomname');
+      const roomname =  this.state.roomName ? this.state.roomName : params.get('rsi-roomname');
+      console.log(roomname,'the roomanem ehre');
       if(!roomname){
        console.error('No rsi-roomname define on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-docs.akkadu.com/interpretation-player/roomname.html');
       }

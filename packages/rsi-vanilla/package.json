@@ -8,8 +8,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "start": "tsc --watch",
-    "dev": "webpack --hot",
+    "start": "webpack --hot",
     "build": "webpack"
   },
   "devDependencies": {
