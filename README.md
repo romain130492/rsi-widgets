@@ -23,7 +23,7 @@ You can see an example of implementation for vueJs and reactJs, go to theses fol
 * `packages/react-example` : [Demo](https://rsi-akkadu-react-demo.netlify.app/)
 
 
-### Requirement
-`sudo yarn global add tslint typescript`
+### Requirement ,
+`sudo yarn global add tslint typescript` 
 
 
