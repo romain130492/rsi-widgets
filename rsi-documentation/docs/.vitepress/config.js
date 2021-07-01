@@ -35,6 +35,7 @@ function getSetupSidebar() {
       children: [
         { text: 'Our SDK', link: '/' },
         { text: 'Create a SDK Key', link: '/getting-started/sdk-key' },
+        { text: '🔹 iFrame', link: '/getting-started/iframe' },
         { text: '🔹 React', link: '/getting-started/react' },
         { text: '🔹 Vue', link: '/getting-started/vue' },
         { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js' },
