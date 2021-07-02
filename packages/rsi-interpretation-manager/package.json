@@ -19,8 +19,8 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@akkadu/rsi-base": "^0.2.13",
-    "@akkadu/logger": "^2.1.0"
+    "@akkadu/logger": "^2.1.0",
+    "@akkadu/rsi-base": "^0.2.13"
   },
   "gitHead": "1e87df3071e7dd8f413315e14834b242ee3a7a06",
   "devDependencies": {

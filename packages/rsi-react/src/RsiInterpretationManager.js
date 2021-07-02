@@ -27,7 +27,6 @@
      }
      const config = {apiKey:this.state.apiKey }
      const manager = new InterpretationManager(config);
-     console.log(manager,'the manager');
      this.initListeners(manager)
      manager.init()
     }

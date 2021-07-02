@@ -1,7 +1,7 @@
 import RSIBase from '@akkadu/rsi-base'
 import {  languagesList } from './languages'
-
 export default class InterpretationManager extends RSIBase {
+  
   apiKey: string; 
   $logger: any;
   container: string;
@@ -38,7 +38,6 @@ export default class InterpretationManager extends RSIBase {
     }
   }
   async init(){
-    console.log('i00011');
     this.addInterpretationManager()
   }
 
@@ -256,7 +255,6 @@ export default class InterpretationManager extends RSIBase {
     const value = e.target.value;
     const id = e.target.id;
     this.ownInterpreterEmail[id] = value;
-
   }
 
   /**
@@ -290,6 +288,8 @@ export default class InterpretationManager extends RSIBase {
     closeButton.addEventListener('click', (e:any) => {
       let node:any = document.getElementById(`int-manager-email-div-${id}`);
       node.parentNode.removeChild(node);
+      delete this.ownInterpreterEmail[id];
+      this.updateFeedback('')
     } )
     emailDiv.append(emailInput)
     emailDiv.append(closeButton)
