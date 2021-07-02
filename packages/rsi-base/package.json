@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-base",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": ",",
   "main": "lib/index.js",
   "private": false,
