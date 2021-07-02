@@ -51,7 +51,6 @@ export default class Base {
    * and create an event on the interpretation-manager
    */
     createEvent(payload:any ){
-      console.log('tfftt');
       const { eventLanguage,interpretaterEmail,interpretationLanguages } = payload;
       const eventCreated = { roomName:'abcd'}
       this.emitter.emit('interpretation-manager:on-create-event',  eventCreated );
