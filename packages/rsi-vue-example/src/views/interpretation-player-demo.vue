@@ -1,8 +1,7 @@
 <template>
-  <div>
-    Choose a component in the header
-    <br>
-     <a href="https://rsi-docs.akkadu.com/getting-started/vue.html"> You can also check our documentation</a>
+<div>
+<h2>You Audience Page </h2>
+  <InterpretationPlayer/>
   </div>
 </template>
 
@@ -11,6 +10,8 @@ import InterpretationPlayer from '@/components/interpretation-player.vue'
   export default {
     components:{
       InterpretationPlayer,
+    },
+    mounted() {
     },
   }
 </script>

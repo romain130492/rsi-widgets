@@ -52,7 +52,6 @@
         if(!this.apiKey){
           throw Error('interpretation-player: sdkKey is not defined')
         }
-        //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
         const config = {apiKey:this.apiKey, roomName, positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow, isPlayerControlled:this.isPlayerControlled }
         this.stream = new InterpretationPlayer(config);
         this.initListeners()
@@ -60,7 +59,10 @@
       },
       getRoomname(){
         const params = new URLSearchParams(window.location.search)
-        const roomname = params.get('rsi-roomname');
+        let roomname = params.get('rsi-roomname');
+        if(!roomname && this.$route && this.$route.query && this.$route.query['rsi-roomname']){
+          roomname = this.$route.query['rsi-roomname']
+        }
         if(!roomname){
          console.error('No rsi-roomname defined on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-docs.akkadu.com/interpretation-player/roomname.html');
         }

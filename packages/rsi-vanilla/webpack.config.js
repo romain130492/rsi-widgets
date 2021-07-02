@@ -1,6 +1,9 @@
 const path = require('path');
 module.exports = {
-  entry: './src/index.js',
+  entry:{
+    "interpretation-player":"./src/interpretation-player.js",
+    "interpretation-manager":"./src/interpretation-manager.js",
+  },
   module: {
     rules: [
       {
@@ -14,6 +17,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'index.min.js',
+    filename: '[name].min.js',
   },
 };

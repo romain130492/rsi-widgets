@@ -16,14 +16,38 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  padding-bottom: 5rem;
+}
+.App-header ul{
+  text-align: center;
+  display: flex;
+  width: 100%;
+  padding-top: 1rem;
+}
+.App-header li{
+  flex: 1 0 33%;
+  list-style: none;
+}
+.App-header li a{
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+.App-header nav{
+  border-bottom: 1px solid #ffffff66;
+  margin-bottom: 3rem;
+}
+a{
   color: white;
 }
-
+h3{
+  margin-bottom: 2rem;
+  color: white;
+}
 .App-link {
   color: #61dafb;
 }

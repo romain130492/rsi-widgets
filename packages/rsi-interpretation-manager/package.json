@@ -1,12 +1,15 @@
 {
   "name": "@akkadu/rsi-interpretation-manager",
-  "version": "0.0.17",
+  "version": "0.1.1",
   "description": "",
   "main": "lib/index.js",
   "private": false,
+  "files": [
+    "lib/index.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc && rm -rf ./dist && yarn rollup -c ./rollup.config.js",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -16,7 +19,8 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@akkadu/rsi-base": "^0.2.14"
+    "@akkadu/logger": "^2.1.0",
+    "@akkadu/rsi-base": "^0.2.16"
   },
   "gitHead": "1e87df3071e7dd8f413315e14834b242ee3a7a06",
   "devDependencies": {

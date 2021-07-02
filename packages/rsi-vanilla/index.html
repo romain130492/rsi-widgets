@@ -7,22 +7,34 @@
   <title>rsi-vanilla-dev-example</title>
 </head>
 <body>
-  <h2>RSI SDK vanilla dev - example1</h2>
+  <h2>RSI SDK vanilla dev - interpretation player example</h2>
    <div 
      id="akkadu-interpretation-player" 
      data-sdk-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
      data-position-menu="bottom" 
      data-is-box-shadow="true"
      data-is-player-controlled="true"
-     data-room-name="test"
    >
     </div> 
+    <br>
+    <br>
+    <br>
+    <br>
+    
+   <h2>RSI SDK Interpretation Manager example</h2>
+   <div 
+     id="akkadu-interpretation-manager" 
+     data-sdk-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
+   >
+  </div> 
     <script>
       // You can remove that redirection and add your own roomName in the url
       if(!window.location.href.includes('?rsi-roomname=aljx')){
          window.location.href = `${window.location.href}?rsi-roomname=aljx` 
       } 
       const component = document.querySelector('#akkadu-interpretation-player')
+
+      /* Interpretation Player listeners */
       component.addEventListener('onReady', function (e) { 
         console.info('received onReady event:', e?.detail?.isReady);
       });
@@ -32,7 +44,15 @@
       component.addEventListener('onConnectionStatusUpdated', function (e) { 
         console.info('received onConnectionStatusUpdated event:', e?.detail?.connection);
       });
+
+
+      /* Interpretation manager Listeners */
+      component.addEventListener('onCreateEvent', function (e) { 
+        console.info('received onCreate event:', e?.detail);
+      });
     </script>
-    <script src="dist/index.min.js" ></script>
+<!--     <script src="dist/index.min.js" ></script> -->
+    <script src="dist/interpretation-player.min.js" ></script>
+    <script src="dist/interpretation-manager.min.js" ></script>
 </body>
 </html>

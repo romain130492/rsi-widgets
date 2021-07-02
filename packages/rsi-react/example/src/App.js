@@ -2,6 +2,7 @@
 import React from 'react'
 
 import { RsiApiInterpretationPlayer } from '@akkadu/rsi-react'
+import { RsiInterpretationManager } from '@akkadu/rsi-react'
 import '@akkadu/rsi-react/dist/index.css'
 
 
@@ -24,6 +25,9 @@ const handleOnLanguageSelected = (e) => {
 const handleOnConnectionStatusUpdated = (e) => {
   console.info('receive onConnectionStatusUpdated event:',e );
 }
+const handleOnCreateEvent = (e) => {
+  console.info('receive onConnectionStatusUpdated event:',e );
+}
 const App = () => {
   return  <div>
     <video loop="" controls width="640" height="480">
@@ -36,7 +40,12 @@ const App = () => {
         onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
         isBoxShadow={false}
         isPlayerControlled={true}
-   /></div>
+   />
+    <RsiInterpretationManager
+        sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c"
+        onCreateEvent = {handleOnCreateEvent}
+   />
+   </div>
 }
 
 export default App
