@@ -74,6 +74,25 @@ export default class InterpretationManager extends RSIBase {
   }
 
   /**
+   * @description We want to forbit the user to select as interpreted language 
+   * the same language choosen as "Event Language"
+   * @param {Object} newLanguage {code, name}
+   * @param {Array} list [{code, name}]
+   * @returns {Boolean} 
+   */
+  isFloorLanguageInterpretedLanguage (newLanguage, list){
+    if(!list[0]){ return true }
+    const code = newLanguage?.code;
+    if(!code){ throw Error('isFloorLanguageInterpretedLanguage, code is undefined')}
+    for (let i = 0; i < list.length; i++) {
+      if(list[i].code === code){
+        this.updateFeedback('Event Language cannot be an interpreted language.')
+        return false;
+      }
+    }
+    return true
+  }
+  /**
    * @description Take care of the interpretation language section of the interpretation manager
    */
   handleInterpretationLanguagesSection(){
@@ -203,13 +222,23 @@ export default class InterpretationManager extends RSIBase {
       newOption.className = 'selectCustom-option';
       newOption.id = index
       if(id === 'event-language'){
-        newOption.onclick = () => { this.selectEventLanguage(language), closeSelector(elSelectCustom), updateHeader(selectorHeader,language) }; 
+        newOption.onclick = () => { 
+          if(!this.isFloorLanguageInterpretedLanguage(language, this.interpretationLanguages)){
+            return
+          }
+          this.selectEventLanguage(language);
+          closeSelector(elSelectCustom)
+          updateHeader(selectorHeader,language)
+         }; 
       } else if(id === 'interpretation-language'){
         newOption.onclick = () => { 
           this.selectInterpretationLanguage(language),
           closeSelector(elSelectCustom), 
           updateHeader(selectorHeader, null)
           this.isAddLanguageButtonOn = true;
+          if(! this.isFloorLanguageInterpretedLanguage(language, [this.eventLanguage])){
+            return
+          }
           this.addLanguageToInterpretation(language)
           this.switchBetweenButtonAndSelector(this.isAddLanguageButtonOn)
          }; 

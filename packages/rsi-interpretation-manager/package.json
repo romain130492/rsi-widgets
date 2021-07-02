@@ -2,10 +2,10 @@
   "name": "@akkadu/rsi-interpretation-manager",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "private": false,
   "files": [
-    "dist/index.js"
+    "lib/index.js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
