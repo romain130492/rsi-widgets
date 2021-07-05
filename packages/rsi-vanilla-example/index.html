@@ -8,6 +8,11 @@
 </head>
 <body>
   <h2>RSI SDK vanilla example</h2>
+  <video autoplay loop="" controls="" width="640" height="480">
+    <source type="video/mp4" src="https://assets.akkadu.com/akkadu-rsi-api-widget/musk-short.mp4">
+  </video>
+  <br>
+  <br>
    <div 
      id="akkadu-interpretation-player" 
      data-sdk-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
@@ -18,17 +23,16 @@
     </div> 
     <br>
     <br>
-    <br>
-    <br>
     
-   <h2>RSI SDK Interpretation Manager example</h2>
+<!--    <h2>RSI SDK Interpretation Manager example</h2>
    <div 
      id="akkadu-interpretation-manager" 
      data-sdk-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
    >
-  </div> 
+  </div>  -->
     <script>
       // You can remove that redirection and add your own roomName in the url
+      console.log('here go ');
       if(!window.location.href.includes('?rsi-roomname=aljx')){
          window.location.href = `${window.location.href}?rsi-roomname=aljx` 
       } 
@@ -53,6 +57,6 @@
     </script>
 <!--     <script src="dist/index.min.js" ></script> -->
     <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.8/interpretation-player.min.js" ></script>
-    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.8/interpretation-manager.min.js" ></script>
+<!--     <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.8/interpretation-manager.min.js" ></script> -->
 </body>
 </html>
