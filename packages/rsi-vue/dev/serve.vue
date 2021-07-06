@@ -5,6 +5,7 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'ServeDev',
   methods: {
+    // Interpretation Player events's  handler:
     handleOnLanguageSelected(e){
       console.info('handleLanguageSelected event:',e);
     },
@@ -13,7 +14,13 @@ export default Vue.extend({
     },
     handleOnConnectionStatusUpdated(e){
       console.info('handleOnConnectionStatusUpdated event:',e);
+    },
+
+    // Interpretation Manager events's handler: 
+    handleOnCreateEvent(e){
+      console.info('handleOnCreateEvent event:',e);
     }
+
   },
   mounted() {
     const params = new URLSearchParams(window.location.search)
@@ -33,14 +40,25 @@ export default Vue.extend({
     </video>
     <br>
     <br>
+   <h3>Interpretation Player:</h3>
     <rsi-api-interpretation-player 
       sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c"
-      positionMenu="bottom" 
-      :isBoxShadow="true"
       :isPlayerControlled="true"
       v-on:onLanguageSelected="handleOnLanguageSelected"
       v-on:onReady="handleOnReady"
-      v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated"
-    />
+      v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated" /> 
+    <br>
+    <br>
+    <br>
+    <h3>Interpretation Manager:</h3>
+    <rsi-interpretation-manager
+      sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
+      v-on:onCreateEvent="handleOnCreateEvent"/>
   </div>
 </template>
+
+<style scoped>
+#app{
+  padding-bottom: 180px; 
+}
+</style>

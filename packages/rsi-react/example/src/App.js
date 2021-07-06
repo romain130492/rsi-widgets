@@ -34,7 +34,6 @@ const App = () => {
         onReady={handleOnReady}
         onLanguageSelected = {handleOnLanguageSelected}
         onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
-        isBoxShadow={false}
         isPlayerControlled={true}
    /></div>
 }

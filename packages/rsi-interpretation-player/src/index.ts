@@ -33,7 +33,7 @@ export default class InterpretationPlayer extends RSIBase {
   classNames: { widgetWrapperClass:string, dropdownWrapperClass:string, headerClass:string, optionsWrapperClass:string, optionItemClass:string, selectedOptionClass:string, refreshButtonClass:string };
 
   constructor(
-    config: { apiKey: string, roomName: string, container:string, positionMenu:string, placeholderText:string, isPlayerControlled:boolean, displayFlag:boolean },
+    config: { apiKey: string, roomName: string, container:string, placeholderText:string, isPlayerControlled:boolean, displayFlag:boolean },
     classNames: { widgetWrapperClass:string, dropdownWrapperClass:string, headerClass:string, optionsWrapperClass:string, optionItemClass:string, selectedOptionClass:string, refreshButtonClass:string }
   ) {
     super();
@@ -58,7 +58,7 @@ export default class InterpretationPlayer extends RSIBase {
     this.eventLanguages = null;
     this.$logger = new Logger()
     if(!document){ 
-      console.error('InterpretationPlayer: .document is undefined.');
+      throw Error('InterpretationPlayer: document is undefined.');
       return
     }
     if (!this.apiKey) {
@@ -67,10 +67,10 @@ export default class InterpretationPlayer extends RSIBase {
     if (!this.roomName) {
       throw Error('InterpretationPlayer: roomName is undefined');
     }
-    console.log(this.consumerConfig.container,'this.consumerConfig.domfffContainer');
     this.consumerConfig.domContainer = document.querySelector(`#${this.consumerConfig.container}`)
     if (!this.consumerConfig.domContainer) {
-      throw new Error(`Unable to detect stream container ${this.consumerConfig.container} on the DOM`)
+      throw new Error(`Unable to detect container: ${this.consumerConfig.container} on the DOM, please add <div id="akkadu-interpretation-player"/>, 
+      see the doc : https://rsi-docs.akkadu.com/getting-started/react.html#registering-the-interpretation-player`)
     }
   }
 

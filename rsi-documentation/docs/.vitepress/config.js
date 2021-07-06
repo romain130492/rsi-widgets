@@ -14,11 +14,9 @@ module.exports = {
     nav: [
       { text: 'Getting Started', link: '/', activeMatch: '^/$|^/getting-started/' },
       {
-        text: 'Homepage',
+        text: '🏠 Homepage',
         link: 'https://rsi.akkadu.com/'
       },
-      { text: 'Login', link: 'https://rsi.akkadu.com/login' },
-      { text: 'Register', link: 'https://rsi.akkadu.com/register'},
       { text: '✉️ Contact', link: 'mailto:contact@akkadu-team.com'},
     ],
 
@@ -37,9 +35,15 @@ function getSetupSidebar() {
       children: [
         { text: 'Our SDK', link: '/' },
         { text: 'Create a SDK Key', link: '/getting-started/sdk-key' },
+        { text: '🔹 Quick implementation', link: '/getting-started/quick-implementation' },
         { text: '🔹 React', link: '/getting-started/react' },
         { text: '🔹 Vue', link: '/getting-started/vue' },
-        { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js', children:[ {text:'VanillaJs Versions', link:'/vanilla-js/versions.html'}] },
+        { text: '🔹 Vanilla Javascript', link: '/getting-started/vanilla-js' },
+        { text: 'Versions',
+               children: [
+                 { text: 'Vanilla Javascript', link: '/vanilla-js/versions' },
+                 ]             
+             },
       ]
     },
     {
@@ -58,7 +62,7 @@ function getSetupSidebar() {
         { text: 'Events', link: '/interpretation-player/events' },
         { text: 'Room Name', link: '/interpretation-player/roomname' },
         { text: 'Refresh Button', link: '/interpretation-player/refresh' },
-        { text: 'Demo', link: '/interpretation-player/demo' },
+        { text: '⚡ Demo', link: '/interpretation-player/demo' },
         { text: 'Error Messages', link: '/interpretation-player/errors' }
       ]
     },

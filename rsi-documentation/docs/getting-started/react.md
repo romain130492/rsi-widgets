@@ -46,8 +46,6 @@ import { RsiInterpretationPlayer } from '@akkadu/rsi-react'
             onReady = {handleOnReady}
             onLanguageSelected = {handleOnLanguageSelected}
             onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
-            isBoxShadow={false}
-            positionMenu="bottom" 
           />
       </div>
     }
@@ -63,4 +61,33 @@ import { RsiInterpretationPlayer } from '@akkadu/rsi-react'
 * 🌈 Check out our [React online demo](https://rsi-akkadu-react-demo.netlify.app/)
 
 
+
+### 🚀 Quick Implementation 
+
+* We made a simple version of our `interpretation-player` that doesn't require you to listen to our events.
+* In this version we will control your `video-player` for you.
+
+```jsx
+import React from 'react';
+import { RsiInterpretationPlayer } from '@akkadu/rsi-react'
+
+ export default class ComponentInterpretationPlayer{
+  render(){ 
+    return(  
+      <div>
+          <RsiInterpretationPlayer
+            sdkKey="sdk_key_XXXX"
+            isPlayerControlled="true"
+            roomname="ajlx"
+          />
+      </div>
+    }
+  );
+ }
+```
+
+* You will simply need to add as parameter:
+  * Your `sdkKey`
+  * `isPlayerControlled` to **true**, [more](/interpretation-player/props.html)
+  * Your `roomName` 
 

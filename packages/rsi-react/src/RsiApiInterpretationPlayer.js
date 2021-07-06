@@ -9,11 +9,9 @@ import '@akkadu/rsi-interpretation-player/dist/index.css'
  export default class RsiApiInterpretationPlayer extends Component {
    constructor({ 
      sdkKey,
-     positionMenu,
      onReady,
      onLanguageSelected,
      onConnectionStatusUpdated,
-     isBoxShadow,
      isPlayerControlled,
      displayFlag = true,
      placeholderText,
@@ -29,11 +27,10 @@ import '@akkadu/rsi-interpretation-player/dist/index.css'
     super()
      this.state = {
       apiKey: sdkKey,
-      positionMenu : positionMenu,
+      roomName : roomName,
       onLanguageSelected : onLanguageSelected,
       onConnectionStatusUpdated : onConnectionStatusUpdated,
       onReady : onReady,
-      isBoxShadow : isBoxShadow,
       isPlayerControlled : isPlayerControlled,
       displayFlag,
       placeholderText,
@@ -50,8 +47,8 @@ import '@akkadu/rsi-interpretation-player/dist/index.css'
   }
    getRoomname(){
       const params = new URLSearchParams(window.location.search)
-      const roomname = params.get('rsi-roomname');
-      if(!roomname) {
+      const roomname =  this.state.roomName ? this.state.roomName : params.get('rsi-roomname');
+      if(!roomname){
        console.error('No rsi-roomname define on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-docs.akkadu.com/interpretation-player/roomname.html');
       }
       return roomname
@@ -84,8 +81,6 @@ import '@akkadu/rsi-interpretation-player/dist/index.css'
     const config = {
       apiKey: this.state.apiKey,
       roomName,
-      positionMenu: this.state.positionMenu,
-      isBoxShadow: this.state.isBoxShadow,
       isPlayerControlled: this.state.isPlayerControlled,
       displayFlag: this.state.displayFlag,
       placeholderText: this.state.placeholderText

@@ -32,11 +32,10 @@ export default {
 ```vue
 <template>
   <RsiInterpretationPlayer
-    sdkKey="sdk_key_XXXX" 
-    positionMenu="bottom" 
+    sdkKey="sdk_key_XXXX"
     v-on:onLanguageSelected="handleOnLanguageSelected"
     v-on:onReady="handleOnReady"
-    v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated"  >
+    v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated">
 </template>
 
 <script lang="js">
@@ -69,4 +68,36 @@ export default {
   * In this package you will find the implementation of the `interpretation manager` and `interpretation player`. 
 * 🌈 Check out our [Vue online demo](https://rsi-akkadu-vue-demo.netlify.app/)
 
+
+
+
+### 🚀 Quick Implementation
+
+* We made a simple version of our `interpretation-player` that doesn't require you to listen to our events.
+* In this version we will control your `video-player` for you.
+
+```vue
+<template>
+  <RsiInterpretationPlayer
+    sdkKey="sdk_key_XXXX" 
+    isPlayerControlled="true"
+    roomname="ajlx" >
+</template>
+
+<script lang="js">
+
+import { RsiInterpretationPlayer } from '@akkadu/rsi-vue'
+
+export default {
+  components:{
+    RsiInterpretationPlayer
+  },
+}
+</script>
+```
+
+* You will simply need to add as parameter:
+  * Your `sdkKey`
+  * `isPlayerControlled` to **true**, [more](/interpretation-player/props.html)
+  * Your `roomName` 
 

@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events';
+
 export default class Base {
   emitter: any;
   RSI_GATEWAY_API: string;
@@ -39,7 +40,21 @@ export default class Base {
       const { stream , languageState, eventLanguages } = body.data;
       return { stream , languageState, eventLanguages }
   }
+    // Api to get the flags icons: https://www.countryflags.io/ 
+    getFlagUrl(code:string){
+      const iso  = code.slice(-2);
+      return `https://www.countryflags.io/${iso}/flat/64.png` 
+    }
 
+  /**
+   * @description It calls our lambda : /create-event
+   * and create an event on the interpretation-manager
+   */
+    createEvent(payload:any ){
+      const { eventLanguage,interpretaterEmail,interpretationLanguages } = payload;
+      const eventCreated = { roomName:'abcd'}
+      this.emitter.emit('interpretation-manager:on-create-event',  eventCreated );
+    }
     on(event:any,fn:any) {
       this.emitter.on(event,fn)
     }

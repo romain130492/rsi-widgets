@@ -14,16 +14,6 @@
         type:String,
         default: null,
       },
-      positionMenu: {
-        required: false,
-        type:String,
-        default: 'bottom',
-      },
-      isBoxShadow: {
-        required: false,
-        type: Boolean,
-        default: true,
-      },
       isPlayerControlled: {
         required: false,
         type: Boolean,
@@ -40,7 +30,12 @@
       optionsWrapperClass: { type: String },
       optionItemClass: { type: String },
       selectedOptionClass: { type: String },
-      refreshButtonClass: { type: String }
+      refreshButtonClass: { type: String },
+      roomName: {
+        required: false,
+        type: String,
+        default: null,
+      },
     },
     data() {
       return {
@@ -54,9 +49,9 @@
     methods: {
       async init(){
         this.apiKey = this.sdkKey
-        const roomName = this.getRoomname();
+        const roomName = this.roomName ? this.roomName : this.getRoomname();
         if(!roomName){
-          throw Error('interpretation-player: roomname is not defined')
+          throw Error('interpretation-player: roomName is not defined')
         }
         if(!this.apiKey){
           throw Error('interpretation-player: sdkKey is not defined')
@@ -65,8 +60,6 @@
         const config = {
           apiKey: this.apiKey,
           roomName,
-          positionMenu: this.positionMenu,
-          isBoxShadow: this.isBoxShadow,
           isPlayerControlled: this.isPlayerControlled,
           displayFlag: this.displayFlag,
           placeholderText: this.placeholderText
@@ -86,7 +79,10 @@
       },
       getRoomname(){
         const params = new URLSearchParams(window.location.search)
-        const roomname = params.get('rsi-roomname');
+        let roomname = params.get('rsi-roomname');
+        if(!roomname && this.$route && this.$route.query && this.$route.query['rsi-roomname']){
+          roomname = this.$route.query['rsi-roomname']
+        }
         if(!roomname){
          console.error('No rsi-roomname defined on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-docs.akkadu.com/interpretation-player/roomname.html');
         }

@@ -53,14 +53,12 @@ const getRoomName = () => {
  * @description We set up the config by taking the value of the data-attribut of <div id="akkadu-interpretation-player" ></div>
  * https://rsi-docs.akkadu.com/getting-started/vanilla-js.html
  * @param {Object} params
- * @returns {Object} { sdkKey:string, positionMenu:string, isBoxShadow:string, isPlayerControlled:string, roomName:string  }
+ * @returns {Object} { sdkKey:string, isPlayerControlled:string, roomName:string  }
  */
 const getConfig = () =>{
   console.log(component.dataset,'component.dataset');
   const {
      sdkKey: apiKey,
-     positionMenu, 
-     isBoxShadow, 
      isPlayerControlled,
      displayFlag = true,
      placeholderText,
@@ -79,8 +77,6 @@ const getConfig = () =>{
   const roomName = getRoomName()
   return [{
     apiKey,
-    positionMenu,
-    isBoxShadow,
     isPlayerControlled,
     roomName,
     displayFlag: displayFlag === 'false' ? false : true,

@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './styles.module.css'
 import RsiApiInterpretationPlayer from './RsiApiInterpretationPlayer.js'
-import RsiApiInterpretationManager from './RsiApiInterpretationManager.js'
+import RsiInterpretationManager from './RsiInterpretationManager.js'
 
-export { RsiApiInterpretationPlayer, RsiApiInterpretationManager }
+export { RsiApiInterpretationPlayer, RsiInterpretationManager }
 
 
 /*
