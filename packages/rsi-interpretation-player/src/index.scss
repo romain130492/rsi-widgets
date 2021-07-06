@@ -1,0 +1,19 @@
+#my-custom-div {
+  font-size: 20px;
+  min-height: 200px;
+  .my-custom-div-n {
+    border: 1px solid green;
+    .span {
+      color: red;
+    }
+  }
+  .test {
+    font-size: 150px;
+    div {
+      background-color: blue;
+      font-size: 23px;
+      color: pink;
+      border: 1px solid purple;
+    }
+  }
+}

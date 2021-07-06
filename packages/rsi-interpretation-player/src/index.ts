@@ -1,6 +1,8 @@
 import RSIBase from '@akkadu/rsi-base'
 import Logger from '@akkadu/logger'
 import {  sourceLanguageList,  targetLanguageList } from './languages'
+import './index.scss'
+
 const defaultConsumerConfig = {
   languages:[],
   container:null,
