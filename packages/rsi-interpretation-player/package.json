@@ -14,6 +14,7 @@
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
+    "start:css": "node-sass src/index.scss -o dist & node-sass src/index.scss -wo dist",
     "start": "tsc --watch"
   },
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",

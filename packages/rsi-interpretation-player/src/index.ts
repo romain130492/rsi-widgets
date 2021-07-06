@@ -1,7 +1,6 @@
 import RSIBase from '@akkadu/rsi-base'
 import Logger from '@akkadu/logger'
 import {  sourceLanguageList,  targetLanguageList } from './languages'
-import './index.scss'
 
 const defaultConsumerConfig = {
   languages:[],
@@ -18,10 +17,8 @@ export default class InterpretationPlayer extends RSIBase {
   roomName: string;
   gatewayResponse: any;
   consumerConfig: any;
-  positionMenu: string;
-  isBoxShadow : boolean;
   displayFlag: boolean;
-  textSelectorHeader: string;
+  placeholderText: string;
   isPlayerControlled : boolean;
   stream : any;
   languageState: string;
@@ -33,21 +30,19 @@ export default class InterpretationPlayer extends RSIBase {
   remoteLanguageState: string;
   isOriginalLanguage: boolean;
   eventLanguages: Array<{ eventId:string, id:string,interpreterId:string,interpreterLevel:number, sourceLanguage: boolean, interpreterNeeded:boolean, language:string, userId:string }>
-  styleProps: { fontFamily:string, backgroundSelectorHeader:string, fontSizeHeaderSelector:string, backgroundHoverHeaderSelector:string, colorHeaderSelector:string, borderRadiusHeaderSelector:string, fontSizeOptionSelector:string, colorOptionSelector:string, backgroundOptionSelector:string, backgroundHoverOptionSelector:string, borderRadiusOptionSelector:string, optionsDistanceFromHeader:string };
+  classNames: { widgetWrapperClass:string, dropdownWrapperClass:string, headerClass:string, optionsWrapperClass:string, optionItemClass:string, selectedOptionClass:string, refreshButtonClass:string };
 
   constructor(
-    config: { apiKey: string, roomName: string, container:string, positionMenu:string, isBoxShadow:boolean, textSelectorHeader:string, isPlayerControlled:boolean, displayFlag:boolean },
-    styleProps: { fontFamily:string, backgroundSelectorHeader:string, fontSizeHeaderSelector:string, backgroundHoverHeaderSelector:string, colorHeaderSelector:string, borderRadiusHeaderSelector:string, fontSizeOptionSelector:string, colorOptionSelector:string, backgroundOptionSelector:string, backgroundHoverOptionSelector:string, borderRadiusOptionSelector:string, optionsDistanceFromHeader:string }
+    config: { apiKey: string, roomName: string, container:string, positionMenu:string, placeholderText:string, isPlayerControlled:boolean, displayFlag:boolean },
+    classNames: { widgetWrapperClass:string, dropdownWrapperClass:string, headerClass:string, optionsWrapperClass:string, optionItemClass:string, selectedOptionClass:string, refreshButtonClass:string }
   ) {
     super();
-    const { apiKey, roomName, positionMenu, isBoxShadow, isPlayerControlled, displayFlag, textSelectorHeader } = config;
-    this.styleProps = styleProps;
+    const { apiKey, roomName, isPlayerControlled, displayFlag, placeholderText } = config;
+    this.classNames = classNames;
     this.apiKey = apiKey;
     this.roomName = roomName;
-    this.positionMenu = positionMenu;
-    this.isBoxShadow = isBoxShadow;
     this.displayFlag = displayFlag;
-    this.textSelectorHeader = textSelectorHeader || 'Select a language';
+    this.placeholderText = placeholderText || 'Select a language';
     this.isPlayerControlled = isPlayerControlled;
     this.consumerConfig = defaultConsumerConfig
     this.consumerConfig.container = 'akkadu-interpretation-player';
@@ -279,21 +274,10 @@ export default class InterpretationPlayer extends RSIBase {
     }
 
     /** * @description widget: {html:string, css:string} */
-    const widget = require('../lib/widget-component.js').default 
+    const widget = require('../lib/widget-component.js').default
 
     // Add Html to the DOM
-    this.consumerConfig.domContainer.insertAdjacentHTML( 'beforeend', widget.html); 
-
-    // Add Styles to the DOM
-    var style = document.createElement('style');
-    style.textContent =  widget.css(this.styleProps);
-    document.head.appendChild(style);
-    const styleStr = this.updateStylesWithProps()
-    if(styleStr){
-      var styleProp = document.createElement('style');
-      styleProp.textContent =  styleStr
-      document.head.appendChild(styleProp);
-    }
+    this.consumerConfig.domContainer.insertAdjacentHTML( 'beforeend', widget.html(this.classNames));
   
     const languagesOptions = document.createDocumentFragment();
     const createItemLanguage =(languageType:string, index:number) => {
@@ -301,10 +285,10 @@ export default class InterpretationPlayer extends RSIBase {
       let newText : any
       
       newOption = document.createElement('div');
-      newOption.className = 'selectCustom-option';
+      newOption.className = `selectCustom-option ${this.classNames?.optionItemClass || ''}`;
       newOption.id = index
       newOption.onclick = () => { this.handleLanguageChange(languageType) }; 
-      newText = document.createElement('h3');
+      newText = document.createElement('span');
       newText.textContent= this.langChannels()[languageType].name.en;
       newText.id = index;
 
@@ -318,7 +302,7 @@ export default class InterpretationPlayer extends RSIBase {
       return newOption
     } 
     languagesOptions.appendChild(createItemLanguage('source', 0));
-    languagesOptions.appendChild(createItemLanguage('target', 1)); 
+    languagesOptions.appendChild(createItemLanguage('target', 1));
   
     document.getElementById('interpretation-player-options')!.appendChild(languagesOptions);
 
@@ -328,7 +312,7 @@ export default class InterpretationPlayer extends RSIBase {
     // Init Dropdown header
     const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
     const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
-    elSelectCustomValue.getElementsByTagName("h3")[0].textContent = this.textSelectorHeader;
+    elSelectCustomValue.getElementsByTagName("span")[0].textContent = this.placeholderText;
 
     // Toggle select on label click
     elSelectCustomValue.addEventListener("click", (e:any) => {
@@ -352,30 +336,9 @@ export default class InterpretationPlayer extends RSIBase {
   handleDropDown = (languageType) =>{ 
     const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
     const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
-    elSelectCustomValue.getElementsByTagName("h3")[0].textContent = this.langChannels()[languageType].name.en;
+    elSelectCustomValue.getElementsByTagName("span")[0].textContent = this.langChannels()[languageType].name.en;
     elSelectCustomValue.getElementsByTagName("img")[0].src = this.getFlagUrl(this.langChannels()[languageType].code) 
     elSelectCustom.classList.remove("isActive");
-  }
-
-  updateStylesWithProps(){
-    let stylesStr;
-    const styles = []
-    if(this.positionMenu === 'top'){
-      const style = `.selectCustom-options{
-        box-shadow:6px -1px 8px 1px #e3e3e3 !important;
-        top: -130px !important;
-      }`
-      styles.push(style)
-    }
-    if(this.isBoxShadow === false){
-      const style = `
-      #akkadu-interpretation-player .selectCustom-options{
-        box-shadow:none !important;
-      }`
-      styles.push(style)
-    }
-   stylesStr = styles.join(' ')
-   return stylesStr
   }
 
   // Api to get the flags icons: https://www.countryflags.io/ 

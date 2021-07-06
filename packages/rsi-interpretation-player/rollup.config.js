@@ -16,6 +16,9 @@ export default {
     name: 'bundle',
     inlineDynamicImports: true,
   },
+  watch: {
+    include: './src/index.scss'
+  },
   plugins: [
     scss({
       output: './dist/index.css',
@@ -24,7 +27,7 @@ export default {
       outputStyle: 'compressed',
       sass: require('node-sass'),
       processor: () => postcss([autoprefixer()]),
-      watch: './src/'
+      watch: './src'
     }),
     resolve({
       main: true

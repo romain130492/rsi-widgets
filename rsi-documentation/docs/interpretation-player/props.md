@@ -10,22 +10,18 @@ The properties for the **interpretation player**
 | isPlayerControlled         | Works only for `<video>` tag. If the value is `true` we will control your player and mute/unmute your stream for you. If set to `false`, you will have to implement it when receiving our event : `on-language-selected`.   See the [diagram](/interpretation-player/index.html#stream-and-virtual-platform-user-s-event-page.html)| false | boolean: true|false | false |
 
 ---------------
-# Styling props
-
-You can style the interpretation palyer by using the following props
+# Additional props
+To further customize the interpretation player you can use the following props.
 | Properties                | Description           | Required |     Type |       Default|
 | -------------       |:-------------:|         -------------  |-------------  |-------------  |
 | displayFlag            | To hide or show the flag in widget options | false | boolean | true |
-| fontFamily            |  To set the font family of the entire widget | false | string | `"Helvetica Neue", Arial, sans-serif` |
-| textSelectorHeader            | To set the text of the header when no language is selected | false | string | **Select a language** |
-| backgroundSelectorHeader            |  To set the background color of the header of the widget | false | string | `#ffffff` |
-| fontSizeHeaderSelector            | To set the font size of the header of the widget | false | string | `16px` |
-| backgroundHoverHeaderSelector            | Sets the background color of the widget header when mouse hovers over the widget | false | string | `#ffffff` |
-| colorHeaderSelector            | Sets the text color of the widget header | false | string | `#2C3D4F` |
-| borderRadiusHeaderSelector            | Sets the border radius of the widget header | false | string | `5px` |
-| fontSizeOptionSelector            | Sets the font size of the option items | false | string | `16px` |
-| colorOptionSelector            |  Sets the text color of the option items, | false | string | `#2C3D4F` |
-| backgroundOptionSelector            | Sets the background color or option items | false | string | `#ffffff` |
-| backgroundHoverOptionSelector            | To change the background color of options items when hover overing them | false | string | `#F2F2F2` |
-| borderRadiusOptionSelector            | To set the border radius of the options container | false | string | `5px` |
-| optionsDistanceFromHeader            |  To set the distance between the options container and the widget header | false | string | `45px` |
+| placeholderText            | To set the text of the header when no language is selected | false | string | **Select a language** |
+| widgetWrapperClass            |  To set a custom class for RSI widget wrapper, it also wraps the refresh button. | false | string | none |
+| dropdownWrapperClass            | To set a custom class for the dropdown wrapper excluding the refresh button. | false | string | none |
+| headerClass            | To set a custom class for the widget header. | false | string | none |
+| optionsWrapperClass            | To set a custom class for option items wrapper. | false | string | none |
+| optionItemClass            | To set a custom class for option item. | false | string | none |
+| selectedOptionClass            | To set a custom class for selected option. | false | string | none |
+| refreshButtonClass            |  To set a custom class for refresh button, refresh button appears when the stream is stuck. | false | string | none |
+
+> For VanillaJS version all the props should be prefixed with `data-*` and instead of camelcase kebab-case should be used e.g. `data-display-flag`

@@ -4,6 +4,7 @@
 
 import React, { Component } from 'react'
 import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
+import '@akkadu/rsi-interpretation-player/dist/index.css'
 
  export default class RsiApiInterpretationPlayer extends Component {
    constructor({ 
@@ -15,19 +16,14 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
      isBoxShadow,
      isPlayerControlled,
      displayFlag = true,
-     textSelectorHeader,
-     fontFamily,
-     backgroundSelectorHeader,
-     fontSizeHeaderSelector,
-     backgroundHoverHeaderSelector,
-     colorHeaderSelector,
-     borderRadiusHeaderSelector,
-     fontSizeOptionSelector,
-     colorOptionSelector,
-     backgroundOptionSelector,
-     backgroundHoverOptionSelector,
-     borderRadiusOptionSelector,
-     optionsDistanceFromHeader
+     placeholderText,
+     widgetWrapperClass,
+     dropdownWrapperClass,
+     headerClass,
+     optionsWrapperClass,
+     optionItemClass,
+     selectedOptionClass,
+     refreshButtonClass
     }){
     console.log(process.env)
     super()
@@ -40,35 +36,30 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
       isBoxShadow : isBoxShadow,
       isPlayerControlled : isPlayerControlled,
       displayFlag,
-      textSelectorHeader,
-      styleProps: {
-        fontFamily,
-        backgroundSelectorHeader,
-        fontSizeHeaderSelector,
-        backgroundHoverHeaderSelector,
-        colorHeaderSelector,
-        borderRadiusHeaderSelector,
-        fontSizeOptionSelector,
-        colorOptionSelector,
-        backgroundOptionSelector,
-        backgroundHoverOptionSelector,
-        borderRadiusOptionSelector,
-        optionsDistanceFromHeader 
+      placeholderText,
+      classNames: {
+        widgetWrapperClass,
+        dropdownWrapperClass,
+        headerClass,
+        optionsWrapperClass,
+        optionItemClass,
+        selectedOptionClass,
+        refreshButtonClass
       }
     }
   }
    getRoomname(){
       const params = new URLSearchParams(window.location.search)
       const roomname = params.get('rsi-roomname');
-      if(!roomname){
+      if(!roomname) {
        console.error('No rsi-roomname define on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-docs.akkadu.com/interpretation-player/roomname.html');
       }
-      return roomname 
+      return roomname
   };
   componentDidMount() {
     this.init()
   }
-  initListeners(stream){
+  initListeners(stream) {
     stream.on('interpretation-player:on-ready', ({ isReady }) => {
       console.info('emit interpretation-player:on-ready', isReady);
       this.state.onReady({ isReady })
@@ -97,9 +88,9 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
       isBoxShadow: this.state.isBoxShadow,
       isPlayerControlled: this.state.isPlayerControlled,
       displayFlag: this.state.displayFlag,
-      textSelectorHeader: this.state.textSelectorHeader
+      placeholderText: this.state.placeholderText
     }
-    const stream = new InterpretationPlayer(config, this.state.styleProps);
+    const stream = new InterpretationPlayer(config, this.state.classNames);
     this.initListeners(stream)
     stream.init()
    }

@@ -1,11 +1,11 @@
-let InterpretationPlayer = require('@akkadu/rsi-interpretation-player').default  
+let InterpretationPlayer = require('@akkadu/rsi-interpretation-player').default
 
-if(!document){
+if(!document) {
   throw Error('rsi-api-vanilla: document is undefined')
 }
 
 const component = document.querySelector('#akkadu-interpretation-player')
-if(!component){
+if(!component) {
   throw Error('rsi-api-vanilla: Unable to detect stream container akkadu-interpretation-player on the DOM')
 }
 
@@ -63,19 +63,14 @@ const getConfig = () =>{
      isBoxShadow, 
      isPlayerControlled,
      displayFlag = true,
-     textSelectorHeader,
-     fontFamily,
-     backgroundSelectorHeader,
-     fontSizeHeaderSelector,
-     backgroundHoverHeaderSelector,
-     colorHeaderSelector,
-     borderRadiusHeaderSelector,
-     fontSizeOptionSelector,
-     colorOptionSelector,
-     backgroundOptionSelector,
-     backgroundHoverOptionSelector,
-     borderRadiusOptionSelector,
-     optionsDistanceFromHeader
+     placeholderText,
+     widgetWrapperClass,
+     dropdownWrapperClass,
+     headerClass,
+     optionsWrapperClass,
+     optionItemClass,
+     selectedOptionClass,
+     refreshButtonClass
   } = component.dataset;
 
   if(!apiKey){
@@ -89,24 +84,19 @@ const getConfig = () =>{
     isPlayerControlled,
     roomName,
     displayFlag: displayFlag === 'false' ? false : true,
-    textSelectorHeader
+    placeholderText
   }, {
-    fontFamily,
-    backgroundSelectorHeader,
-    fontSizeHeaderSelector,
-    backgroundHoverHeaderSelector,
-    colorHeaderSelector,
-    borderRadiusHeaderSelector,
-    fontSizeOptionSelector,
-    colorOptionSelector,
-    backgroundOptionSelector,
-    backgroundHoverOptionSelector,
-    borderRadiusOptionSelector,
-    optionsDistanceFromHeader
+    widgetWrapperClass,
+    dropdownWrapperClass,
+    headerClass,
+    optionsWrapperClass,
+    optionItemClass,
+    selectedOptionClass,
+    refreshButtonClass
   }]
 }
-let [config, styleProps] = getConfig()
+let [config, classNames] = getConfig()
 
-const stream = new InterpretationPlayer(config, styleProps);
+const stream = new InterpretationPlayer(config, classNames);
 initListeners(stream)
 stream.init()

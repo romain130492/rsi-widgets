@@ -31,7 +31,7 @@ const App = () => {
     </video>
      <RsiApiInterpretationPlayer
         sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c"
-        onReady = {handleOnReady}
+        onReady={handleOnReady}
         onLanguageSelected = {handleOnLanguageSelected}
         onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
         isBoxShadow={false}

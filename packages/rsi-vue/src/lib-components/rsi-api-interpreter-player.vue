@@ -4,7 +4,9 @@
 </template>
 
 <script>
-  import InterpretationPlayer from '@akkadu/rsi-interpretation-player'    
+  import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
+  import '@akkadu/rsi-interpretation-player/dist/index.css'
+
   export default {
     props: {
       sdkKey: {
@@ -31,24 +33,19 @@
         type: Boolean,
         default: true
       },
-      fontFamily: { type: String },
-      backgroundSelectorHeader: { type: String },
-      fontSizeHeaderSelector: { type: String },
-      textSelectorHeader: { type: String },
-      backgroundHoverHeaderSelector: { type: String },
-      colorHeaderSelector: { type: String },
-      borderRadiusHeaderSelector: { type: String },
-      fontSizeOptionSelector: { type: String },
-      colorOptionSelector: { type: String },
-      backgroundOptionSelector: { type: String },
-      backgroundHoverOptionSelector: { type: String },
-      borderRadiusOptionSelector: { type: String },
-      optionsDistanceFromHeader: { type: String }
+      placeholderText: { type: String },
+      widgetWrapperClass: { type: String },
+      dropdownWrapperClass: { type: String },
+      headerClass: { type: String },
+      optionsWrapperClass: { type: String },
+      optionItemClass: { type: String },
+      selectedOptionClass: { type: String },
+      refreshButtonClass: { type: String }
     },
     data() {
       return {
         stream: null,
-        apiKey:null
+        apiKey: null
       }
     },
     mounted() {
@@ -72,23 +69,18 @@
           isBoxShadow: this.isBoxShadow,
           isPlayerControlled: this.isPlayerControlled,
           displayFlag: this.displayFlag,
-          textSelectorHeader: this.textSelectorHeader
+          placeholderText: this.placeholderText
         }
-        const styleProps = { 
-          fontFamily: this.fontFamily,
-          backgroundSelectorHeader: this.backgroundSelectorHeader,
-          fontSizeHeaderSelector: this.fontSizeHeaderSelector,
-          backgroundHoverHeaderSelector: this.backgroundHoverHeaderSelector,
-          colorHeaderSelector: this.colorHeaderSelector,
-          borderRadiusHeaderSelector: this.borderRadiusHeaderSelector,
-          fontSizeOptionSelector: this.fontSizeOptionSelector,
-          colorOptionSelector: this.colorOptionSelector,
-          backgroundOptionSelector: this.backgroundOptionSelector,
-          backgroundHoverOptionSelector: this.backgroundHoverOptionSelector,
-          borderRadiusOptionSelector: this.borderRadiusOptionSelector,
-          optionsDistanceFromHeader: this.optionsDistanceFromHeader
+        const classNames = { 
+          widgetWrapperClass: this.widgetWrapperClass,
+          dropdownWrapperClass: this.dropdownWrapperClass,
+          headerClass: this.headerClass,
+          optionsWrapperClass: this.optionsWrapperClass,
+          optionItemClass: this.optionItemClass,
+          selectedOptionClass: this.selectedOptionClass,
+          refreshButtonClass: this.refreshButtonClass
         }
-        this.stream = new InterpretationPlayer(config, styleProps);
+        this.stream = new InterpretationPlayer(config, classNames);
         this.initListeners()
         this.stream.init()
       },
