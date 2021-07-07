@@ -1,7 +1,6 @@
-
 import React from 'react'
-
 import { RsiApiInterpretationPlayer } from '@akkadu/rsi-react'
+import { RsiInterpretationManager } from '@akkadu/rsi-react'
 import '@akkadu/rsi-react/dist/index.css'
 
 
@@ -24,18 +23,29 @@ const handleOnLanguageSelected = (e) => {
 const handleOnConnectionStatusUpdated = (e) => {
   console.info('receive onConnectionStatusUpdated event:',e );
 }
+const handleOnCreateEvent = (e) => {
+  console.info('receive onConnectionStatusUpdated event:',e );
+}
 const App = () => {
-  return  <div>
+  return  <div style={{ marginBottom: '2rem' }}>
+    <h3>Interpretation Player</h3>
     <video loop="" controls width="640" height="480">
       <source type="video/mp4" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"/>
     </video>
      <RsiApiInterpretationPlayer
         sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c"
-        onReady={handleOnReady}
+        onReady = {handleOnReady}
         onLanguageSelected = {handleOnLanguageSelected}
         onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
+        isBoxShadow={false}
         isPlayerControlled={true}
-   /></div>
+   />
+   <h3 style={{ margin: '2rem 0 0.5rem 0' }}>Interpretation Manager</h3>
+    <RsiInterpretationManager
+        sdkKey="d9ed0b1e-6027-4c19-a43a-69b231713f1c"
+        onCreateEvent = {handleOnCreateEvent}
+   />
+   </div>
 }
 
 export default App

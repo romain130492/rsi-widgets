@@ -8,8 +8,8 @@
     "dist/**/*"
   ],
   "scripts": {
-    "start": "webpack --hot",
-    "build": "webpack"
+    "start": "webpack --mode development --hot",
+    "build": "webpack --mode production"
   },
   "devDependencies": {
     "aws-sdk": "^2.930.0",

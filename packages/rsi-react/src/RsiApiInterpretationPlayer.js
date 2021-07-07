@@ -9,6 +9,7 @@ import '@akkadu/rsi-interpretation-player/dist/index.css'
  export default class RsiApiInterpretationPlayer extends Component {
    constructor({ 
      sdkKey,
+     roomName,
      onReady,
      onLanguageSelected,
      onConnectionStatusUpdated,
@@ -23,7 +24,6 @@ import '@akkadu/rsi-interpretation-player/dist/index.css'
      selectedOptionClass,
      refreshButtonClass
     }){
-    console.log(process.env)
     super()
      this.state = {
       apiKey: sdkKey,

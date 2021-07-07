@@ -86,6 +86,8 @@ Packages must be published form the `root` folder. with the command `year releas
 * `rsi-interpretation-manager`
 * `rsi-interpretation-player`
 
+> To regenerate CSS files in dist dir after changing .scss file you can run `yarn start:css` in another terminal tab.
+
 **VueJs**
 * `rsi-vue`
   * That package includes a VueJs test server you can run with `yarn start`.

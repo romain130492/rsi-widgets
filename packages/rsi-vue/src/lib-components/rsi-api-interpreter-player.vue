@@ -108,8 +108,6 @@
     
   }
 </script>
-<style>
-  @import '@akkadu/rsi-interpretation-player/dist/index.css';
-</style>
+<style src="@akkadu/rsi-interpretation-player/dist/index.css" />
 
 

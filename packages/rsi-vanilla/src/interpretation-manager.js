@@ -4,7 +4,7 @@ if(!document){
   throw Error('rsi-api-vanilla: document is undefined')
 }
 
-const component = document.querySelector('#akkadu-interpretation-player')
+const component = document.querySelector('#akkadu-interpretation-manager')
 if(!component){
   throw Error('rsi-api-vanilla: Unable to detect stream container akkadu-interpretation-manager on the DOM')
 }

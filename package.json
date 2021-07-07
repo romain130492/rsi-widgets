@@ -18,14 +18,19 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@vue/cli-service": "^4.5.13",
     "autoprefixer": "^10.2.6",
     "babel-jest": "^26.6.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^5.2.6",
     "eslint": "^7.11.0",
     "lerna": "^4.0.0",
     "node-sass": "^6.0.1",
     "postcss": "^8.3.5",
+    "postcss-loader": "^6.1.1",
     "rollup": "^2.0.6",
     "rollup-plugin-scss": "3",
+    "vue-loader": "^16.3.0",
     "webpack": "4.44.2"
   },
   "dependencies": {

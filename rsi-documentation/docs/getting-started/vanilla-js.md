@@ -8,6 +8,8 @@
 ### Registering the [Interpretation Player](/interpretation-player/index.html)
 
 ```html
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.1.0/interpretation-player.min.css" />
 
   <!-- Component -->
   <div 
@@ -32,7 +34,7 @@
     </script>
 
     <!-- 🚨 Script must be loaded after the component -->
-    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.7/index.min.js" ></script>
+    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.1.0/interpretation-player.min.js" ></script>
 
 
 ```
@@ -75,18 +77,20 @@ Get the latest versions of the script [here](/vanilla-js/versions.html)
 
 
 ```html
+<!-- stylesheet -->
+<link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.1.0/interpretation-player.min.css" />
 
-  <!-- Component -->
-  <div 
-     id="akkadu-interpretation-player" 
-     data-sdk-key="your_sdk_key" 
-     data-is-player-controlled="true"
-     data-room-name="ajlx"
-   >
-    </div> 
+<!-- Component -->
+<div 
+  id="akkadu-interpretation-player" 
+  data-sdk-key="your_sdk_key" 
+  data-is-player-controlled="true"
+  data-room-name="ajlx"
+>
+</div> 
 
-    <!-- 🚨 Script must be loaded after the component -->
-    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.7/index.min.js" ></script>
+<!-- 🚨 Script must be loaded after the component -->
+<script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.7/index.min.js" ></script>
 
 
 ```
