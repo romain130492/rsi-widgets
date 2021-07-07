@@ -16,14 +16,10 @@ export default {
     name: 'bundle',
     inlineDynamicImports: true,
   },
-  watch: {
-    include: './src/index.scss'
-  },
   plugins: [
     scss({
       output: './dist/index.css',
       failOnError: true,
-      sourceMap: true,
       outputStyle: 'compressed',
       sass: require('node-sass'),
       processor: () => postcss([autoprefixer()]),

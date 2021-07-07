@@ -5,7 +5,6 @@
 
 <script>
   import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
-  import '@akkadu/rsi-interpretation-player/dist/index.css'
 
   export default {
     props: {
@@ -109,5 +108,8 @@
     
   }
 </script>
+<style>
+  @import '@akkadu/rsi-interpretation-player/dist/index.css';
+</style>
 
 
