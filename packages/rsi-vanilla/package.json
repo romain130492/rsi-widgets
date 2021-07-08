@@ -24,5 +24,6 @@
     "@akkadu/logger": "^2.1.0",
     "@akkadu/rsi-interpretation-manager": "^0.1.2",
     "@akkadu/rsi-interpretation-player": "^0.3.22"
-  }
+  },
+  "gitHead": "77af3a884c836951300d98d37f0f6b5c756fa95b"
 }
