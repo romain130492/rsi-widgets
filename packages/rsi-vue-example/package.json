@@ -1,13 +1,13 @@
 {
   "name": "@akkadu/rsi-vue-example",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-vue": "^1.2.25",
+    "@akkadu/rsi-vue": "^1.2.26",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"
   },
