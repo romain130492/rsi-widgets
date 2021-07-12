@@ -75,6 +75,7 @@ Packages must be published form the `root` folder. with the command `year releas
   ```
   //registry.npmjs.org/:_authToken=YOUR_NPM_AUTH_TOKEN
   ```
+* or you can also simply do `npm login` in the terminal and you should not have to add the .npmrc file, if you are a collaborator of akkadu.
 
 3- Once your PR is reviewed /accepted. Use the command :  `yarn release` in the root folder.
 
