@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-vanilla",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "tmpVersion": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -23,7 +23,7 @@
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
     "@akkadu/rsi-interpretation-manager": "^0.1.4",
-    "@akkadu/rsi-interpretation-player": "^0.3.24"
+    "@akkadu/rsi-interpretation-player": "^0.3.25"
   },
   "gitHead": "1b83f4af3c11293b0bcff5981cb3040305237b3e"
 }
