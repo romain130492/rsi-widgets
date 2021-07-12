@@ -70,6 +70,8 @@ function getSetupSidebar() {
       text: 'Interpreters',
       children: [
         { text: 'Managing the Interpreters', link: '/interpreters/index' },
+        { text: 'Where will the interpreters interpret?', link: '/interpreters/index#where-will-the-interpreters-interpret' },
+        { text: 'External Stream', link: '/interpreters/index#external-stream' },
       ]
     },
     {
