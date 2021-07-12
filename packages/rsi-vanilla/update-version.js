@@ -66,7 +66,7 @@ console.info('Updating the version on our bucket akkadu-rsi-widget/rsi-vanilla/,
 console.info('🚧🚧🚧');
 console.info('currentVersion',currentVersion);
 
-const updateAWS = (file, fileName, ext) =>{
+const updateAWS = (file, fileName, ext, contentType = 'application/javascript') =>{
   fs.readFile(file, function (err, data) {
     if (err) { throw err; }
     var base64data = new Buffer(data, 'binary');
@@ -75,7 +75,8 @@ const updateAWS = (file, fileName, ext) =>{
       Bucket: myBucket,
       Key: `akkadu-rsi-widget/rsi-vanilla/${currentVersion}/${fileName}.min.${ext}`,
       Body: base64data,
-      ACL: 'public-read'
+      ACL: 'public-read',
+      ContentType: contentType
     },function (resp) {
       console.info(`Successfully uploaded the new version of rsi-widget on AWS, version: ${currentVersion}.`);
       writeTmpVersion();
@@ -89,7 +90,7 @@ AWS.config.update({ accessKeyId: process.env.AWS_ACCESS_KEY, secretAccessKey: pr
 
 
 updateAWS(filePathInterpretationPlayer, 'interpretation-player', 'js')
-updateAWS(filePathInterpretationPlayerCss, 'interpretation-player', 'css')
+updateAWS(filePathInterpretationPlayerCss, 'interpretation-player', 'css', 'text/css')
 updateAWS(filePathInterpretationManager, 'interpretation-manager', 'js')
 
 

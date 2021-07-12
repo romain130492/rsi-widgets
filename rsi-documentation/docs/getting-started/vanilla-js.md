@@ -9,7 +9,7 @@
 
 ```html
   <!-- stylesheet -->
-  <link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.1.0/interpretation-player.min.css" />
+  <link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.css" />
 
   <!-- Component -->
   <div 
@@ -34,7 +34,7 @@
     </script>
 
     <!-- 🚨 Script must be loaded after the component -->
-    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.1.0/interpretation-player.min.js" ></script>
+    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.js" ></script>
 
 
 ```
@@ -55,7 +55,7 @@
       window.addEventListener('load', function () {
         var s = document.createElement("script");
         s.type = "text/javascript";
-        s.src= 'https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.7/index.min.js'
+        s.src= 'https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.js'
         document.head.appendChild(s);
       })
     </script> 
@@ -78,7 +78,7 @@ Get the latest versions of the script [here](/vanilla-js/versions.html)
 
 ```html
 <!-- stylesheet -->
-<link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.1.0/interpretation-player.min.css" />
+<link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.css" />
 
 <!-- Component -->
 <div 
@@ -90,7 +90,7 @@ Get the latest versions of the script [here](/vanilla-js/versions.html)
 </div> 
 
 <!-- 🚨 Script must be loaded after the component -->
-<script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.7/index.min.js" ></script>
+<script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.js" ></script>
 
 
 ```
