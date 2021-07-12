@@ -120,6 +120,7 @@ export default class InterpretationPlayer extends RSIBase {
     if(!this.isPlayerControlled){
       return
     }
+    console.log('test11');
     const isMuted = languageType === 'source' ? false : true; // we onlu
 
     const videoPlayerVP = this.getVideoPlayerVP()
