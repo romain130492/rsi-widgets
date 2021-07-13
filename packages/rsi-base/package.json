@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-base",
-  "version": "0.2.16",
+  "version": "0.2.19",
   "description": ",",
   "main": "lib/index.js",
   "private": false,
@@ -28,5 +28,5 @@
     "typescript": "^4.2.4",
     "ua-parser-js": "^0.7.21"
   },
-  "gitHead": "1e87df3071e7dd8f413315e14834b242ee3a7a06"
+  "gitHead": "ae840f3b83a94bdf4d5fec701263d4e9716892e6"
 }

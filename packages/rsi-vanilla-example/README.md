@@ -5,17 +5,20 @@
 
 
 ## How to add our script on your html page
-1- Add this bloc
+1- Add this stylesheet in the head tag.
 ```html
-  <div id="akkadu-interpretation-player">
-    </div>
+<link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.css" />
 ```
-2- Add the script under the first bloc
+2- Add this block where you want to display the widget.
 ```html
-   <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-api-widget/rsi-api-vanilla/dist/index.min.js" ></script>
+  <div id="akkadu-interpretation-player"></div>
+```
+3- Add the script under the block above or right before the closing body tag.
+```html
+   <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.js" ></script>
 ```
 
-🚨 The bloc with id of `akkadu-interpretation-player` must be loaded on the page before the script.
+🚨 The block with id of `akkadu-interpretation-player` must be loaded on the page before the script.
 Otherwise you will get the error : ` Unable to detect stream container akkadu-interpretation-player on the DOM`
 
 * You can either put the script at the end of your page before the </body>

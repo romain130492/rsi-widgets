@@ -4,19 +4,45 @@
 
 import React, { Component } from 'react'
 import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
+import '@akkadu/rsi-interpretation-player/dist/index.css'
 
  export default class RsiApiInterpretationPlayer extends Component {
-  constructor({ sdkKey, positionMenu, onReady, onLanguageSelected, onConnectionStatusUpdated, isBoxShadow, isPlayerControlled, roomName }){
+   constructor({ 
+     sdkKey,
+     roomName,
+     onReady,
+     onLanguageSelected,
+     onConnectionStatusUpdated,
+     isPlayerControlled,
+     displayFlag = true,
+     placeholderText,
+     widgetWrapperClass,
+     dropdownWrapperClass,
+     headerClass,
+     optionsWrapperClass,
+     optionItemClass,
+     selectedOptionClass,
+     refreshButtonClass
+    }){
     super()
-     this.state= {
+     this.state = {
       apiKey: sdkKey,
-      positionMenu : positionMenu,
       roomName : roomName,
       onLanguageSelected : onLanguageSelected,
       onConnectionStatusUpdated : onConnectionStatusUpdated,
       onReady : onReady,
-      isBoxShadow : isBoxShadow,
-      isPlayerControlled : isPlayerControlled
+      isPlayerControlled : isPlayerControlled,
+      displayFlag,
+      placeholderText,
+      classNames: {
+        widgetWrapperClass,
+        dropdownWrapperClass,
+        headerClass,
+        optionsWrapperClass,
+        optionItemClass,
+        selectedOptionClass,
+        refreshButtonClass
+      }
     }
   }
    getRoomname(){
@@ -25,12 +51,12 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
       if(!roomname){
        console.error('No rsi-roomname define on your page. You must add as a query parameter rsi-roomname=abcd, abcd is the roomname that you got during the event creation with the interpretation-manager. Infos here: https://rsi-docs.akkadu.com/interpretation-player/roomname.html');
       }
-      return roomname 
+      return roomname
   };
   componentDidMount() {
     this.init()
   }
-  initListeners(stream){
+  initListeners(stream) {
     stream.on('interpretation-player:on-ready', ({ isReady }) => {
       console.info('emit interpretation-player:on-ready', isReady);
       this.state.onReady({ isReady })
@@ -52,8 +78,14 @@ import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
     if(!this.state.apiKey){
       throw Error('interpretation-player: sdkKey is not defined')
     }
-    const config = {apiKey:this.state.apiKey, roomName, positionMenu:this.state.positionMenu, isBoxShadow: this.state.isBoxShadow, isPlayerControlled: this.state.isPlayerControlled }
-    const stream = new InterpretationPlayer(config);
+    const config = {
+      apiKey: this.state.apiKey,
+      roomName,
+      isPlayerControlled: this.state.isPlayerControlled,
+      displayFlag: this.state.displayFlag,
+      placeholderText: this.state.placeholderText
+    }
+    const stream = new InterpretationPlayer(config, this.state.classNames);
     this.initListeners(stream)
     stream.init()
    }

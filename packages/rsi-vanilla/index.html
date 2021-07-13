@@ -5,54 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>rsi-vanilla-dev-example</title>
+  <style>
+    .wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .wrapper a {
+      text-decoration: none;
+      background: rgb(205, 241, 255);
+      color: blue;
+      border: 1px solid royalblue;
+      padding: 0.5rem 3rem;
+      border-radius: 5px;
+      margin: 0.25rem;
+      transition: 1s;
+      box-shadow: 1px 1px 6px 1px gray;
+    }
+    .wrapper a:hover {
+      background-color: white;
+      transition: 1s;
+    }
+  </style>
 </head>
-<body>
-  <h2>RSI SDK vanilla dev - interpretation player example</h2>
-   <div 
-     id="akkadu-interpretation-player" 
-     data-sdk-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
-     data-position-menu="bottom" 
-     data-is-box-shadow="true"
-     data-is-player-controlled="true"
-   >
-    </div> 
-    <br>
-    <br>
-    <br>
-    <br>
-    
-   <h2>RSI SDK Interpretation Manager example</h2>
-   <div 
-     id="akkadu-interpretation-manager" 
-     data-sdk-key="d9ed0b1e-6027-4c19-a43a-69b231713f1c" 
-   >
-  </div> 
-    <script>
-      // You can remove that redirection and add your own roomName in the url
-      if(!window.location.href.includes('?rsi-roomname=aljx')){
-         window.location.href = `${window.location.href}?rsi-roomname=aljx` 
-      } 
-      const component = document.querySelector('#akkadu-interpretation-player')
-
-      /* Interpretation Player listeners */
-      component.addEventListener('onReady', function (e) { 
-        console.info('received onReady event:', e?.detail?.isReady);
-      });
-      component.addEventListener('onLanguageSelected', function (e) { 
-        console.info('received onLanguageSelected event:', e?.detail?.languageSelected);
-      });
-      component.addEventListener('onConnectionStatusUpdated', function (e) { 
-        console.info('received onConnectionStatusUpdated event:', e?.detail?.connection);
-      });
-
-
-      /* Interpretation manager Listeners */
-      component.addEventListener('onCreateEvent', function (e) { 
-        console.info('received onCreate event:', e?.detail);
-      });
-    </script>
-<!--     <script src="dist/index.min.js" ></script> -->
-    <script src="dist/interpretation-player.min.js" ></script>
-    <script src="dist/interpretation-manager.min.js" ></script>
+<body style="padding: 2rem;">
+  <div class="wrapper">
+    <a href="interpretation-player.html">Interpretaion Player</a>
+    <a href="interpretation-manager.html">Interpretation Manager</a>
+  </div>
 </body>
 </html>

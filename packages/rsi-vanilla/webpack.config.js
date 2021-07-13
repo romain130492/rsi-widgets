@@ -1,4 +1,6 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   entry:{
     "interpretation-player":"./src/interpretation-player.js",
@@ -19,4 +21,12 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].min.js',
   },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: require.resolve('@akkadu/rsi-interpretation-player/dist/index.css'),
+        to: '[name].min.css'
+      }]
+    })
+  ]
 };

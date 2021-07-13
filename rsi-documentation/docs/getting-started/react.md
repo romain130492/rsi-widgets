@@ -46,8 +46,6 @@ import { RsiInterpretationPlayer } from '@akkadu/rsi-react'
             onReady = {handleOnReady}
             onLanguageSelected = {handleOnLanguageSelected}
             onConnectionStatusUpdated = {handleOnConnectionStatusUpdated}
-            isBoxShadow={false}
-            positionMenu="bottom" 
           />
       </div>
     }

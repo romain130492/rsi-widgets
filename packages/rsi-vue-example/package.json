@@ -1,13 +1,13 @@
 {
   "name": "@akkadu/rsi-vue-example",
-  "version": "0.1.18",
+  "version": "0.1.22",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-vue": "^1.2.23",
+    "@akkadu/rsi-vue": "^1.2.27",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"
   },
@@ -19,5 +19,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "gitHead": "ae840f3b83a94bdf4d5fec701263d4e9716892e6"
 }

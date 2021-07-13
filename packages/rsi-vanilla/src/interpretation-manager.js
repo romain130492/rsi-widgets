@@ -4,7 +4,7 @@ if(!document){
   throw Error('rsi-api-vanilla: document is undefined')
 }
 
-const component = document.querySelector('#akkadu-interpretation-player')
+const component = document.querySelector('#akkadu-interpretation-manager')
 if(!component){
   throw Error('rsi-api-vanilla: Unable to detect stream container akkadu-interpretation-manager on the DOM')
 }
@@ -26,7 +26,7 @@ const initListeners = (stream) => {
  * @description We set up the config by taking the value of the data-attribut of <div id="akkadu-interpretation-player" ></div>
  * https://rsi-docs.akkadu.com/getting-started/vanilla-js.html
  * @param {Object} params
- * @returns {Object} { sdkKey:string, positionMenu:string, isBoxShadow:string, isPlayerControlled:string, roomName:string  }
+ * @returns {Object} { sdkKey:string, isPlayerControlled:string, roomName:string  }
  */
 const getConfig = () =>{
   const {

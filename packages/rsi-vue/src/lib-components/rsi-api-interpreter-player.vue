@@ -4,7 +4,8 @@
 </template>
 
 <script>
-  import InterpretationPlayer from '@akkadu/rsi-interpretation-player'    
+  import InterpretationPlayer from '@akkadu/rsi-interpretation-player'
+
   export default {
     props: {
       sdkKey: {
@@ -12,21 +13,23 @@
         type:String,
         default: null,
       },
-      positionMenu: {
-        required: false,
-        type:String,
-        default: 'bottom',
-      },
-      isBoxShadow: {
-        required: false,
-        type: Boolean,
-        default: true,
-      },
       isPlayerControlled: {
         required: false,
         type: Boolean,
         default: false,
       },
+      displayFlag: {
+        type: Boolean,
+        default: true
+      },
+      placeholderText: { type: String },
+      widgetWrapperClass: { type: String },
+      dropdownWrapperClass: { type: String },
+      headerClass: { type: String },
+      optionsWrapperClass: { type: String },
+      optionItemClass: { type: String },
+      selectedOptionClass: { type: String },
+      refreshButtonClass: { type: String },
       roomName: {
         required: false,
         type: String,
@@ -36,7 +39,7 @@
     data() {
       return {
         stream: null,
-        apiKey:null
+        apiKey: null
       }
     },
     mounted() {
@@ -52,8 +55,24 @@
         if(!this.apiKey){
           throw Error('interpretation-player: sdkKey is not defined')
         }
-        const config = {apiKey:this.apiKey, roomName, positionMenu:this.positionMenu, isBoxShadow:this.isBoxShadow, isPlayerControlled:this.isPlayerControlled }
-        this.stream = new InterpretationPlayer(config);
+        //const InterpretationPlayer = (await import('@akkadu/rsi-api-interpretation-player')).default // @akkadu/rsi-api-interpretation-player 
+        const config = {
+          apiKey: this.apiKey,
+          roomName,
+          isPlayerControlled: this.isPlayerControlled,
+          displayFlag: this.displayFlag,
+          placeholderText: this.placeholderText
+        }
+        const classNames = { 
+          widgetWrapperClass: this.widgetWrapperClass,
+          dropdownWrapperClass: this.dropdownWrapperClass,
+          headerClass: this.headerClass,
+          optionsWrapperClass: this.optionsWrapperClass,
+          optionItemClass: this.optionItemClass,
+          selectedOptionClass: this.selectedOptionClass,
+          refreshButtonClass: this.refreshButtonClass
+        }
+        this.stream = new InterpretationPlayer(config, classNames);
         this.initListeners()
         this.stream.init()
       },
@@ -89,5 +108,6 @@
     
   }
 </script>
+<style src="@akkadu/rsi-interpretation-player/dist/index.css" />
 
 

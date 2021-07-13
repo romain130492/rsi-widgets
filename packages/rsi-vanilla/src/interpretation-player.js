@@ -1,11 +1,11 @@
-let InterpretationPlayer = require('@akkadu/rsi-interpretation-player').default  
+let InterpretationPlayer = require('@akkadu/rsi-interpretation-player').default
 
-if(!document){
+if(!document) {
   throw Error('rsi-api-vanilla: document is undefined')
 }
 
 const component = document.querySelector('#akkadu-interpretation-player')
-if(!component){
+if(!component) {
   throw Error('rsi-api-vanilla: Unable to detect stream container akkadu-interpretation-player on the DOM')
 }
 
@@ -53,28 +53,46 @@ const getRoomName = () => {
  * @description We set up the config by taking the value of the data-attribut of <div id="akkadu-interpretation-player" ></div>
  * https://rsi-docs.akkadu.com/getting-started/vanilla-js.html
  * @param {Object} params
- * @returns {Object} { sdkKey:string, positionMenu:string, isBoxShadow:string, isPlayerControlled:string, roomName:string  }
+ * @returns {Object} { sdkKey:string, isPlayerControlled:string, roomName:string  }
  */
 const getConfig = () =>{
-  console.info(component.dataset,'component.dataset');
-  let {
-     sdkKey:apiKey,
-     positionMenu, 
-     isBoxShadow, 
+  console.log(component.dataset,'component.dataset');
+  const {
+     sdkKey: apiKey,
      isPlayerControlled,
-     roomName
+     displayFlag = true,
+     placeholderText,
+     widgetWrapperClass,
+     dropdownWrapperClass,
+     headerClass,
+     optionsWrapperClass,
+     optionItemClass,
+     selectedOptionClass,
+     refreshButtonClass
   } = component.dataset;
 
   if(!apiKey){
     throw Error("data-sdk-key is undefined. Add it to the <div data-sdk-key='your_sdk_key'>")
   }
-  if(!roomName){
-    roomName =  getRoomName();
-  }
-  return { apiKey, positionMenu, isBoxShadow, isPlayerControlled, roomName }
+  const roomName = getRoomName()
+  return [{
+    apiKey,
+    isPlayerControlled,
+    roomName,
+    displayFlag: displayFlag === 'false' ? false : true,
+    placeholderText
+  }, {
+    widgetWrapperClass,
+    dropdownWrapperClass,
+    headerClass,
+    optionsWrapperClass,
+    optionItemClass,
+    selectedOptionClass,
+    refreshButtonClass
+  }]
 }
-let config = getConfig()
+let [config, classNames] = getConfig()
 
-const stream = new InterpretationPlayer(config);
+const stream = new InterpretationPlayer(config, classNames);
 initListeners(stream)
 stream.init()

@@ -6,6 +6,8 @@
 
 
 ```html
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.css" />
 
   <!-- Component -->
   <div 
@@ -17,7 +19,7 @@
     </div> 
 
     <!-- 🚨 Script must be loaded after the component -->
-    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.7/index.min.js" ></script>
+    <script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.js" ></script>
 
 
 ```

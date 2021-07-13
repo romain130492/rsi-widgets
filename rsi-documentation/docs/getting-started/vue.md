@@ -32,11 +32,10 @@ export default {
 ```vue
 <template>
   <RsiInterpretationPlayer
-    sdkKey="sdk_key_XXXX" 
-    positionMenu="bottom" 
+    sdkKey="sdk_key_XXXX"
     v-on:onLanguageSelected="handleOnLanguageSelected"
     v-on:onReady="handleOnReady"
-    v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated"  >
+    v-on:onConnectionStatusUpdated="handleOnConnectionStatusUpdated">
 </template>
 
 <script lang="js">
