@@ -1,0 +1,21 @@
+{
+  "name": "@akkadu/rsi-vanilla-language-channel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --mode development --hot",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@akkadu/logger": "^2.1.0",
+    "@akkadu/rsi-interpretation-player": "^0.3.25"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.2.2",
+    "filemanager-webpack-plugin": "^5.0.0",
+    "path": "^0.12.7",
+    "webpack": "^5.39.0",
+    "webpack-cli": "^4.7.2"
+  }
+}

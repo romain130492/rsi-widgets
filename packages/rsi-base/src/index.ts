@@ -33,11 +33,11 @@ export default class Base {
         body: JSON.stringify({apiKey, roomName})
       });
       const content = await rawResponse.json();
-      const body = content.body;
-      if(body.error){
-        throw Error(`interpretation-player: An error occured: ${body.error}`)
+      console.log(content);
+      if(content.error){
+        throw Error(`interpretation-player: An error occured: ${content.error}`)
       }
-      const { stream , languageState, eventLanguages } = body.data;
+      const { stream , languageState, eventLanguages } = content.data;
       return { stream , languageState, eventLanguages }
   }
     // Api to get the flags icons: https://www.countryflags.io/ 
