@@ -22,7 +22,7 @@
     "@akkadu/logger": "^2.1.0",
     "@akkadu/rsi-base": "^0.2.21"
   },
-  "gitHead": "f3ce5bfb78f10248d0cb400ca6d22fbea4653b73",
+  "gitHead": "2d1568b01622e416b5f32a67b2df0e3296436fa2",
   "devDependencies": {
     "lerna": "^4.0.0"
   }
