@@ -33,7 +33,6 @@ export default class Base {
         body: JSON.stringify({apiKey, roomName})
       });
       const content = await rawResponse.json();
-      console.log(content);
       if(content.error){
         throw Error(`interpretation-player: An error occured: ${content.error}`)
       }
