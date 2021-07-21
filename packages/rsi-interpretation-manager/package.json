@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-interpretation-manager",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "main": "lib/index.js",
   "private": false,
@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-base": "^0.2.20"
+    "@akkadu/rsi-base": "^0.2.21"
   },
   "gitHead": "f3ce5bfb78f10248d0cb400ca6d22fbea4653b73",
   "devDependencies": {
