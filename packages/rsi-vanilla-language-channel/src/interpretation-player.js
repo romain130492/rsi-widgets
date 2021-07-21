@@ -1,4 +1,5 @@
 let InterpretationPlayer = require('@akkadu/rsi-interpretation-player').default
+const { getLanguageChannelEvent } = require('get-language-channel-table.js')
 
 if(!document) {
   throw Error('rsi-api-vanilla: document is undefined')
@@ -91,8 +92,26 @@ const getConfig = () =>{
     refreshButtonClass
   }]
 }
+
+console.log(getLanguageChannelTable(),'getLanguageChannelTable ');
 let [config, classNames] = getConfig()
 
+console.log(config.sdkKey,'config.sdkKey');
+const languageChannelEvent = getLanguageChannelEvent({ sdkKey:config.sdkKey })
+if(!languageChannelEvent){
+  throw Error("language-channel:interpretation-player: you don't have any multi-languages's event for this sdk-key, contact us here : alvaro@akkadu-team.com.")
+}
+const roomNames = languageChannelEvent.roomName;
+if(!roomNames.length === 0){
+  throw Error("language-channel:interpretation-player: you don't have any room for this multi-language event, contact us here : alvaro@akkadu-team.com.")
+}
+
+
 const stream = new InterpretationPlayer(config, classNames);
+
+for(let i=0; i<length;i++){
+  
+}
+
 initListeners(stream)
 stream.init()

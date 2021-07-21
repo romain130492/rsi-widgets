@@ -25,4 +25,7 @@
  - Version 1.0.10: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.10/interpretation-player.min.js 
  - Version 1.0.14: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.css 
  - Version 1.0.14: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-manager.min.js 
- - Version 1.0.14: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.js
+ - Version 1.0.14: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.14/interpretation-player.min.js 
+ - Version 1.0.17: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.17/interpretation-player.min.css 
+ - Version 1.0.17: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.17/interpretation-manager.min.js 
+ - Version 1.0.17: https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla/1.0.17/interpretation-player.min.js
