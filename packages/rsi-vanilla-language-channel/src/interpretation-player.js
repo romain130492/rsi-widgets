@@ -1,6 +1,5 @@
 let InterpretationPlayer = require('@akkadu/rsi-interpretation-player').default
-const { getLanguageChannelEvent } = require('get-language-channel-table.js')
-
+const { getLanguageChannelEvent } = require('./get-language-channel-event.js')
 if(!document) {
   throw Error('rsi-api-vanilla: document is undefined')
 }
@@ -10,7 +9,9 @@ if(!component) {
   throw Error('rsi-api-vanilla: Unable to detect stream container akkadu-interpretation-player on the DOM')
 }
 
- 
+ const streams = {
+ }
+ let currentLanguageCode;
 /**
  * @description Init Liste
  * @param {Object} params
@@ -24,6 +25,11 @@ const initListeners = (stream) => {
   })
   stream.on('interpretation-player:on-language-selected', ({ languageSelected }) => {
     console.info('emit interpretation-player:on-language-selected', languageSelected);
+    if(currentLanguageCode && currentLanguageCode !== languageSelected.code){
+      console.log('here to mute old language', currentLanguageCode);
+      streams[currentLanguageCode].handleLanguageChange('source') // to update that dynamically
+    }
+    currentLanguageCode = languageSelected.code;
     const event = new CustomEvent("onLanguageSelected", { detail: { languageSelected } })
     component.dispatchEvent(event)
   })
@@ -93,25 +99,51 @@ const getConfig = () =>{
   }]
 }
 
-console.log(getLanguageChannelTable(),'getLanguageChannelTable ');
-let [config, classNames] = getConfig()
 
-console.log(config.sdkKey,'config.sdkKey');
-const languageChannelEvent = getLanguageChannelEvent({ sdkKey:config.sdkKey })
-if(!languageChannelEvent){
-  throw Error("language-channel:interpretation-player: you don't have any multi-languages's event for this sdk-key, contact us here : alvaro@akkadu-team.com.")
+const init = async () =>{
+
+  let [config, classNames] = getConfig()
+
+  const languageChannelEvent = await getLanguageChannelEvent({apiKey:config.apiKey})
+
+  if(!languageChannelEvent){
+    throw Error("interpretation-player:multi-languages: you don't have multi language event for this api key. You can contact us at alvaro@akkadu-team.com")
+  }
+  const roomNames = languageChannelEvent.roomNames;
+  console.log(roomNames,'the roomANemes here');
+  if(!roomNames){
+    throw Error("interpretation-player:multi-languages: you don't have roomNames for this event. You can contact us at alvaro@akkadu-team.com")
+  }
+  config.isTmpLanguageChannel = true;
+
+
+
+   // TEST
+   // we have to wait te socket to be fully init
+   // better to find a solution to not subscribe to a language before clicking on it.
+ /*  config.indexTmpLanguageChannel = 0;
+  config.roomName = roomNames[0].roomName;
+  const stream0 = new InterpretationPlayer(config, classNames);
+  initListeners(stream0)
+  await stream0.init()
+
+  config.indexTmpLanguageChannel = 1;
+  config.roomName = roomNames[1].roomName;
+  const stream1 = new InterpretationPlayer(config, classNames);
+  initListeners(stream1)
+  await stream1.init()
+  return */
+
+  for(let i=0; i<roomNames.length;i++){
+    const code = roomNames[i].code;
+    const roomName = roomNames[i].roomName;
+    config.indexTmpLanguageChannel = i;
+    config.roomName = roomName;
+    console.log(config,'teh config here',roomName);
+    streams[code] = new InterpretationPlayer(config, classNames);
+    initListeners(streams[code])
+    i === 0 ? await streams[code].init() : streams[code].init();
+  }
 }
-const roomNames = languageChannelEvent.roomName;
-if(!roomNames.length === 0){
-  throw Error("language-channel:interpretation-player: you don't have any room for this multi-language event, contact us here : alvaro@akkadu-team.com.")
-}
 
-
-const stream = new InterpretationPlayer(config, classNames);
-
-for(let i=0; i<length;i++){
-  
-}
-
-initListeners(stream)
-stream.init()
+init()

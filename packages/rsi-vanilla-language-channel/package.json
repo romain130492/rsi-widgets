@@ -3,6 +3,9 @@
   "version": "1.0.3",
   "main": "index.js",
   "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "start": "webpack --mode development --hot",
     "build": "webpack --mode production"

@@ -1,10 +1,17 @@
 
 
-
-export default getLanguageChannelEvent = (apiKey) =>{
+export async function getLanguageChannelEvent({apiKey}) {
   if (!apiKey) {
     throw Error('getLanguageChannelEvent: apiKey is undefined.');
   }
+
+  return {
+    vpName:'test vpname',
+    apiKey:'apikey',
+    roomNames : [
+      { roomName:'mkng', code:'es-ES'}, { roomName:'oqxa', code:'zh-CN' }
+    ]
+  } 
     const rawResponse = await fetch(`${this.RSI_GATEWAY_API}/tmp-language-channel`, {
       method: 'POST',
       headers: {
