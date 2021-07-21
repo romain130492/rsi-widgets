@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-vanilla",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "tmpVersion": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -22,8 +22,8 @@
   "author": "Rouiller Romain <rouiller.romain11@gmail.com>.",
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-interpretation-manager": "^0.1.6",
-    "@akkadu/rsi-interpretation-player": "^0.3.27"
+    "@akkadu/rsi-interpretation-manager": "^0.1.7",
+    "@akkadu/rsi-interpretation-player": "^0.3.28"
   },
   "gitHead": "2d1568b01622e416b5f32a67b2df0e3296436fa2"
 }

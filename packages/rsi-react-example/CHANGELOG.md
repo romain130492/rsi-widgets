@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.27](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-react-example@0.1.26...@akkadu/rsi-react-example@0.1.27) (2021-07-21)
+
+**Note:** Version bump only for package @akkadu/rsi-react-example
+
+
+
+
+
 ## [0.1.26](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-react-example@0.1.25...@akkadu/rsi-react-example@0.1.26) (2021-07-21)
 
 **Note:** Version bump only for package @akkadu/rsi-react-example

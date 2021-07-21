@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.25](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-vue-example@0.1.24...@akkadu/rsi-vue-example@0.1.25) (2021-07-21)
+
+**Note:** Version bump only for package @akkadu/rsi-vue-example
+
+
+
+
+
 ## [0.1.24](https://github.com/Akkadu/rsi-api-widgets/compare/@akkadu/rsi-vue-example@0.1.23...@akkadu/rsi-vue-example@0.1.24) (2021-07-21)
 
 **Note:** Version bump only for package @akkadu/rsi-vue-example
