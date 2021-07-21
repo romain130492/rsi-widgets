@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-react",
-  "version": "1.3.29",
+  "version": "1.3.30",
   "description": "Made with create-react-library",
   "author": "romain130492",
   "license": "MIT",
@@ -52,8 +52,8 @@
   ],
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-interpretation-manager": "^0.1.4",
-    "@akkadu/rsi-interpretation-player": "^0.3.25"
+    "@akkadu/rsi-interpretation-manager": "^0.1.5",
+    "@akkadu/rsi-interpretation-player": "^0.3.26"
   },
   "gitHead": "ae840f3b83a94bdf4d5fec701263d4e9716892e6"
 }

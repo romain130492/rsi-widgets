@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-interpretation-player",
-  "version": "0.3.25",
+  "version": "0.3.26",
   "description": "RSI SDK interpretation player package",
   "main": "lib/index.js",
   "files": [
@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-base": "^0.2.19",
+    "@akkadu/rsi-base": "^0.2.20",
     "@akkadu/rtc-streamer-consumer": "^3.0.3"
   },
   "gitHead": "ae840f3b83a94bdf4d5fec701263d4e9716892e6"

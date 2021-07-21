@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-vue",
-  "version": "1.2.27",
+  "version": "1.2.28",
   "description": "",
   "private": false,
   "main": "dist/rsi-api-vue.ssr.js",
@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-interpretation-manager": "^0.1.4",
-    "@akkadu/rsi-interpretation-player": "^0.3.25"
+    "@akkadu/rsi-interpretation-manager": "^0.1.5",
+    "@akkadu/rsi-interpretation-player": "^0.3.26"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
