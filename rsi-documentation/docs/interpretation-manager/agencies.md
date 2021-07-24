@@ -45,7 +45,7 @@ Your trusted partner in a world of complex communication needs.
 <ul>
 <li>Website: <a href="https://www.ds-interpretation.com">https://www.ds-interpretation.com</a></li>
 <li>Contact: Naomi Bowman</li>
-<li>Phone: +1-650-544-7970</li>
+<li>Phone: +1-650-212-0397</li>
 <li>Email: nwb@ds-interpretation.com</li>
 <li>Offices: 🇺🇸 🇪🇺</li>
 </ul>
