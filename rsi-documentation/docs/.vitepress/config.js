@@ -52,6 +52,7 @@ function getSetupSidebar() {
         { text: 'How does it works ?', link: '/interpretation-manager/index' },
         { text: 'Properties', link: '/interpretation-manager/props' },
         { text: 'Events', link: '/interpretation-manager/events' },
+        { text: 'Translation Agencies', link: '/interpretation-manager/agencies' },
       ]
     },
     {
