@@ -5,8 +5,7 @@ Akkadu Network is a list of certified Translation Agencies that can provide remo
 ## CCI Group
 We believe that breaking barriers across languages and cultures is possible.
 
-`<img src="rsi-widgets/rsi-documentation/docs/images/logos/CCIGroup.PNG" alt="CCIGroup" width=30%>`
-![An image](../images/billing.png)
+<img src="../images/logos/globibo.png" alt="CCIGroup" width=30%>
 
 <ul>
 <li>Website: https://myccigroup.com</li>
