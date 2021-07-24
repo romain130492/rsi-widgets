@@ -1,7 +1,9 @@
 # Akkadu Network
 Akkadu Network is a list of certified Global Translation Agencies ready to provide `Remote Simultaneous Interpretation` inside Virtual Platforms that have integrated <a href="https://rsi.akkadu.com">Akkadu API</a>.
 
-If you are a professional Global Translation Agency interested to join Akkadu Network please drop us an <a href="mailto:alvaro@akkadu-team.com">email</a>.
+If you don't get any feedback from a translation agency within 24 hours after you contact them please <a href="mailto:alvaro@akkadu-team.com">let us know</a>.
+
+If you are a professional Global Translation Agency interested to join Akkadu Network please drop us an <a href="mailto:contact@akkadu-team.com">email</a>.
 
 <br>
 
@@ -27,9 +29,9 @@ Professional Interpretation, Translation, Proofreading and Editing Services.
 
 <ul>
 <li>Website: <a href="https://www.globibo.com/">https://www.globibo.com/</a></li>
-<li>Contact: Sneha Francis</li>
-<li>Phone: +91 9818079609</li>
-<li>Email: sneha.francis@globibo.com</li>
+<li>Contact: Karine Poirier</li>
+<li>Phone: +85 291816302</li>
+<li>Email: karine.poirier@globibo.com</li>
 <li>Offices: 🌏</li>
 </ul>
 
