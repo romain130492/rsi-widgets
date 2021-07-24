@@ -1,6 +1,7 @@
 # Akkadu Network
-Akkadu Network is a list of certified Global Translation Agencies that can provide remote simultaneous interpretation inside Virtual Platforms that have integrated Akkadu API.
+Akkadu Network is a list of certified Global Translation Agencies ready to provide `remote simultaneous interpretation` inside Virtual Platforms that have integrated Akkadu API.
 
+If you are a `professional` Global Translation Agency interested to join Akkadu Network please drop us an <a href="mailto:alvaro@akkadu-team.com">email</a>.
 
 ## CCI Group
 We believe that breaking barriers across languages and cultures is possible.
@@ -8,7 +9,7 @@ We believe that breaking barriers across languages and cultures is possible.
 <img src="../images/logos/ccigroup.png" alt="CCIGroup" width=30%>
 
 <ul>
-<li>Website: https://myccigroup.com</li>
+<li>Website: <a href="https://myccigroup.com">https://myccigroup.com</a></li>
 <li>Contact Person: Indy Vega</li>
 <li>Phone: +1-727-657-3167</li>
 <li>Email: indy.vega@myccigroup.com</li>
@@ -31,7 +32,7 @@ Professional Interpretation, Translation, Proofreading and Editing Services.
 <br>
 
 ## DS-Interpretation
-Your trusted partner in a world of complex communication needs
+Your trusted partner in a world of complex communication needs.
 
 <img src="../images/logos/ds-interpretation.jpg" alt="DS-Interpretation" width=30%>
 
@@ -45,13 +46,13 @@ Your trusted partner in a world of complex communication needs
 <br>
 
 ## Communistar
-Your trusted partner in a world of complex communication needs
+Providing expert communication services to global businesses and international events.
 
 <img src="../images/logos/communistar.jpg" alt="Communistar" width=30%>
 
 <ul>
 <li>Website: https://en.communistar.co.kr</li>
-<li>Contact Person: Sehee</li>
+<li>Contact Person: Sehee Hwang</li>
 <li>Phone: +82-10-3410-0577</li>
 <li>Email: sehee@communistar.co.kr</li>
 </ul>
