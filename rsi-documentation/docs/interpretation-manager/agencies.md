@@ -1,7 +1,7 @@
 # Akkadu Network
-Akkadu Network is a list of certified Global Translation Agencies ready to provide `remote simultaneous interpretation` inside Virtual Platforms that have integrated Akkadu API.
+Akkadu Network is a list of certified Global Translation Agencies ready to provide `Remote Simultaneous Interpretation` inside Virtual Platforms that have integrated Akkadu API.
 
-If you are a `professional` Global Translation Agency interested to join Akkadu Network please drop us an <a href="mailto:alvaro@akkadu-team.com">email</a>.
+If you are a professional Global Translation Agency interested to join Akkadu Network please drop us an <a href="mailto:alvaro@akkadu-team.com">email</a>.
 
 ## CCI Group
 We believe that breaking barriers across languages and cultures is possible.
@@ -23,7 +23,7 @@ Professional Interpretation, Translation, Proofreading and Editing Services.
 <img src="../images/logos/globibo.png" alt="Globibo" width=30%>
 
 <ul>
-<li>Website: https://www.globibo.com/</li>
+<li>Website: <a href="https://www.globibo.com/">https://www.globibo.com/</a></li>
 <li>Contact Person: Sneha Francis</li>
 <li>Phone: +91 9818079609</li>
 <li>Email: sneha.francis@globibo.com</li>
@@ -37,7 +37,7 @@ Your trusted partner in a world of complex communication needs.
 <img src="../images/logos/ds-interpretation.jpg" alt="DS-Interpretation" width=30%>
 
 <ul>
-<li>Website: https://www.ds-interpretation.com</li>
+<li>Website: <a href="https://www.ds-interpretation.com">https://www.ds-interpretation.com</a></li>
 <li>Contact Person: Naomi Bowman</li>
 <li>Phone: +1-650-544-7970</li>
 <li>Email: nwb@ds-interpretation.com</li>
@@ -51,7 +51,7 @@ Providing expert communication services to global businesses and international e
 <img src="../images/logos/communistar.jpg" alt="Communistar" width=30%>
 
 <ul>
-<li>Website: https://en.communistar.co.kr</li>
+<li>Website: <a href="https://en.communistar.co.kr">https://en.communistar.co.kr</a></li>
 <li>Contact Person: Sehee Hwang</li>
 <li>Phone: +82-10-3410-0577</li>
 <li>Email: sehee@communistar.co.kr</li>
