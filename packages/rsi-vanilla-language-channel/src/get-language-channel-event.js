@@ -5,14 +5,15 @@ export async function getLanguageChannelEvent({apiKey}) {
     throw Error('getLanguageChannelEvent: apiKey is undefined.');
   }
 
-  return {
+/*   return {
     vpName:'test vpname',
     apiKey:'apikey',
+    floor:{code:'en-US', roomName:'prqp'},
     roomNames : [
       { roomName:'mkng', code:'es-ES'}, { roomName:'oqxa', code:'zh-CN' }
     ]
-  } 
-    const rawResponse = await fetch(`${this.RSI_GATEWAY_API}/tmp-language-channel`, {
+  }  */
+    const rawResponse = await fetch("https://s7sf1z5w65.execute-api.cn-north-1.amazonaws.com.cn/prod", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -21,13 +22,15 @@ export async function getLanguageChannelEvent({apiKey}) {
       body: JSON.stringify({apiKey})
     });
     const content = await rawResponse.json();
-    if(content.error){
-      throw Error(`getLanguageChannelEvent: An error occured: ${content.error}`)
+    console.log(content,'the content here ??????');
+    if(content.statusCode !== 200){
+      throw Error(`getLanguageChannelEvent: An error occured:`)
     }
-    const { event } = content.data;
-    return { event }
-
-
+    if(!content.body){
+      throw Error(`body is null`)
+    }
+    const body = JSON.parse(content.body)
+    return body.data
 }
   
 

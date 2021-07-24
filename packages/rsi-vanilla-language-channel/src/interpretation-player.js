@@ -8,7 +8,7 @@ const component = document.querySelector('#akkadu-interpretation-player')
 if(!component) {
   throw Error('rsi-api-vanilla: Unable to detect stream container akkadu-interpretation-player on the DOM')
 }
-
+let floor;
  const streams = {
  }
  let currentLanguageCode;
@@ -23,15 +23,27 @@ const initListeners = (stream) => {
     const event = new CustomEvent("onReady", { detail: { isReady } })
     component.dispatchEvent(event)
   })
-  stream.on('interpretation-player:on-language-selected', ({ languageSelected }) => {
-    console.info('emit interpretation-player:on-language-selected', languageSelected);
-    if(currentLanguageCode && currentLanguageCode !== languageSelected.code){
-      console.log('here to mute old language', currentLanguageCode);
-      streams[currentLanguageCode].handleLanguageChange('source') // to update that dynamically
+  stream.on('interpretation-player:on-language-selected', ({ languageSelected, indexTmpLanguageChannel }) => {
+    console.log(indexTmpLanguageChannel,'indexTmpLanguageChannel');
+    // when selecting another that is not the floor of the interpreted language
+    // we want to mute the interpreter language that was previously playing.
+    if( languageSelected.code === floor.code && indexTmpLanguageChannel !== 0 ){
+      console.info("selected language is the floor of the interpreted language");
+      return
+    }else{
+      console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
+      console.log(languageSelected.code,'languageSelected.code$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
+      _currentLanguageCode = currentLanguageCode;
+      currentLanguageCode = languageSelected.code;
+      if(_currentLanguageCode !== floor.code){
+        console.log(_currentLanguageCode,'_currentLanguageCode here');
+        streams[_currentLanguageCode].handleLanguageChange('source') 
+      }
+      console.log('emit test', languageSelected);
+      const event = new CustomEvent("onLanguageSelected", { detail: { languageSelected } })
+      component.dispatchEvent(event)
+      
     }
-    currentLanguageCode = languageSelected.code;
-    const event = new CustomEvent("onLanguageSelected", { detail: { languageSelected } })
-    component.dispatchEvent(event)
   })
   stream.on('interpretation-player:on-connection-status-updated', ({ connection }) => {
     console.info('emit interpretation-player:on-connection-status-updated', connection);
@@ -105,7 +117,7 @@ const init = async () =>{
   let [config, classNames] = getConfig()
 
   const languageChannelEvent = await getLanguageChannelEvent({apiKey:config.apiKey})
-
+console.log(languageChannelEvent,'languageChannelEvent here');
   if(!languageChannelEvent){
     throw Error("interpretation-player:multi-languages: you don't have multi language event for this api key. You can contact us at alvaro@akkadu-team.com")
   }
@@ -116,7 +128,8 @@ const init = async () =>{
   }
   config.isTmpLanguageChannel = true;
 
-
+  floor = languageChannelEvent.floor;
+  console.log(floor,'the floor???');
 
    // TEST
    // we have to wait te socket to be fully init
@@ -134,16 +147,27 @@ const init = async () =>{
   await stream1.init()
   return */
 
+
+  // Fake Floor
+  config.indexTmpLanguageChannel = 0;
+  config.roomName = floor.roomName;
+  streams[floor.code] = new InterpretationPlayer(config, classNames);
+  initListeners(streams[floor.code])
+  await streams[floor.code].init();
+  currentLanguageCode = floor.code;
+
+console.log('test????222');
   for(let i=0; i<roomNames.length;i++){
     const code = roomNames[i].code;
     const roomName = roomNames[i].roomName;
-    config.indexTmpLanguageChannel = i;
+    config.indexTmpLanguageChannel = i+1;
     config.roomName = roomName;
-    console.log(config,'teh config here',roomName);
+    console.log(config,code,'config  and code here');
     streams[code] = new InterpretationPlayer(config, classNames);
     initListeners(streams[code])
-    i === 0 ? await streams[code].init() : streams[code].init();
+    streams[code].init();
   }
+  console.log(streams,'teh streams here ');
 }
 
 init()
