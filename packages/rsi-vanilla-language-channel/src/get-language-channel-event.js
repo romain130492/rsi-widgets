@@ -4,8 +4,7 @@ export async function getLanguageChannelEvent({apiKey}) {
   if (!apiKey) {
     throw Error('getLanguageChannelEvent: apiKey is undefined.');
   }
-
-/*   return {
+  /*   return {
     vpName:'test vpname',
     apiKey:'apikey',
     floor:{code:'en-US', roomName:'prqp'},
@@ -22,7 +21,6 @@ export async function getLanguageChannelEvent({apiKey}) {
       body: JSON.stringify({apiKey})
     });
     const content = await rawResponse.json();
-    console.log(content,'the content here ??????');
     if(content.statusCode !== 200){
       throw Error(`getLanguageChannelEvent: An error occured:`)
     }

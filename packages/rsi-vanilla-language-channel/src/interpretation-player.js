@@ -24,25 +24,20 @@ const initListeners = (stream) => {
     component.dispatchEvent(event)
   })
   stream.on('interpretation-player:on-language-selected', ({ languageSelected, indexTmpLanguageChannel }) => {
-    console.log(indexTmpLanguageChannel,'indexTmpLanguageChannel');
     // when selecting another that is not the floor of the interpreted language
     // we want to mute the interpreter language that was previously playing.
     if( languageSelected.code === floor.code && indexTmpLanguageChannel !== 0 ){
       console.info("selected language is the floor of the interpreted language");
       return
     }else{
-      console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
-      console.log(languageSelected.code,'languageSelected.code$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
       _currentLanguageCode = currentLanguageCode;
       currentLanguageCode = languageSelected.code;
       if(_currentLanguageCode !== floor.code){
-        console.log(_currentLanguageCode,'_currentLanguageCode here');
+        console.info(_currentLanguageCode,'_currentLanguageCode');
         streams[_currentLanguageCode].handleLanguageChange('source') 
       }
-      console.log('emit test', languageSelected);
       const event = new CustomEvent("onLanguageSelected", { detail: { languageSelected } })
       component.dispatchEvent(event)
-      
     }
   })
   stream.on('interpretation-player:on-connection-status-updated', ({ connection }) => {
@@ -75,7 +70,6 @@ const getRoomName = () => {
  * @returns {Object} { sdkKey:string, isPlayerControlled:string, roomName:string  }
  */
 const getConfig = () =>{
-  console.log(component.dataset,'component.dataset');
   const {
      sdkKey: apiKey,
      isPlayerControlled,
@@ -115,38 +109,17 @@ const getConfig = () =>{
 const init = async () =>{
 
   let [config, classNames] = getConfig()
-
   const languageChannelEvent = await getLanguageChannelEvent({apiKey:config.apiKey})
-console.log(languageChannelEvent,'languageChannelEvent here');
   if(!languageChannelEvent){
     throw Error("interpretation-player:multi-languages: you don't have multi language event for this api key. You can contact us at alvaro@akkadu-team.com")
   }
   const roomNames = languageChannelEvent.roomNames;
-  console.log(roomNames,'the roomANemes here');
   if(!roomNames){
     throw Error("interpretation-player:multi-languages: you don't have roomNames for this event. You can contact us at alvaro@akkadu-team.com")
   }
   config.isTmpLanguageChannel = true;
 
   floor = languageChannelEvent.floor;
-  console.log(floor,'the floor???');
-
-   // TEST
-   // we have to wait te socket to be fully init
-   // better to find a solution to not subscribe to a language before clicking on it.
- /*  config.indexTmpLanguageChannel = 0;
-  config.roomName = roomNames[0].roomName;
-  const stream0 = new InterpretationPlayer(config, classNames);
-  initListeners(stream0)
-  await stream0.init()
-
-  config.indexTmpLanguageChannel = 1;
-  config.roomName = roomNames[1].roomName;
-  const stream1 = new InterpretationPlayer(config, classNames);
-  initListeners(stream1)
-  await stream1.init()
-  return */
-
 
   // Fake Floor
   config.indexTmpLanguageChannel = 0;
@@ -156,18 +129,15 @@ console.log(languageChannelEvent,'languageChannelEvent here');
   await streams[floor.code].init();
   currentLanguageCode = floor.code;
 
-console.log('test????222');
   for(let i=0; i<roomNames.length;i++){
     const code = roomNames[i].code;
     const roomName = roomNames[i].roomName;
     config.indexTmpLanguageChannel = i+1;
     config.roomName = roomName;
-    console.log(config,code,'config  and code here');
     streams[code] = new InterpretationPlayer(config, classNames);
     initListeners(streams[code])
     streams[code].init();
   }
-  console.log(streams,'teh streams here ');
 }
 
 init()

@@ -63,7 +63,6 @@ export default class InterpretationPlayer extends RSIBase {
     this.eventLanguages = null;
     this.isTmpLanguageChannel = isTmpLanguageChannel;
     this.indexTmpLanguageChannel = indexTmpLanguageChannel;
-    console.log(this.isTmpLanguageChannel,'    this.isTmpLanguageChannel = isTmpLanguageChannel;');
     this.$logger = new Logger();
     if(!document){ 
       throw Error('InterpretationPlayer: document is undefined.');
@@ -129,15 +128,16 @@ export default class InterpretationPlayer extends RSIBase {
  * @private
  */
   switchAudioVideoPlayerVP(languageType:string){
-    if(this.indexTmpLanguageChannel !== 0){
+    // with the tmp language channel
+    // only the original language
+    // and the other languages when the languageType is target can switch the videoPlayer.
+    if(this.indexTmpLanguageChannel !== 0 && languageType=== 'source'){
       return
-    }
+    } 
     if(!this.isPlayerControlled){
       return
     }
-    console.log('test11');
     const isMuted = languageType === 'source' ? false : true; // we onlu
-    console.log('switch player vp', isMuted);
     const videoPlayerVP = this.getVideoPlayerVP()
     if(!videoPlayerVP){ 
       console.warn('switchAudioVideoPlayerVP(): videoPlayerVP is not defined.');
@@ -340,7 +340,6 @@ export default class InterpretationPlayer extends RSIBase {
 
       // Toggle select on label click
       elSelectCustomValue.addEventListener("click", (e:any) => {
-        console.log('click?');
         elSelectCustom.classList.toggle("isActive");
       });
 
@@ -384,7 +383,6 @@ export default class InterpretationPlayer extends RSIBase {
      * @param {String} type Example : 'source' or 'target' - no effect if remoteLanguageState is set
      */
        handleLanguageChange = async (type) =>{
-         console.log(type,'handle language change here');
         this.isOriginalLanguage = type === 'source' ? true : false; 
         this.handleDropDown(type)
         this.emitter.emit('interpretation-player:on-language-selected', { languageSelected:this.langChannels()[type], indexTmpLanguageChannel:this.indexTmpLanguageChannel  });
@@ -471,14 +469,12 @@ export default class InterpretationPlayer extends RSIBase {
           this.currentSubscription.type = newLanguageType
           this.currentSubscription.isPlay = false
           if (previousLanguage) {
-            console.log(previousLanguage,'previousLanguage here');
             this.stream.muteLanguage({ language: previousLanguage, audio:true })
           }
           if (shouldPlay) {
             if(!this.consumerConfig.subscribedChannel[newLanguageType]){
               await this.subscribeToChannels()
             }
-            console.log('let subscribe here');
             this.stream.unmuteLanguage({ language: this.currentSubscription.language, audio: true })
             // When loading the page for the first time we dont to subscribe to every languages. 
             // when clicking on a laguage we want to subscribe to it if we didnt click on it yet.
