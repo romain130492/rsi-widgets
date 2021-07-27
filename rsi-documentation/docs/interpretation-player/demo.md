@@ -45,3 +45,29 @@ Choose your framework and install our `interpretation player` :
 
 - [VueJs Doc](/getting-started/vue.html#registering-the-interpretation-player)
   - VueJs [Demo repo](https://github.com/Akkadu/rsi-widgets/tree/main/packages/rsi-vue-example)
+
+
+
+
+  <br>
+  <br>
+
+  ### Example for three languages
+
+  <video src="https://assets.akkadu.com/akkadu-rsi-widget/assets/test-musk-speech.mp4" width="95%" controls="true" autoplay="false" ></video>
+<br>
+<br>
+
+**Interpretation Platform - Spanish**
+<br>
+
+![interpretation-platform-2](../images/interpretation-platform-2.png)
+
+<br>
+<br>
+
+**Interpretation Platform - Chinese**
+<br>
+
+![interpretation-platform-1](../images/interpretation-platform-1.png)
+

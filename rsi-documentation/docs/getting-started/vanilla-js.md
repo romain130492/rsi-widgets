@@ -70,6 +70,10 @@ Get the latest versions of the script [here](/vanilla-js/versions.html)
 
 
 
+### Video Example
+<video src="https://assets.akkadu.com/akkadu-rsi-widget/assets/test-musk-speech.mp4" width="95%" controls="true" autoplay="false" ></video>
+
+
 ### 🚀 Quick Implementation
 
 * We made a simple version of our `interpretation-player` that doesn't require you to listen to our events.
