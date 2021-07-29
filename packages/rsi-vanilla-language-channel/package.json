@@ -1,6 +1,6 @@
 {
   "name": "@akkadu/rsi-vanilla-language-channel",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "license": "MIT",
   "files": [
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@akkadu/logger": "^2.1.0",
-    "@akkadu/rsi-interpretation-player": "^0.3.29"
+    "@akkadu/rsi-interpretation-player": "^0.3.30"
   },
   "devDependencies": {
     "babel-loader": "^8.2.2",
