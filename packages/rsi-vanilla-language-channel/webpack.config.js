@@ -3,8 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry:{
-    "interpretation-player":"./src/interpretation-player.js",
-    "get-language-channel-event":"./src/get-language-channel-event.js"
+    "interpretation-player":"./src/interpretation-player.js"
   },
   module: {
     rules: [

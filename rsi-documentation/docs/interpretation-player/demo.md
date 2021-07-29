@@ -55,6 +55,7 @@ Choose your framework and install our `interpretation player` :
   ### Example for three languages
 
   <video src="https://assets.akkadu.com/akkadu-rsi-widget/assets/test-musk-speech.mp4" width="95%" controls="true" autoplay="false" ></video>
+  
 <br>
 <br>
 

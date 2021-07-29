@@ -1,5 +1,4 @@
 let InterpretationPlayer = require('@akkadu/rsi-interpretation-player').default
-const { getLanguageChannelEvent } = require('./get-language-channel-event.js')
 if(!document) {
   throw Error('rsi-api-vanilla: document is undefined')
 }
@@ -46,6 +45,33 @@ const initListeners = (stream) => {
     component.dispatchEvent(event)
   })
 }
+
+
+const getLanguageChannelEvent = async ({apiKey}) => {
+  if (!apiKey) {
+    throw Error('getLanguageChannelEvent: apiKey is undefined.');
+  }
+    const rawResponse = await fetch("https://s7sf1z5w65.execute-api.cn-north-1.amazonaws.com.cn/prod", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({apiKey})
+    });
+    const content = await rawResponse.json();
+    if(content.statusCode !== 200){
+      throw Error(`getLanguageChannelEvent: An error occured:`)
+    }
+    if(!content.body){
+      throw Error(`body is null`)
+    }
+    const body = JSON.parse(content.body)
+    return body.data
+}
+  
+
+
 /**
  * @description We get the roomName, the roomName should be found inside the query parameter rsi-roomname.
  * https://rsi-docs.akkadu.com/interpretation-player/roomname.html
@@ -109,7 +135,7 @@ const getConfig = () =>{
 const init = async () =>{
 
   let [config, classNames] = getConfig()
-  const languageChannelEvent = await getLanguageChannelEvent({apiKey:config.apiKey})
+  const languageChannelEvent = await getLanguageChannelEvent({apiKey:config.apiKey});
   if(!languageChannelEvent){
     throw Error("interpretation-player:multi-languages: you don't have multi language event for this api key. You can contact us at alvaro@akkadu-team.com")
   }
