@@ -5,6 +5,10 @@ import {  sourceLanguageList,  targetLanguageList } from './languages'
 const defaultConsumerConfig = {
   languages:[],
   container:null,
+  subscribedChannel:{
+    source:false,
+    target:false
+  }
 }
 interface CurrentSubscription {
   type: string,
@@ -31,13 +35,14 @@ export default class InterpretationPlayer extends RSIBase {
   isOriginalLanguage: boolean;
   eventLanguages: Array<{ eventId:string, id:string,interpreterId:string,interpreterLevel:number, sourceLanguage: boolean, interpreterNeeded:boolean, language:string, userId:string }>
   classNames: { widgetWrapperClass:string, dropdownWrapperClass:string, headerClass:string, optionsWrapperClass:string, optionItemClass:string, selectedOptionClass:string, refreshButtonClass:string };
-
+  isTmpLanguageChannel:boolean;
+  indexTmpLanguageChannel:number;
   constructor(
-    config: { apiKey: string, roomName: string, container:string, placeholderText:string, isPlayerControlled:boolean, displayFlag:boolean },
+    config: { apiKey: string, roomName: string, container:string, placeholderText:string, isPlayerControlled:boolean, displayFlag:boolean, isTmpLanguageChannel:boolean, indexTmpLanguageChannel:number },
     classNames: { widgetWrapperClass:string, dropdownWrapperClass:string, headerClass:string, optionsWrapperClass:string, optionItemClass:string, selectedOptionClass:string, refreshButtonClass:string }
   ) {
     super();
-    const { apiKey, roomName, isPlayerControlled, displayFlag, placeholderText } = config;
+    const { apiKey, roomName, isPlayerControlled, displayFlag, placeholderText, isTmpLanguageChannel = false, indexTmpLanguageChannel = 0} = config;
     this.classNames = classNames;
     this.apiKey = apiKey;
     this.roomName = roomName;
@@ -56,10 +61,11 @@ export default class InterpretationPlayer extends RSIBase {
     this.currentSubscription = { type:'', isPlay:false, language:'' },
     this.isOriginalLanguage = null;
     this.eventLanguages = null;
-    this.$logger = new Logger()
+    this.isTmpLanguageChannel = isTmpLanguageChannel;
+    this.indexTmpLanguageChannel = indexTmpLanguageChannel;
+    this.$logger = new Logger();
     if(!document){ 
       throw Error('InterpretationPlayer: document is undefined.');
-      return
     }
     if (!this.apiKey) {
       throw Error('InterpretationPlayer: sdkKey is undefined');
@@ -106,7 +112,12 @@ export default class InterpretationPlayer extends RSIBase {
     const RTCStreamerConsumer = await require('../dist/index.js').default
     this.stream = new RTCStreamerConsumer({stream:this.stream}) 
     this.initListeners();
-    this.subscribeToChannels()
+    // for the tmp language Channel we dont want to subscribe to anything at first
+    // we want to subscribe to a language only when click on it.
+    // But how do we unsubscribe for that target language when clicking to another... not possible...
+    if(!this.isTmpLanguageChannel){
+      this.subscribeToChannels();
+    }
     this.addInterpretationPlayer();
   }
 
@@ -117,12 +128,16 @@ export default class InterpretationPlayer extends RSIBase {
  * @private
  */
   switchAudioVideoPlayerVP(languageType:string){
+    // with the tmp language channel
+    // only the original language
+    // and the other languages when the languageType is target can switch the videoPlayer.
+    if(this.indexTmpLanguageChannel !== 0 && languageType=== 'source'){
+      return
+    } 
     if(!this.isPlayerControlled){
       return
     }
-    console.log('test11');
     const isMuted = languageType === 'source' ? false : true; // we onlu
-
     const videoPlayerVP = this.getVideoPlayerVP()
     if(!videoPlayerVP){ 
       console.warn('switchAudioVideoPlayerVP(): videoPlayerVP is not defined.');
@@ -276,9 +291,10 @@ export default class InterpretationPlayer extends RSIBase {
 
     /** * @description widget: {html:string, css:string} */
     const widget = require('../lib/widget-component.js').default
-
-    // Add Html to the DOM
-    this.consumerConfig.domContainer.insertAdjacentHTML( 'beforeend', widget.html(this.classNames));
+    if(this.indexTmpLanguageChannel === 0){
+      // Add Html to the DOM
+      this.consumerConfig.domContainer.insertAdjacentHTML( 'beforeend', widget.html(this.classNames));
+    }
   
     const languagesOptions = document.createDocumentFragment();
     const createItemLanguage =(languageType:string, index:number) => {
@@ -302,8 +318,13 @@ export default class InterpretationPlayer extends RSIBase {
       newOption.appendChild(newText);
       return newOption
     } 
-    languagesOptions.appendChild(createItemLanguage('source', 0));
-    languagesOptions.appendChild(createItemLanguage('target', 1));
+    if(this.indexTmpLanguageChannel === 0){
+      languagesOptions.appendChild(createItemLanguage('source', 0));
+    }
+    if(this.indexTmpLanguageChannel === 0 && this.isTmpLanguageChannel ){
+    }else{
+      languagesOptions.appendChild(createItemLanguage('target', 1));
+    }
   
     document.getElementById('interpretation-player-options')!.appendChild(languagesOptions);
 
@@ -313,20 +334,23 @@ export default class InterpretationPlayer extends RSIBase {
     // Init Dropdown header
     const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
     const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
-    elSelectCustomValue.getElementsByTagName("span")[0].textContent = this.placeholderText;
 
-    // Toggle select on label click
-    elSelectCustomValue.addEventListener("click", (e:any) => {
-      elSelectCustom.classList.toggle("isActive");
-    });
+    if(this.indexTmpLanguageChannel === 0){
+       elSelectCustomValue.getElementsByTagName("span")[0].textContent = this.placeholderText;
 
-    // close the custom select when clicking outside.
-    document.addEventListener("click", (e:any) => {
-      const didClickedOutside = !elSelectCustom.contains(e.target);
-      if (didClickedOutside) {
-        elSelectCustom.classList.remove("isActive");
-      }
-    });
+      // Toggle select on label click
+      elSelectCustomValue.addEventListener("click", (e:any) => {
+        elSelectCustom.classList.toggle("isActive");
+      });
+
+      // close the custom select when clicking outside.
+      document.addEventListener("click", (e:any) => {
+        const didClickedOutside = !elSelectCustom.contains(e.target);
+        if (didClickedOutside) {
+          elSelectCustom.classList.remove("isActive");
+        }
+      });
+   }
     this.emitter.emit('interpretation-player:on-ready', { isReady:true });
   }
 
@@ -335,6 +359,9 @@ export default class InterpretationPlayer extends RSIBase {
    * we want to update the dropdown header with that new language
    */
   handleDropDown = (languageType) =>{ 
+    if(this.indexTmpLanguageChannel !== 0 && languageType === 'source'){
+      return
+    }
     const elSelectCustom : any = document.getElementsByClassName("js-selectCustom")[0];
     const elSelectCustomValue : any = document.getElementById('interpretation-player-custom-value')
     elSelectCustomValue.getElementsByTagName("span")[0].textContent = this.langChannels()[languageType].name.en;
@@ -358,13 +385,13 @@ export default class InterpretationPlayer extends RSIBase {
        handleLanguageChange = async (type) =>{
         this.isOriginalLanguage = type === 'source' ? true : false; 
         this.handleDropDown(type)
-        this.emitter.emit('interpretation-player:on-language-selected', { languageSelected:this.langChannels()[type] });
+        this.emitter.emit('interpretation-player:on-language-selected', { languageSelected:this.langChannels()[type], indexTmpLanguageChannel:this.indexTmpLanguageChannel  });
         if (this.remoteLanguageState) {
           await this.subscribeLanguageByLanguageState(this.remoteLanguageState)
         } else if (type) {
           await this.switchLanguageToSubscribe(type)
           this.switchAudioVideoPlayerVP(type) 
-          this.emitter.emit('interpretation-player:on-language-selected', { languageSelected:this.langChannels()[type] });
+          this.emitter.emit('interpretation-player:on-language-selected', { languageSelected:this.langChannels()[type], indexTmpLanguageChannel:this.indexTmpLanguageChannel });
         } else {
           this.$logger.error('handleLanguageChange', 'Please make sure remoteLanguageState is not null/empty or at least  type is provided!')
         }
@@ -431,7 +458,7 @@ export default class InterpretationPlayer extends RSIBase {
    * @description switch between languages to listen: source Language & target language
    * @param {String} newLanguageType Example : 'source'
    */
-      switchLanguageToSubscribe(newLanguageType, shouldPlay = true) {    
+      async switchLanguageToSubscribe(newLanguageType, shouldPlay = true) {    
         if (this.currentSubscription.type !== newLanguageType) {
           const previousLanguage = this.currentSubscription.language
           if (newLanguageType === 'source' ) {
@@ -445,7 +472,19 @@ export default class InterpretationPlayer extends RSIBase {
             this.stream.muteLanguage({ language: previousLanguage, audio:true })
           }
           if (shouldPlay) {
+            if(!this.consumerConfig.subscribedChannel[newLanguageType]){
+              await this.subscribeToChannels()
+            }
             this.stream.unmuteLanguage({ language: this.currentSubscription.language, audio: true })
+            // When loading the page for the first time we dont to subscribe to every languages. 
+            // when clicking on a laguage we want to subscribe to it if we didnt click on it yet.
+            // so we have to fire unMuteLanguage after we subscribe to that language
+            // BUT  we cannot await for "subscribeChannel", since we are actually getting he confirmation that we subscribed to a channel with an event.
+            // So thats a very very dirty way to unMuteLanguage in case it didnt get unmuted because to subscribe to it took too long.
+            // We will have to find a better way when doing the "real" languageChannel on the client.
+            setTimeout(() => {
+              this.stream.unmuteLanguage({ language: this.currentSubscription.language, audio: true })
+            }, 2000);
           }
         }
      };
@@ -454,18 +493,22 @@ export default class InterpretationPlayer extends RSIBase {
      * @description 
      * We only subscribe to the language being translated
      */
-     subscribeToChannels() {
+     async subscribeToChannels() {
       if (this.stream) {
-        this.stream.subscribeToLanguage({
-          language: this.floorLanguage().language,
-          autoPlay:true,
-          playVideo: false,
-          playAudio: false,
-          subscribeToAudio: true,
-          subscribeToVideo: false,
-        })
+        // We do not subscribe to the floor for the tmp languageChannel.
+        if(!this.isTmpLanguageChannel){ 
+          await this.stream.subscribeToLanguage({
+            language: this.floorLanguage().language,
+            autoPlay:true,
+            playVideo: false,
+            playAudio: false,
+            subscribeToAudio: true,
+            subscribeToVideo: false,
+          })
+          this.consumerConfig.subscribedChannel.source = true;
+        }
         // Subscribes interpreter, we don't autoplay/play anything
-        this.stream.subscribeToLanguage({
+        await this.stream.subscribeToLanguage({
           language:this.interpretingLanguage().language,
           autoPlay:false,
           playVideo: false,
@@ -473,6 +516,7 @@ export default class InterpretationPlayer extends RSIBase {
           subscribeToAudio: true,
           subscribeToVideo: false
         })
+        this.consumerConfig.subscribedChannel.target = true;
       }
     };
 }

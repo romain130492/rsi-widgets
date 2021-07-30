@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rsi-vanilla-dev-language-channel-example</title>
+  <link rel="stylesheet" href="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla-multilingual/1.0.0/index.min.css" />
+</head>
+<body style="padding: 2rem;">
+  <a href="/">Home</a>
+  <h2>RSI SDK vanilla dev - interpretation player language channel example.</h2>
+  <video autoplay loop="" controls="" width="640" height="480">
+    <source type="video/mp4" src="https://assets.akkadu.com/akkadu-rsi-api-widget/musk-short.mp4">
+  </video>
+  <br>
+  <br>
+<!--   data-sdk-key="de490fa2-ecf8-48f5-8256-6546fc47f7a7"  -->
+    <div 
+      id="akkadu-interpretation-player" 
+      data-sdk-key="de490fa2-ecf8-48f5-8256-6546fc47f7r8" 
+      data-position-menu="bottom" 
+      data-is-box-shadow="true"
+      data-is-player-controlled="true"
+    ></div>
+    <script>
+      // You can remove that redirection and add your own roomName in the url
+      if(!window.location.href.includes('?rsi-roomname=aljx')) {
+         window.location.href = `${window.location.href}?rsi-roomname=aljx`
+      }
+      const component = document.querySelector('#akkadu-interpretation-player')
+
+      /* Interpretation Player listeners */
+      component.addEventListener('onReady', function (e) { 
+        console.info('received onReady event:', e?.detail?.isReady);
+      });
+      component.addEventListener('onLanguageSelected', function (e) { 
+        console.info('received onLanguageSelected event:', e?.detail?.languageSelected);
+      });
+      component.addEventListener('onConnectionStatusUpdated', function (e) { 
+        console.info('received onConnectionStatusUpdated event:', e?.detail?.connection);
+      });
+
+
+      /* Interpretation manager Listeners */
+      component.addEventListener('onCreateEvent', function (e) { 
+        console.info('received onCreate event:', e?.detail);
+      });
+    </script>
+<!--     <script src="dist/interpretation-player.min.js" ></script> -->
+<script src="https://akkadu-assets.s3.amazonaws.com/akkadu-rsi-widget/rsi-vanilla-multilingual/1.0.0/interpretation-player.min.js" ></script>
+<br>
+<br>
+<br>
+</body>
+</html>

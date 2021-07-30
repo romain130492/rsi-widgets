@@ -50,6 +50,18 @@ export const sourceLanguageList = [
   {
     name: { en: 'Turkish', zh: '土耳其语' },
     code: 'tr-TR',
+  },
+  {
+    name: { en: 'Vietnamese', zh: 'Vietnamese' },
+    code: 'vi-VN',
+  },
+  {
+    name: { en: 'Thai', zh: 'Thai' },
+    code: 'th-TH',
+  },
+  {
+    name: { en: 'Bahasa', zh: 'Bahasa' },
+    code: 'id-ID',
   }
 ]
 
@@ -105,5 +117,17 @@ export const targetLanguageList = [
   {
     name: { en: 'Turkish', zh: '土耳其语' },
     code: 'tr-TR',
+  },
+  {
+    name: { en: 'Vietnamese', zh: 'Vietnamese' },
+    code: 'vi-VN',
+  },
+  {
+    name: { en: 'Thai', zh: 'Thai' },
+    code: 'th-TH',
+  },
+  {
+    name: { en: 'Bahasa', zh: 'Bahasa' },
+    code: 'id-ID',
   }
 ]
