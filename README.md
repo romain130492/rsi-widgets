@@ -3,7 +3,7 @@
 
 
 ### Our Official Documentation
-[Doc](https://rsi-docs-akkadu.com)
+[Doc](https://rsi-docs.akkadu.com/)
 
 
 ### Doc to Akkadu Developpers
